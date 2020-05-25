@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>kr.ac.sunmoon</groupId>
-	<artifactId>movierecommender</artifactId>
+	<artifactId>mrs</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>movierecommender</name>
+	<name>mrs</name>
 	<description>2020 Capstone Movie Recommender</description>
 
 	<properties>

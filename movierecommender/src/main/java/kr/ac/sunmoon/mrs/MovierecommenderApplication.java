@@ -1,4 +1,4 @@
-package kr.ac.sunmoon.movierecommender;
+package kr.ac.sunmoon.mrs;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package kr.ac.sunmoon.movierecommender.tester;
+package kr.ac.sunmoon.mrs.tester;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
