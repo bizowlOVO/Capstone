@@ -1,0 +1,18 @@
+package kr.ac.sunmoon.mrs.movie;
+
+import java.util.List;
+import kr.ac.sunmoon.mrs.agent.Movie;
+
+public interface MovieMapper {
+	public Movie selectMovie(Movie movie);
+	
+	public List<Movie> selectMovieAll();
+	
+	public void insertMovie(Movie movie);
+	
+	public void updateMovie(Movie movie);
+	
+	public void deleteMovie(Movie movie);
+	
+	public Movie mostViewMovie();
+}
