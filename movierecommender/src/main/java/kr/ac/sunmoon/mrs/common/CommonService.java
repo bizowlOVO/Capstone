@@ -1,5 +1,8 @@
 package kr.ac.sunmoon.mrs.common;
 
-public interface CommonService {
+import kr.ac.sunmoon.mrs.agent.User;
 
+public interface CommonService {
+	public boolean isLogin(User user);
+	public void logout ();
 }
