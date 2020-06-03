@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.ac.sunmoon.mrs.member.MemberMapper">
+	<select id="selectMovie" resultType="kr.ac.sunmoon.mrs.agnet.Movie">
+		SELECT
+		     MOVIE_SEQ
+		    ,TITLE
+		    ,RELEASE_DATE
+		    ,SYNOPSIS
+		    ,FILM_AGE
+		    ,DIRECT_COUNTRY
+		    ,RUNNING_TIME
+		    ,DOWNLOAD_LINK
+		    ,GENRE_FIRST
+		    ,GENRE_SECOND
+		    ,VISIT_COUNT
+		    ,DIRECTOR_SEQ
+		FROM 
+			 MOVIE
+		WHERE 
+			 MOVIE_SEQ = #{movieSeq}
+	</select>
+	
+	<select id="mostViewMovie" resultType="kr.ac.sunmoon.mrs.agnet.Movie">
+		SELECT
+		     MOVIE_SEQ
+		    ,TITLE
+		    ,RELEASE_DATE
+		    ,SYNOPSIS
+		    ,FILM_AGE
+		    ,DIRECT_COUNTRY
+		    ,RUNNING_TIME
+		    ,DOWNLOAD_LINK
+		    ,GENRE_FIRST
+		    ,GENRE_SECOND
+		    ,VISIT_COUNT
+		    ,DIRECTOR_SEQ
+		FROM 
+			 MOVIE
+		WHERE 
+			 VISIT_COUNT = (SELECT MAX(VISIT_COUNT)
+			 				FROM MOVIE)
+	</select>
+</mapper>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.ac.sunmoon.mrs.member.MemberMapper">
+	<select id="selectMember" parameterType="kr.ac.sunmoon.mrs.agent.Member" 
+			resultType="kr.ac.sunmoon.mrs.agnet.Member">
+		SELECT
+		     MEMBER_ID
+		    ,MEMBER_PASSWORD
+		    ,MEMBER_NAME
+		    ,MEMBER_AGE
+		    ,MEMBER_GENDER
+		    ,MEMBER_STATE
+		FROM 
+			 MEMBER
+		WHERE 
+			 ID=#{id}
+	</select>
+</mapper>

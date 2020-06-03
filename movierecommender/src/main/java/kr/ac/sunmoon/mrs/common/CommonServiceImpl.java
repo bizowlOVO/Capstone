@@ -15,7 +15,7 @@ public class CommonServiceImpl implements CommonService {
 	private HttpServletRequest httpServletRequest;
 	
 	public boolean isLogin(Member member) {
-		Member result = memberMapper.selectUser(member);
+		Member result = memberMapper.selectMember(member);
 		
 		if (result != null) {
 			if (member.getMemberId() == result.getMemberId()
