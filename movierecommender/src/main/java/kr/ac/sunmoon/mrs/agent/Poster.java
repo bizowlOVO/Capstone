@@ -3,7 +3,7 @@ package kr.ac.sunmoon.mrs.agent;
 public class Poster {
 	private int posterSeq;
 	private int movieSeq;
-	private String saveRoute;
+	private String savedRoute;
 	private String physicalFileName;
 	private String logicalFileName;
 	
@@ -23,12 +23,12 @@ public class Poster {
 		this.movieSeq = movieSeq;
 	}
 	
-	public String getSaveRoute() {
-		return saveRoute;
+	public String getSavedRoute() {
+		return savedRoute;
 	}
 	
-	public void setSaveRoute(String saveRoute) {
-		this.saveRoute = saveRoute;
+	public void setSavedRoute(String savedRoute) {
+		this.savedRoute = savedRoute;
 	}
 	
 	public String getPhysicalFileName() {
