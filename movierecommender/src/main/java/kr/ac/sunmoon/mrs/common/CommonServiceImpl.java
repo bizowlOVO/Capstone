@@ -5,21 +5,21 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import kr.ac.sunmoon.mrs.agent.User;
-import kr.ac.sunmoon.mrs.user.UserMapper;
+import kr.ac.sunmoon.mrs.agent.Member;
+import kr.ac.sunmoon.mrs.member.MemberMapper;
 
 public class CommonServiceImpl implements CommonService {
 	@Autowired
-	private UserMapper userMapper;
+	private MemberMapper memberMapper;
 	@Autowired
 	private HttpServletRequest httpServletRequest;
 	
-	public boolean isLogin(User user) {
-		User result = userMapper.selectUser(user);
+	public boolean isLogin(Member member) {
+		Member result = memberMapper.selectUser(member);
 		
 		if (result != null) {
-			if (user.getUserId() == result.getUserId()
-				&& user.getUserPassword() == result.getUserPassword()) {
+			if (member.getMemberId() == result.getMemberId()
+				&& member.getMemberPassword() == result.getMemberPassword()) {
 				HttpSession session = httpServletRequest.getSession();
 				session.setAttribute("id", "true");
 				

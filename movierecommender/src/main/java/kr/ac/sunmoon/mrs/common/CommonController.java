@@ -5,8 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
-
-import kr.ac.sunmoon.mrs.agent.User;
+import kr.ac.sunmoon.mrs.agent.Member;
 
 @Controller
 public class CommonController {//
@@ -21,8 +20,8 @@ public class CommonController {//
 	}
 	
 	@PostMapping("/login")
-	public ModelAndView login(User user) {
-		boolean result = this.commonService.isLogin(user);
+	public ModelAndView login(Member member) {
+		boolean result = this.commonService.isLogin(member);
 		
 		ModelAndView mav = new ModelAndView();
 		if (result == true) {
