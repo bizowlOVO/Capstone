@@ -5,7 +5,7 @@
 
 <mapper namespace="kr.ac.sunmoon.mrs.member.MemberMapper">
 	<select id="selectMember" parameterType="kr.ac.sunmoon.mrs.agent.Member" 
-			resultType="kr.ac.sunmoon.mrs.agnet.Member">
+			resultType="kr.ac.sunmoon.mrs.agent.Member">
 		SELECT
 		     MEMBER_ID
 		    ,MEMBER_PASSWORD
