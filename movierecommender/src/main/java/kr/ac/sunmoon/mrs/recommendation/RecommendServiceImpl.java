@@ -1,5 +1,7 @@
 package kr.ac.sunmoon.mrs.recommendation;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,15 +16,13 @@ public class RecommendServiceImpl implements RecommendService {
 	@Autowired
 	private ReviewMapper reviewMapper;
 	
-	public Movie mostViewMovie() {
-		Movie result = movieMapper.mostViewMovie();
+	public List<Movie> mostViewMovie() {
+		List<Movie> result = movieMapper.mostViewMovie();
+		
 		return result;
 	}
 
-	public Movie mostReviewMovie() {
-		Movie movieSeq = reviewMapper.mostReviewMovie();
-		Movie result = movieMapper.selectMovie(movieSeq);
-		
-		return result;
+	public List<Movie> mostReviewMovie() {
+		return null;
 	}
 }
