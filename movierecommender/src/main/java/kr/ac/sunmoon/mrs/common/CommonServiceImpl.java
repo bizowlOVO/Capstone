@@ -13,22 +13,34 @@ import kr.ac.sunmoon.mrs.member.MemberMapper;
 public class CommonServiceImpl implements CommonService {
 	@Autowired
 	private MemberMapper memberMapper;
+	private Member member;
+	
 	@Autowired
 	private HttpServletRequest httpServletRequest;
 	
 	public boolean isLogin(Member member) {
-		Member result = memberMapper.selectMember(member);
+		boolean loginCheck = false;
+		String memberId = member.getMemberId();
+		String memberPassword = member.getMemberPassword();
 		
-		if (result != null) {
-			if (member.getMemberId() == result.getMemberId()
-				&& member.getMemberPassword() == result.getMemberPassword()) {
+		if (memberId != null &&
+				memberPassword != null &&
+				!memberId.equals("")&&
+				!memberPassword.equals("")) {
+			if (memberMapper.loginChecker(memberId, memberPassword) == 1) {
+				System.out.println("조회된 정보가 존재합니다");
+				loginCheck = true;
 				HttpSession session = httpServletRequest.getSession();
 				session.setAttribute("id", "true");
-				
-				return true;
+			}else {
+				System.out.println("조회된 정보 없음");
+				loginCheck = false;
 			}
+		}else {
+			System.out.println("입력값이 유효하지 않음");
+			loginCheck = false;
 		}
-		return false;
+		return loginCheck;
 	}
 	
 	public void logout () {

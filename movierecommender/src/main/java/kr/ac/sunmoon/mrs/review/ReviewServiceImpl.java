@@ -14,8 +14,7 @@ public class ReviewServiceImpl implements ReviewService {
 	
 	@Override
 	public void addReview(Review review) {
-		// TODO Auto-generated method stub
-		
+		reviewMapper.addReview(review);
 	}
 
 	@Override
