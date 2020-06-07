@@ -12,8 +12,8 @@ import kr.ac.sunmoon.mrs.member.MemberMapper;
 @Service
 public class CommonServiceImpl implements CommonService {
 	@Autowired
-	private MemberMapper memberMapper;
-	private Member member;
+	MemberMapper memberMapper;
+	Member member;
 	
 	@Autowired
 	private HttpServletRequest httpServletRequest;
@@ -31,7 +31,11 @@ public class CommonServiceImpl implements CommonService {
 				System.out.println("조회된 정보가 존재합니다");
 				loginCheck = true;
 				HttpSession session = httpServletRequest.getSession();
+				Member memberInfo = memberMapper.selectMember(member);
 				session.setAttribute("id", "true");
+				session.setAttribute("memberInfo", memberInfo);
+				session.setMaxInactiveInterval(10*60);
+				
 			}else {
 				System.out.println("조회된 정보 없음");
 				loginCheck = false;

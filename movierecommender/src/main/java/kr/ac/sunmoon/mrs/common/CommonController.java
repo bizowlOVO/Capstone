@@ -31,15 +31,13 @@ public class CommonController {//
 		System.out.println(isLoginCheck);
 		
 		if (isLoginCheck == true) {
-			mav = new ModelAndView("/common/mainPage");
+			mav = new ModelAndView(new RedirectView("/movie/list"));
 			mav.addObject("sessionInfo", session);
-			
 		} else {
 			System.out.println("login Failed");
 			mav = new ModelAndView("/common/login");
 			mav.addObject("revisit", "Y");
 		}
-		
 		return mav;
 	}
 	

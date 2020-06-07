@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>MainPage for the Test</h1>
+
 </body>
 </html>
