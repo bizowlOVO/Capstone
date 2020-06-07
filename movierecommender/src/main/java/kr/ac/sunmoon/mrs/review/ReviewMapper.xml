@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace ="kr.ac.sunmoon.mrs.review.ReviewMapper">
+
+	<insert id="addRivew" parameterType="kr.ac.sunmoon.mrs.agent.Review">
+		INSERT INTO REIVEW
+			VALUES(
+				REVIEW_SEQ.NEXTVAL,
+				#{userId},
+				#{movieSeq},
+				#{reviewComment},
+				TO_DATE(#{reviewPostDate},'yyyymmddhh24mi')		
+			)
+	</insert>
+	
+	<update id="updateReivew" parameterType="kr.ac.sunmoon.mrs.agent.Review">
+		UPDATE REIVEW
+			SET
+				REVIEW_COMMENT = #{reviewComment},
+				REVIEW_POST_DATE = TO_DATE(#{reviewPostDate}, 'yyyymmddhh24mi')
+			WHERE
+				REVIEW_SEQ = #{reviewSeq}
+	</update>
+	
+	<delete id="deleteReivew" parameterType="kr.ac.sunmoon.mrs.agent.Review">
+		DELETE FROM
+			REVIEW
+		WHERE
+			REVIEW_SEQ = #{reviewSeq}
+	</delete>
+	
+	<select id="inquiryReview" resultType = "kr.ac.sunmoon.mrs.agent.Review">
+		SELECT
+			REVIEW_SEQ,
+			MEMBER_ID,
+			MOVIE_SEQ,
+			REVIEW_COMMENT,
+			REVIEW_POST_DATE
+		FROM
+			REVIEW
+		WHERE
+			REVIEW_SEQ = #{reviewSeq}
+	</select>
+	
+	<select id="selectReviewAll" resultType= "kr.ac.sunmoon.mrs.agent.Review">
+		SELECT
+			REVIEW_SEQ,
+			MEMBER_ID,
+			MOVIE_SEQ,
+			REVIEW_COMMENT,
+			REVIEW_POST_DATE
+		FROM
+			REVIEW
+		ORDER BY REVIEW_POST_DATE
+	</select>
+	
+	
+</mapper>
