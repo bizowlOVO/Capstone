@@ -31,7 +31,7 @@
 			REVIEW_SEQ = #{reviewSeq}
 	</delete>
 	
-	<select id="inquiryReview" resultType = "kr.ac.sunmoon.mrs.agent.Review">
+	<select id="selectReview" resultType = "kr.ac.sunmoon.mrs.agent.Review">
 		SELECT
 			REVIEW_SEQ,
 			MEMBER_ID,

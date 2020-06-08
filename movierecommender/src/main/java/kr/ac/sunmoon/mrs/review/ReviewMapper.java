@@ -19,5 +19,5 @@ public interface ReviewMapper {
 	
 	public void deleteReview();
 	
-	public Movie mostReviewMovie();
+	public Movie selectRankReview();
 }

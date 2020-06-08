@@ -24,7 +24,7 @@
 			 MOVIE_SEQ = #{movieSeq}
 	</select>
 	
-	<select id="mostViewMovie" resultType="kr.ac.sunmoon.mrs.agent.Movie">
+	<select id="selectRankView" resultType="kr.ac.sunmoon.mrs.agent.Movie">
 		SELECT
 		     MOVIE_SEQ
 		    ,TITLE
