@@ -32,15 +32,23 @@ public class RecommendServiceImpl implements RecommendService {
 	}
 
 	public List<Movie> inquiryRankReviewList() {//영화 리뷰 순
-		Movie movie = reviewMapper.selectRankReview();
-		List<Movie> result = movieMapper.selectMovieList(movie);
+		List<Movie> movie = reviewMapper.selectRankReview();
+		
+		List<Movie> result = null;
+		for (int i = 0; i < movie.size(); i++) {
+			result = (List<Movie>) movieMapper.selectMovie(movie.get(i));
+		}
 		
 		return result;
 	}
 
 	public List<Movie> inquiryRankGradeList() {//영화 평점 순
-		Movie movie = gradeMapper.selectRankGrade();
-		List<Movie> result = movieMapper.selectMovieList(movie);
+		List<Movie> movie = gradeMapper.selectRankGrade();
+		
+		List<Movie> result = null;
+		for (int i = 0; i < movie.size(); i++) {
+			result = (List<Movie>) movieMapper.selectMovie(movie.get(i));
+		}
 		
 		return result;
 	}

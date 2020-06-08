@@ -8,5 +8,5 @@ import kr.ac.sunmoon.mrs.agent.Movie;
 
 @Mapper
 public interface GradeMapper {
-	public Movie selectRankGrade();
+	public List<Movie> selectRankGrade();
 }
