@@ -4,44 +4,187 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="kr.ac.sunmoon.mrs.movie.MovieMapper">
-	<select id="selectMovie" resultType="kr.ac.sunmoon.mrs.agent.Movie">
+	<select id="selectMovie"  parameterType="kr.ac.sunmoon.mrs.agent.Movie" 
+							  resultType="kr.ac.sunmoon.mrs.agent.Movie" >
 		SELECT
-		     MOVIE_SEQ
-		    ,TITLE
-		    ,RELEASE_DATE
-		    ,SYNOPSIS
-		    ,FILM_AGE
-		    ,DIRECT_COUNTRY
-		    ,RUNNING_TIME
-		    ,DOWNLOAD_LINK
-		    ,GENRE_FIRST
-		    ,GENRE_SECOND
-		    ,VISIT_COUNT
-		    ,DIRECTOR_SEQ
+		     MOVIE_SEQ,
+		    TITLE,
+		    RELEASE_DATE,
+		    SYNOPSIS,
+		    FILM_AGE,
+		    DIRECT_COUNTRY,
+		    RUNNING_TIME,
+		    DOWNLOAD_LINK,
+		    GENRE_FIRST,
+		    GENRE_SECOND,
+		    VISIT_COUNT,
+		    DIRECTOR_SEQ
 		FROM 
 			 MOVIE
 		WHERE 
 			 MOVIE_SEQ = #{movieSeq}
 	</select>
 	
-	<select id="selectRankView" resultType="kr.ac.sunmoon.mrs.agent.Movie">
+	<select id="selectMovieAll" resultType="kr.ac.sunmoon.mrs.agent.Movie" >
 		SELECT
-		     MOVIE_SEQ
-		    ,TITLE
-		    ,RELEASE_DATE
-		    ,SYNOPSIS
-		    ,FILM_AGE
-		    ,DIRECT_COUNTRY
-		    ,RUNNING_TIME
-		    ,DOWNLOAD_LINK
-		    ,GENRE_FIRST
-		    ,GENRE_SECOND
-		    ,VISIT_COUNT
-		    ,DIRECTOR_SEQ
+		    MOVIE_SEQ,
+		    TITLE,
+		    RELEASE_DATE,
+		    SYNOPSIS,
+		    FILM_AGE,
+		    DIRECT_COUNTRY,
+		    RUNNING_TIME,
+		    DOWNLOAD_LINK,
+		    GENRE_FIRST,
+		    GENRE_SECOND,
+		    VISIT_COUNT,
+		    DIRECTOR_SEQ
 		FROM 
-			 MOVIE
-		WHERE 
-			 VISIT_COUNT = (SELECT MAX(VISIT_COUNT)
-			 				FROM MOVIE)
+			MOVIE
+	</select>
+	
+	<!-- <insert id="insertMovie" parameterType="kr.ac.sunmoon.mrs.agent.Movie" >
+		INSERT INTO (
+			MOVIE_SEQ,
+		    TITLE,
+		    RELEASE_DATE,
+		    SYNOPSIS,
+		    FILM_AGE,
+		    DIRECT_COUNTRY,
+		    RUNNING_TIME,
+		    DOWNLOAD_LINK,
+		    GENRE_FIRST,
+		    GENRE_SECOND,
+		    VISIT_COUNT,
+		    DIRECTOR_SEQ )
+		VALUES (
+			#{movieSeq},
+			#{title}, 
+			#{releaseDate}, 
+			#{synopsis}, 
+			#{filmAge}, 
+			#{directCountry),
+			#{runningTime},
+			#{DownloadLink},
+			#{genreFirst},
+			#{genreSecond},
+			#{visitCount},
+			#{directorSeq} )
+	</insert> -->
+	
+	<update id="updateMovie" parameterType="kr.ac.sunmoon.mrs.agent.Movie">
+		UPDATE MOVIE
+		<set>
+			<if test="movieSeq != null">
+				MOVIE_SEQ = #{movieSeq},
+			</if>
+			<if test="title != null">
+				TITLE = #{title},
+			</if>
+			<if test="releaseDate != null">
+				RELEASE_DATE = #{releaseDate},
+			</if>
+			<if test="synopsis != null">
+				SYNOPSIS = #{synopsis},
+			</if>
+			<if test="filmAge != null">
+				SYNOPSIS = #{synopsis},
+			</if>
+			<if test="directCountry != null">
+				DIRECT_COUNTRY = #{directCountry},
+			</if>
+			<if test="runningTime != null">
+				RUNNING_TIME = #{runningTime},
+			</if>
+			<if test="downloadLink != null">
+				DOWNLOAD_LINK = #{downloadLink},
+			</if>
+			<if test="genreFirst != null">
+				GENRE_FIRST = #{genreFirst},
+			</if>
+			<if test="genreSecond != null">
+				GENRE_SECOND = #{genreSecond},
+			</if>
+			<if test="visitCount != null">
+				VISIT_COUNT = #{visitCount},
+			</if>
+			<if test="directorSeq != null">
+				DIRECTOR_SEQ = #{directorSeq}
+			</if>
+		</set> 
+		WHERE MOVIE_SEQ = #{movieSeq}
+	</update>
+	
+	<delete id="deleteMovie" parameterType="kr.ac.sunmoon.mrs.agent.Movie">
+		DELETE FROM MOVIE
+		WHERE MOVIE_SEQ = #{movieSeq}
+	</delete>
+	
+	<select id="selectRankRecently" resultType="kr.ac.sunmoon.mrs.agent.Movie" >
+		SELECT
+		    MOVIE_SEQ,
+		    TITLE,
+		    RELEASE_DATE,
+		    SYNOPSIS,
+		    FILM_AGE,
+		    DIRECT_COUNTRY,
+		    RUNNING_TIME,
+		    DOWNLOAD_LINK,
+		    GENRE_FIRST,
+		    GENRE_SECOND,
+		    VISIT_COUNT,
+		    DIRECTOR_SEQ
+		FROM 
+			(SELECT
+				MOVIE_SEQ,
+		    	TITLE,
+		    	RELEASE_DATE,
+		    	SYNOPSIS,
+		    	FILM_AGE,
+		    	DIRECT_COUNTRY,
+		    	RUNNING_TIME,
+		    	DOWNLOAD_LINK,
+		    	GENRE_FIRST,
+		    	GENRE_SECOND,
+		    	VISIT_COUNT,
+		    	DIRECTOR_SEQ
+		     FROM MOVIE
+		     ORDER BY RELEASE_DATE DESC)
+		WHERE
+			MOVIE_SEQ = #{movieSeq}
+	</select>
+	
+	<select id="selectRankView" resultType="kr.ac.sunmoon.mrs.agent.Movie" >
+		SELECT
+		    MOVIE_SEQ,
+		    TITLE,
+		    RELEASE_DATE,
+		    SYNOPSIS,
+		    FILM_AGE,
+		    DIRECT_COUNTRY,
+		    RUNNING_TIME,
+		    DOWNLOAD_LINK,
+		    GENRE_FIRST,
+		    GENRE_SECOND,
+		    VISIT_COUNT,
+		    DIRECTOR_SEQ
+		FROM 
+			(SELECT
+				MOVIE_SEQ,
+		    	TITLE,
+		    	RELEASE_DATE,
+		    	SYNOPSIS,
+		    	FILM_AGE,
+		    	DIRECT_COUNTRY,
+		    	RUNNING_TIME,
+		    	DOWNLOAD_LINK,
+		    	GENRE_FIRST,
+		    	GENRE_SECOND,
+		    	VISIT_COUNT,
+		    	DIRECTOR_SEQ
+		     FROM MOVIE
+		     ORDER BY VISIT_COUNT DESC)
+		WHERE
+			MOVIE_SEQ = #{movieSeq}
 	</select>
 </mapper>

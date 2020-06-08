@@ -18,8 +18,6 @@ public interface MovieMapper {
 	
 	public void deleteMovie(Movie movie);
 	
-	public List<Movie> selectMovieList(Movie movie);
-	
 	public List<Movie> selectRankRecently();
 	
 	public List<Movie> selectRankView();
