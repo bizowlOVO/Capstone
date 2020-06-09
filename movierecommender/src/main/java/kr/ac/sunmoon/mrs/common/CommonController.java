@@ -42,9 +42,9 @@ public class CommonController {//
 	}
 	
 	@GetMapping(value = "/common/logout")
-	public ModelAndView logout() {
-		this.commonService.logout();
-		
-		return new ModelAndView("redirect:/login");
+	public ModelAndView logout(HttpSession session) {
+		session.invalidate();
+        ModelAndView mav = new ModelAndView(new RedirectView("/common/login"));
+        return mav;
 	}
 }

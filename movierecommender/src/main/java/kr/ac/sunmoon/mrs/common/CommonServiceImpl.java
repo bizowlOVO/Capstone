@@ -32,7 +32,7 @@ public class CommonServiceImpl implements CommonService {
 				loginCheck = true;
 				HttpSession session = httpServletRequest.getSession();
 				Member memberInfo = memberMapper.selectMember(member);
-				session.setAttribute("id", "true");
+				session.setAttribute("id", member.getMemberId());
 				session.setAttribute("memberInfo", memberInfo);
 				session.setMaxInactiveInterval(10*60);
 				
