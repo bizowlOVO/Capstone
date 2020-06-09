@@ -69,13 +69,13 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/com.oracle.ojdbc/orai18n -->
+		<!-- orai18n 지우지 말 것 -->
 		<dependency>
 		    <groupId>com.oracle.ojdbc</groupId>
 		    <artifactId>orai18n</artifactId>
 		    <version>19.3.0.0</version>
 		</dependency>
-		
+				
 	</dependencies>
  	
 	<build>
