@@ -1,5 +1,11 @@
 package kr.ac.sunmoon.mrs.member;
 
-public interface MemberService {
+import kr.ac.sunmoon.mrs.agent.Member;
 
+public interface MemberService {
+	public void addMemberInfo(Member member);
+	public void editMemberInfo(Member member);
+	public void deleteMember(Member member);
+	public Member inquiryMember(Member member);
+	public Boolean isDuplicateMember(Member member);
 }
