@@ -7,7 +7,7 @@
 	<select id="selectMovie"  parameterType="kr.ac.sunmoon.mrs.agent.Movie" 
 							  resultType="kr.ac.sunmoon.mrs.agent.Movie" >
 		SELECT
-		     MOVIE_SEQ,
+		    MOVIE_SEQ,
 		    TITLE,
 		    RELEASE_DATE,
 		    SYNOPSIS,
@@ -43,11 +43,10 @@
 			MOVIE
 	</select>
 	
-	<!-- <insert id="insertMovie" parameterType="kr.ac.sunmoon.mrs.agent.Movie" >
-		INSERT INTO (
+	<insert id="insertMovie" parameterType="kr.ac.sunmoon.mrs.agent.Movie" >
+		INSERT INTO MOVIE(
 			MOVIE_SEQ,
 		    TITLE,
-		    RELEASE_DATE,
 		    SYNOPSIS,
 		    FILM_AGE,
 		    DIRECT_COUNTRY,
@@ -55,22 +54,19 @@
 		    DOWNLOAD_LINK,
 		    GENRE_FIRST,
 		    GENRE_SECOND,
-		    VISIT_COUNT,
 		    DIRECTOR_SEQ )
 		VALUES (
-			#{movieSeq},
+			MOVIE_SEQ_SEQ.NEXTVAL,
 			#{title}, 
-			#{releaseDate}, 
 			#{synopsis}, 
 			#{filmAge}, 
-			#{directCountry),
+			#{directCountry},
 			#{runningTime},
-			#{DownloadLink},
-			#{genreFirst},
-			#{genreSecond},
-			#{visitCount},
-			#{directorSeq} )
-	</insert> -->
+			#{downloadLink},
+			(SELECT GENRE_CODE FROM GENRE WHERE GENRE = #{genreFirst}),
+			(SELECT GENRE_CODE FROM GENRE WHERE GENRE = #{genreSecond}),
+			11 )
+	</insert>
 	
 	<update id="updateMovie" parameterType="kr.ac.sunmoon.mrs.agent.Movie">
 		UPDATE MOVIE
