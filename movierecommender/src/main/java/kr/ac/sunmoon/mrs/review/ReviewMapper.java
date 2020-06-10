@@ -9,7 +9,7 @@ import kr.ac.sunmoon.mrs.agent.Review;
 
 @Mapper
 public interface ReviewMapper {
-	public Review selectReview(Review review);
+	public Review addReview(Review review);
 	
 	public List<Review> selectReviewAll();
 	
@@ -19,5 +19,5 @@ public interface ReviewMapper {
 	
 	public void deleteReview();
 	
-	public Movie mostReviewMovie();
+	public List<Movie> selectRankReview();
 }

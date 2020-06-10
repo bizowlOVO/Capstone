@@ -18,5 +18,7 @@ public interface MovieMapper {
 	
 	public void deleteMovie(Movie movie);
 	
-	public List<Movie> mostViewMovie();
+	public List<Movie> selectRankRecently();
+	
+	public List<Movie> selectRankView();
 }

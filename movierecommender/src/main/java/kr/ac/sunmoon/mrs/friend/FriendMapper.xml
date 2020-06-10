@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.ac.sunmoon.mrs.friend.FriendMapper">
+	<select id="selectFriend"  parameterType="kr.ac.sunmoon.mrs.agent.Friend" 
+							  resultType="kr.ac.sunmoon.mrs.agent.Friend" >
+		SELECT
+			FRIEND_SEQ,
+			REQUEST_USER,
+			RECEIVED_USER,
+			FRIEND_STATE
+		FROM 
+			 FRIEND
+		WHERE 
+			 FRIEND_SEQ = #{friendSeq} AND RECEIVED_USER = #{receivedUser}
+	</select>
+	
+	<select id="selectFriendAll" resultType="kr.ac.sunmoon.mrs.agent.Friend" >
+		SELECT
+			FRIEND_SEQ,
+			REQUEST_USER,
+			RECEIVED_USER,
+			FRIEND_STATE
+		FROM 
+			 FRIEND
+	</select>
+	
+	<insert id="insertFriend" parameterType="kr.ac.sunmoon.mrs.agent.Friend" >
+		INSERT INTO (
+			FRIEND_SEQ,
+			REQUEST_USER,
+			RECEIVED_USER,
+			FRIEND_STATE)
+		VALUES (
+			#{friendSeq}, #{requestUser}, #receivedUser}, #{friendState} )
+	</insert>
+	
+	<delete id="deleteFriend" parameterType="kr.ac.sunmoon.mrs.agent.Friend" >
+		DELETE FROM FRIEND
+		WHERE FRIEND_SEQ = #{friendSeq}
+	</delete>
+</mapper>

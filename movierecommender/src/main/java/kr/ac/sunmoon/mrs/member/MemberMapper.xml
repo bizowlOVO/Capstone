@@ -62,4 +62,12 @@
 		WHERE 
 			MEMBER_ID=#{memberId}
 	</update>
+	    <select id="loginChecker" resultType="int" parameterType="String">
+    	SELECT
+    		COUNT(*)
+    	FROM
+    		MEMBER
+    	WHERE
+    		MEMBER_ID = #{memberId} AND MEMBER_PASSWORD = #{memberPassword}
+    </select>
 </mapper>
