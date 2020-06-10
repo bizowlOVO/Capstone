@@ -6,6 +6,6 @@ public interface MemberService {
 	public void addMemberInfo(Member member);
 	public void editMemberInfo(Member member);
 	public void deleteMember(Member member);
-	public Member inquiryMember(Member member);
+	public Member inquiryMember(String memberId);
 	public Boolean isDuplicateMember(Member member);
 }

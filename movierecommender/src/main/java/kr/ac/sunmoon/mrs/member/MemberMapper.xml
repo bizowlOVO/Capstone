@@ -4,7 +4,7 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="kr.ac.sunmoon.mrs.member.MemberMapper">
-	<select id="selectMember" parameterType="kr.ac.sunmoon.mrs.agent.Member" resultType="kr.ac.sunmoon.mrs.agent.Member">
+	<select id="selectMember" parameterType="java.lang.String" resultType="kr.ac.sunmoon.mrs.agent.Member">
 		SELECT
 		     MEMBER_ID
 		    ,MEMBER_PASSWORD
@@ -50,6 +50,7 @@
 		   ,MEMBER_NAME=#{memberName}
 		   ,MEMBER_AGE=#{memberAge}
 		   ,MEMBER_GENDER=#{memberGender}
+		   ,'A'
 		WHERE 
 			MEMBER_ID=#{memberId}
 	</update>

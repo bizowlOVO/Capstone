@@ -12,12 +12,12 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public void addMemberInfo(Member member) {
-		
+		memberMapper.insertMember(member);
 	}
 
 	@Override
 	public void editMemberInfo(Member member) {
-		
+		memberMapper.updateMember(member);
 	}
 
 	@Override
@@ -26,10 +26,8 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public Member inquiryMember(Member member) {
-		memberMapper.selectMember(member);
-		System.err.println(member.getMemberAge());
-		return this.memberMapper.selectMember(member);
+	public Member inquiryMember(String memberId) {
+		return this.memberMapper.selectMember(memberId);
 	}
 
 	@Override

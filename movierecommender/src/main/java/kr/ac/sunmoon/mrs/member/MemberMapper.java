@@ -8,7 +8,7 @@ import kr.ac.sunmoon.mrs.agent.Member;
 
 @Mapper
 public interface MemberMapper {	
-	public Member selectMember(Member member);
+	public Member selectMember(String memberId);
 	
 	public List<Member> selectMemberAll();
 	

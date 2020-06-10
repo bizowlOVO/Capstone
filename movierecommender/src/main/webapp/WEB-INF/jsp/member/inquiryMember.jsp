@@ -13,6 +13,6 @@
 			이름 : ${member.memberName} <br/>
 			나이 : ${member.memberAge} <br/>
 			성별 : ${member.memberGender} <br/>
-			회원 탈퇴 여부 :
+			회원 탈퇴 여부 : ${member.memberState}
 	</body>
 </html>
