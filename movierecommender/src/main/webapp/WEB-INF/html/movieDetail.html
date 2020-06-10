@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>movieDetail</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+   
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <!-- Transparent Sticky NavBar -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+    <!-- <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script> -->
+    <script src="js/bootstrap.js"></script>
+
+    <!-- poster size onload() -->
+    <script>
+        function resizeImg(img, height, width){
+            img.height = 330;
+            img.width = 250;
+        }
+    </script>
+
+    <style>
+        .movie-detail{
+            margin: 50px 100px 0px 100px;
+            display: flex;
+            border-bottom: 1px solid #dee2e6;
+            padding: 1rem 1rem;
+            padding: 60px;
+        }
+        /* star score font size */
+        .movie-detail .movie-score {
+            font-size: 25px;
+            font-weight: bold;
+        }
+        /* .movie-detail h1{
+            margin: 10px 50px 5px 80px;
+        } */
+
+        .movie-inline{
+            margin: 10px 50px 5px 80px;
+        }
+        .movie-poster{
+            margin: 0px 5px;
+        }
+
+        .star-img{
+            margin: 0px 0px 0px 20px;
+        }
+
+        .movie-info {
+            margin: 0px 100px 10px 100px;
+            border-bottom: 1px solid #dee2e6;
+            padding: 1rem 1rem;
+            padding: 40px;
+        }
+        .movie-info h2{
+            font-weight: bold;
+            margin: 0px 0px 50px 0px;
+        }
+        .movie-info .movie-summary h5{
+            font-weight: bold;
+        }
+        .review-table thead{
+            text-align: center;
+        }
+        #review-btn{
+            float: right;
+            margin: 0px 10px 15px 0px;
+            padding: 1rem 1rem;
+            font-size: 11pt;
+            width: 7%;
+        }
+
+    </style>
+
+
+</head>
+<body>
+    <!-- menu(top) -->
+    <div class="wrapper">
+        <header>
+           <nav>
+              <div class="menu-icon">
+                 <i class="fa fa-bars fa-2x"></i>
+              </div>
+              <div class="logo">
+                 LOGO
+              </div>
+              <div class="menu">
+                 <ul>
+                    <li><a href="file:///C:/Users/%EC%9D%B4%EC%84%A0%EC%A7%84/Desktop/%EC%84%A0%EC%A7%84/workspace/capstone_2/main.html">홈</a></li>
+                    <li><a href="file:///C:/Users/%EC%9D%B4%EC%84%A0%EC%A7%84/Desktop/%EC%84%A0%EC%A7%84/workspace/capstone_2/profile.html">회원 정보</a></li>
+                    <li><a href="file:///C:/Users/%EC%9D%B4%EC%84%A0%EC%A7%84/Desktop/%EC%84%A0%EC%A7%84/workspace/capstone_2/friendList.html">친구 목록</a></li>
+                    <li><a href="file:///C:/Users/%EC%9D%B4%EC%84%A0%EC%A7%84/Desktop/%EC%84%A0%EC%A7%84/workspace/capstone_2/bookmarkList.html">북마크 목록</a></li>
+                    <li><a href="file:///C:/Users/%EC%9D%B4%EC%84%A0%EC%A7%84/Desktop/%EC%84%A0%EC%A7%84/workspace/capstone_2/mainBeforeLogin.html">로그아웃</a></li> 
+                </ul>
+              </div>
+           </nav>
+        </header>
+    </div>
+
+    <div class="movie-detail">
+        <div class="movie-poster" style="display: inline;">
+                <!-- <img src="https://movie-phinf.pstatic.net/20200518_300/1589776956506KIHU1_JPEG/movie_image.jpg?type=m203_290_2" onload="resizeImg(this, 500, 400);"> -->
+                <img class="movie-poster" src="https://movie-phinf.pstatic.net/20200518_300/1589776956506KIHU1_JPEG/movie_image.jpg" onload="resizeImg(this, 500, 400);">
+        </div>
+        <div class="movie-inline" style="display: inline;">
+                <h1>
+                    언더워터
+                    <image class="star-img" src="C:\Users\이선진\Desktop\선진\workspace\capstone_2\images\star-score2.jpg" width="40px"></image>
+                    <p class="movie-score" style="display: inline;"> 4.0</p>
+                </h1>
+                <div>
+                    <span>개요<p>| 스릴러</p></span>
+                    <span>asdfsf</span>
+                </div>
+        </div>
+    </div>
+
+    <div class="movie-info">
+        <h2>줄거리</h2>
+        <div class="movie-summary">
+            <h5>해저 11km, 한 번도 경험하지 못한 무언가 깨어났다!</h5>
+            <p>
+                30일 동안 해저 시추 시설에서 엄청난 압력을 견디며 바다의 밑바닥을 뚫어야 하는 캐플러 기지의 대원들.
+                어느 날, 큰 지진으로 콘크리트 구조물을 뚫고 급류가 들이 닥쳐 기지는 순식간에 파괴되고 대혼란이 일어난다.
+                
+                갑작스런 대재앙 속에서 가까스로 살아남은 대원들은 전기 엔지니어 노라를 비롯한 5명.
+                이들이 시도해 볼 수 있는 유일한 방법은 또 다른 해저 기지 ‘로우벅’으로 이동해 탈출 포트를 찾는 것 뿐.
+                
+                하지만 어두운 심해엔 그들만이 존재하는 것이 아니었다.
+                무언가 그들을 바짝 따라오고 있다.
+                불가사의한 포식자와 쫓고 쫓기는 위험천만한 게임에 갇혀버린 대원들.
+                살아남기 위해선 남은 용기를 전부 쥐어 짜내야만 한다..
+                
+                살고 싶다면 모든 감각을 깨워라!
+            </p>
+        </div>
+    </div>
+
+    <div class="movie-info">
+        <div class="review-top">
+            <h2>리뷰</h2>
+                <button data-toggle="modal" data-target="#write-review" class="btn btn-secondary" id="review-btn">
+                    <span><b>리뷰 작성</b></span>
+                </button>
+        </div>
+        
+        <div class="movie-review">
+            <table class="table table-hover review-table">
+                <thead>
+                    <tr>
+                        <th>평점</th>
+                        <th>아이디</th>
+                        <th>내용</th>
+                        <th>작성 날짜</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><image id="review-star" src="C:\Users\이선진\Desktop\선진\workspace\capstone_2\images\star-score2.jpg" width="20px"></image>3.5</td>
+                        <td>user1</td>
+                        <td>롤러코스터는 대기할 때 가장 쫄리고 언더워터는 그냥 계속 쫄린다</td>
+                        <td>20-06-09</td>
+                    </tr>
+                    <tr>
+                        <td><image id="review-star" src="C:\Users\이선진\Desktop\선진\workspace\capstone_2\images\star-score2.jpg" width="20px"></image>3.0</td>
+                        <td>user2</td>
+                        <td>스토리는 뛰어나지 않지만 스릴러 하나는 잘 챙긴듯. 지루할 틈 없이 전개되는 점이 좋고 크리스틴 연기는 갈수록 빛난다. 믿고 배우는 배우!!</td>
+                        <td>20-06-09</td>
+                    </tr>
+                    <tr>
+                        <td><image id="review-star" src="C:\Users\이선진\Desktop\선진\workspace\capstone_2\images\star-score2.jpg" width="20px"></image>4.5</td>
+                        <td>user3</td>
+                        <td>작년에개봉했던 47미터나 크롤보다 도 더 스릴있고 으스스했음. 그러니까 그냥 해저판에이리언 으로 보시면 될듯. 아무튼 최근 개봉하는영화들중 볼만함 ㅇㅇ</td>
+                        <td>20-06-09</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 리뷰쓰기 write-review modal -->
+    <div class="modal" id="write-review">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="lineModalLabel">리뷰 작성</h3>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label>리뷰 내용</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="255자 내외로 작성하세요.">
+                        </div>
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <div class="btn-group btn-group-justified" role="group" aria-label="group button">
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-default" data-dismiss="modal" role="button">취소</button>
+                        </div>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-default" data-action="save" role="button">완료</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 리뷰쓰기 write-review modal end -->
+
+</body>
+</html>
