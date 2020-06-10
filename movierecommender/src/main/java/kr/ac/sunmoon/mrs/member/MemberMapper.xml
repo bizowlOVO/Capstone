@@ -55,7 +55,7 @@
 			MEMBER_ID=#{memberId}
 	</update>
 	
-	<update id="deleteMember" parameterType="kr.ac.sunmoon.mrs.agent.Member">
+	<update id="deleteMember" parameterType="java.lang.String">
 		UPDATE
 			MEMBER
 		SET

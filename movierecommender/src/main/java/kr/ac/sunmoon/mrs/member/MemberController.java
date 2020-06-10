@@ -42,10 +42,11 @@ public class MemberController {
 	}
 	
 	@DeleteMapping("/member/{memberId}")
-	public ModelAndView deleteMember(Member member) {
+	public ModelAndView deleteMember(@PathVariable("memberId") String memberId) {
+		this.memberService.deleteMember(memberId);
 		return null;
 	}
-	
+	// return new ModelAndView(new RedirectView(""));
 	@GetMapping("/member/{memberId}") //아직 매퍼쪽 부분이 안된 기능
 	public ModelAndView inquiryMember(@PathVariable("memberId") String memberId) {
 		ModelAndView mav = new ModelAndView("/member/inquiryMember");
@@ -56,7 +57,7 @@ public class MemberController {
 	}
 	
 	@GetMapping("/member/{memberId}/isduplicate")
-	public boolean isDuplicateMember(Member member) {
+	public boolean isDuplicateMember(@PathVariable("memberId") String memberId) {
 		return false;
 	}
 }

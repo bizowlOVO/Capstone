@@ -31,7 +31,7 @@ public class CommonServiceImpl implements CommonService {
 				System.out.println("조회된 정보가 존재합니다");
 				loginCheck = true;
 				HttpSession session = httpServletRequest.getSession();
-				Member memberInfo = memberMapper.selectMember(member);
+				Member memberInfo = memberMapper.selectMember(memberId);
 				session.setAttribute("id", member.getMemberId());
 				session.setAttribute("memberInfo", memberInfo);
 				session.setMaxInactiveInterval(10*60);
