@@ -14,7 +14,7 @@
 		개봉날짜 <input type="text" name ='releaseDate'/><br>
 		줄거리 <input type="text" name ='synopsis'/><br>
 		관람가    <input type="text" name='filmAge'/><br>
-		개봉국가 <input type="text" name ='directCountry'/><br>
+		제작국가 <input type="text" name ='directCountry'/><br>
 		러닝타임    <input type="text" name='runningTime'/><br>
 		다운로드링크 <input type="text" name ='downloadLink'/><br>
 		장르1    <select name='genreFirst'>
