@@ -60,4 +60,10 @@ public class MemberController {
 	public boolean isDuplicateMember(@PathVariable("memberId") String memberId) {
 		return false;
 	}
+	
+	@GetMapping("/member/domypage")
+	public ModelAndView doMyPage() {
+		ModelAndView mav = new ModelAndView("/member/mypage");
+		return mav;
+	}
 }
