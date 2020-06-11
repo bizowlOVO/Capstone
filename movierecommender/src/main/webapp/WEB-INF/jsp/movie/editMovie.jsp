@@ -8,17 +8,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>영화 등록</h1>
-	<form action="/movie" method="POST">
-		영화명    <input type="text" name='title'/><br>
-		개봉날짜 <input type="text" name ='releaseDate'/><br>
-		줄거리 <input type="text" name ='synopsis'/><br>
-		관람가    <input type="text" name='filmAge'/><br>
-		제작국가 <input type="text" name ='directCountry'/><br>
-		러닝타임    <input type="text" name='runningTime'/><br>
-		다운로드링크 <input type="text" name ='downloadLink'/><br>
+	<h1>영화 수정</h1>
+	<form action="/movie/${movie.movieSeq}" method="POST">
+		영화명    <input type="text" name='title' value='${movie.title}'/><br>
+		개봉날짜 <input type="text" name ='releaseDate' value='${movie.releaseDate}'/><br>
+		줄거리 <input type="text" name ='synopsis' value='${movie.synopsis}'/><br>
+		관람가    <input type="text" name='filmAge' value='${movie.filmAge}'/><br>
+		제작국가 <input type="text" name ='directCountry'vvalue='${movie.directCountry}'/><br>
+		러닝타임    <input type="text" name='runningTime' value='${movie.runningTime}'/><br>
+		다운로드링크 <input type="text" name ='downloadLink' value='${movie.downloadLink}'/><br>
 		장르1    <select name='genreFirst'>
-					<option value="">장르 선택(필수)</option>
+					<option value="">${movie.genreFirst}</option>
 	    			<option value="코미디">코미디</option>
 	    			<option value="로맨스">로맨스</option>
 	    			<option value="스릴러">스릴러</option>
@@ -30,7 +30,7 @@
 	    			<option value="모험">모험</option>
 	    		</select><br>
 		장르2 <select name='genreSecond'>
-					<option value="">장르 선택(필수)</option>
+					<option value="">${movie.genreSecond}</option>
 	    			<option value="코미디">코미디</option>
 	    			<option value="로맨스">로맨스</option>
 	    			<option value="스릴러">스릴러</option>
@@ -41,8 +41,8 @@
 	    			<option value="스포츠">스포츠</option>
 	    			<option value="모험">모험</option>
 	    		</select><br>
-		감독 <input type="text" name ='directorSeq'/><br>
-		<input type="submit" value="등록"/>
+		감독 <input type="text" name ='directorSeq' value='${movie.directorSeq}'/><br>
+		<input type="submit" value="수정"/>
 	</form>
 </body>
 	<script>

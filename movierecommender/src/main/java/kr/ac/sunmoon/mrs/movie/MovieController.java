@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
@@ -44,7 +45,7 @@ public class MovieController {
 		movie.setGenreFirst(request.getParameter("genreFirst"));
 		movie.setGenreSecond(request.getParameter("genreSecond"));
 		movieService.addMovieInfo(movie);
-		
+	
 		ModelAndView mav = null;
 		mav = new ModelAndView(new RedirectView("/movie/list"));
 		
@@ -52,9 +53,14 @@ public class MovieController {
 	}
 	
 	@GetMapping(value = "/movie/{id}/editform")
-	 public ModelAndView updateMovieInfo(Movie movie) {
+	 public ModelAndView updateMovieInfo() {
+		Movie movie = new Movie();
+		movie.setMovieSeq(51);
+		movie = movieService.inquiryMovie(movie);
+		
 		ModelAndView mav = null;
 		mav = new ModelAndView("/movie/editMovie");
+		mav.addObject("movie", movie);
 		
 		return mav;
 	}
@@ -86,10 +92,15 @@ public class MovieController {
 		return mav;
 	}
 	
-	@GetMapping(value = "/movie/{id}")
-	public ModelAndView inquiryMovieInfo(Movie movie) {
+	@GetMapping(value = "/movie/{movieSeq}")
+	public ModelAndView inquiryMovieInfo(@PathVariable String movieSeq) {
+		Movie movie = new Movie();
+		movie.setMovieSeq(Integer.parseInt(movieSeq));
+		movie = movieService.inquiryMovie(movie);
+		
 		ModelAndView mav = null;
 		mav = new ModelAndView("/movie/inquiryMovie");
+		mav.addObject("movie", movie);
 		
 		return mav;
 	}
