@@ -9,8 +9,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>영화 등록</h1>
+	<h1>영화 목록</h1>
 	<table border="1">
+		<th>영화코드</th>
 		<th>영화명</th>
 		<th>개봉날짜</th>
 		<th>줄거리</th>
@@ -23,7 +24,8 @@
 		<th>감독</th>
 		<c:forEach items="${movie}" var="movie">
 			<tr>
-				<td>${movie.title}</td>
+				<td><a href = "/movie/${movie.movieSeq}">${movie.title}</a></td>
+				<td>${movie.movieSeq}
 				<td>${movie.releaseDate}</td>
 				<td>${movie.synopsis}</td>
 				<td>${movie.filmAge}</td>
