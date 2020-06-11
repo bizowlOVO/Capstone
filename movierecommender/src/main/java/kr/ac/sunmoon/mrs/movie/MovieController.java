@@ -52,7 +52,18 @@ public class MovieController {
 	}
 	
 	@PostMapping(value = "/movie/{id}")
-	public ModelAndView updateMovieInfo() {
+	public ModelAndView updateMovieInfo(HttpServletRequest request) {
+		Movie movie = new Movie(); movie.setTitle(request.getParameter("title"));
+		movie.setReleaseDate(request.getParameter("releaseDate"));
+		movie.setSynopsis(request.getParameter("synopsis"));
+		movie.setFilmAge(request.getParameter("filmAge"));
+		movie.setDirectCountry(request.getParameter("directCountry"));
+		movie.setRunningTime(Integer.parseInt(request.getParameter("runningTime")));
+		movie.setDownloadLink(request.getParameter("downloadLink"));
+		movie.setGenreFirst(request.getParameter("genreFirst"));
+		movie.setGenreSecond(request.getParameter("genreSecond"));
+		movieService.updateMovieInfo(movie);
+		
 		ModelAndView mav = null;
 		mav = new ModelAndView("/movie/movieList");
 		
