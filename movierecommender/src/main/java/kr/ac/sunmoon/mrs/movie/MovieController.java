@@ -34,7 +34,7 @@ public class MovieController {
 	@PostMapping(value = "/movie")
 	public ModelAndView addMovieInfo(HttpServletRequest request) {
 		
-		/*Movie movie = new Movie(); movie.setTitle(request.getParameter("title"));
+		Movie movie = new Movie(); movie.setTitle(request.getParameter("title"));
 		movie.setReleaseDate(request.getParameter("releaseDate"));
 		movie.setSynopsis(request.getParameter("synopsis"));
 		movie.setFilmAge(request.getParameter("filmAge"));
@@ -43,10 +43,10 @@ public class MovieController {
 		movie.setDownloadLink(request.getParameter("downloadLink"));
 		movie.setGenreFirst(request.getParameter("genreFirst"));
 		movie.setGenreSecond(request.getParameter("genreSecond"));
-		movieService.addMovieInfo(movie);*/
+		movieService.addMovieInfo(movie);
 		
 		ModelAndView mav = null;
-		mav = new ModelAndView(new RedirectView("/movie/movieList"));
+		mav = new ModelAndView(new RedirectView("/movie/list"));
 		
 		return mav;
 	}
@@ -85,8 +85,11 @@ public class MovieController {
 	
 	@GetMapping(value = "/movie/list")
 	public ModelAndView inquiryMovieList() {
+		List<Movie> movie = movieService.inquiryMovieAll();
+		
 		ModelAndView mav = null;
 		mav = new ModelAndView("/movie/movieList");
+		mav.addObject("movie", movie);
 		
 		return mav;
 	}
