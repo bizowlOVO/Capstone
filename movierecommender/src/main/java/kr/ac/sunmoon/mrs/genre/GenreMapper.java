@@ -9,4 +9,6 @@ import kr.ac.sunmoon.mrs.agent.Genre;
 @Mapper
 public interface GenreMapper {
 	public List<Genre> selectGenreAll();
+	
+	public Genre selectGenre(Genre genre);
 }

@@ -22,7 +22,7 @@ public class MovieController {
 	private MovieService movieService;
 	
 	@GetMapping(value = "/movie/addform")
-	public ModelAndView addMovieInfo(Movie movie) {
+	public ModelAndView addMovieInfo(Movie movie) {//영화등록폼
 		List<Genre> genre = movieService.getGenreList();
 		
 		ModelAndView mav = null;
@@ -33,7 +33,7 @@ public class MovieController {
 	}
 	
 	@PostMapping(value = "/movie")
-	public ModelAndView addMovieInfo(HttpServletRequest request) {
+	public ModelAndView addMovieInfo(HttpServletRequest request) {//영화정보등록
 		
 		Movie movie = new Movie(); movie.setTitle(request.getParameter("title"));
 		movie.setReleaseDate(request.getParameter("releaseDate"));
@@ -53,21 +53,27 @@ public class MovieController {
 	}
 	
 	@GetMapping(value = "/movie/{id}/editform")
-	 public ModelAndView updateMovieInfo() {
+	 public ModelAndView updateMovieInfo(@PathVariable int movieSeq) {//영화수정폼
+		System.out.println(movieSeq);
 		Movie movie = new Movie();
-		movie.setMovieSeq(51);
+		movie.setMovieSeq(movieSeq);
 		movie = movieService.inquiryMovie(movie);
+		
+		
+		//List<Genre> genre = movieService.getGenreList();
 		
 		ModelAndView mav = null;
 		mav = new ModelAndView("/movie/editMovie");
 		mav.addObject("movie", movie);
+		//mav.addObject("genre", genre);
 		
 		return mav;
 	}
 	
 	@PostMapping(value = "/movie/{id}")
-	public ModelAndView updateMovieInfo(HttpServletRequest request) {
+	public ModelAndView updateMovieInfo(HttpServletRequest request, @PathVariable int movieSeq) {//영화정보수정
 		Movie movie = new Movie(); movie.setTitle(request.getParameter("title"));
+		movie.setMovieSeq(movieSeq);
 		movie.setReleaseDate(request.getParameter("releaseDate"));
 		movie.setSynopsis(request.getParameter("synopsis"));
 		movie.setFilmAge(request.getParameter("filmAge"));
@@ -79,23 +85,29 @@ public class MovieController {
 		movieService.updateMovieInfo(movie);
 		
 		ModelAndView mav = null;
-		mav = new ModelAndView("/movie/movieList");
+		mav = new ModelAndView("/movie/list");
 		
 		return mav;
 	}
 	
 	@DeleteMapping(value = "/movie/{id}")
-	public ModelAndView deleteMovieInfo(Movie movie) {
+	public ModelAndView deleteMovieInfo(@PathVariable int movieSeq) {
+		Movie movie = new Movie();
+		movie.setMovieSeq(movieSeq);
+		movieService.deleteMovieInfo(movie);
+		
 		ModelAndView mav = null;
-		mav = new ModelAndView("/movie/movieList");
+		mav = new ModelAndView("/movie/list");
+		
+		System.out.println(movieSeq);
 		
 		return mav;
 	}
 	
 	@GetMapping(value = "/movie/{movieSeq}")
-	public ModelAndView inquiryMovieInfo(@PathVariable String movieSeq) {
+	public ModelAndView inquiryMovieInfo(@PathVariable int movieSeq) {
 		Movie movie = new Movie();
-		movie.setMovieSeq(Integer.parseInt(movieSeq));
+		movie.setMovieSeq(movieSeq);
 		movie = movieService.inquiryMovie(movie);
 		
 		ModelAndView mav = null;

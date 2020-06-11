@@ -17,30 +17,17 @@
 		제작국가 <input type="text" name ='directCountry'/><br>
 		러닝타임    <input type="text" name='runningTime'/><br>
 		다운로드링크 <input type="text" name ='downloadLink'/><br>
-		장르1    <select name='genreFirst'>
-					<option value="">장르 선택(필수)</option>
-	    			<option value="코미디">코미디</option>
-	    			<option value="로맨스">로맨스</option>
-	    			<option value="스릴러">스릴러</option>
-	    			<option value="공포">공포</option>
-	    			<option value="느와르">느와르</option>
-	    			<option value="액션">액션</option>
-	    			<option value="가족">가족</option>
-	    			<option value="스포츠">스포츠</option>
-	    			<option value="모험">모험</option>
-	    		</select><br>
+		장르1 <select name='genreFirst'>
+				<option value="">장르 선택(필수)</option>
+				<c:forEach items="${genre}" var="genre">
+	    			<option value="${genre.genre}">${genre.genre}</option>
+	    		</c:forEach>
+	    	 </select><br>
 		장르2 <select name='genreSecond'>
-					<option value="">장르 선택(필수)</option>
-	    			<option value="코미디">코미디</option>
-	    			<option value="로맨스">로맨스</option>
-	    			<option value="스릴러">스릴러</option>
-	    			<option value="공포">공포</option>
-	    			<option value="느와르">느와르</option>
-	    			<option value="액션">액션</option>
-	    			<option value="가족">가족</option>
-	    			<option value="스포츠">스포츠</option>
-	    			<option value="모험">모험</option>
-	    		</select><br>
+				<c:forEach items="${genre}" var="genre">
+	    			<option value="${genre.genre}">${genre.genre}</option>
+	    		</c:forEach>
+	    	</select><br>
 		감독 <input type="text" name ='directorSeq'/><br>
 		<input type="submit" value="등록"/>
 	</form>

@@ -33,7 +33,18 @@ public class MovieServiceImpl implements MovieService {
 	}
 
 	public Movie inquiryMovie(Movie movie) {
-		return movieMapper.selectMovie(movie);
+		Movie result = movieMapper.selectMovie(movie);
+		movieMapper.updateView(result);
+		
+		Genre genre = new Genre();
+		genre.setGenreCode(result.getGenreFirst());
+		result.setGenreFirst(genreMapper.selectGenre(genre).getGenre());
+		genre.setGenreCode(result.getGenreSecond());
+		result.setGenreSecond(genreMapper.selectGenre(genre).getGenre());
+		
+		result.getGenreFirst();
+		
+		return result;
 	}
 
 	public List<Movie> inquiryMovieAll() {

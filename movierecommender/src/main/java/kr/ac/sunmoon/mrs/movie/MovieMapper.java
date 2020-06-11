@@ -10,6 +10,8 @@ import kr.ac.sunmoon.mrs.agent.Movie;
 public interface MovieMapper {
 	public Movie selectMovie(Movie movie);
 	
+	public void updateView(Movie movie);
+	
 	public List<Movie> selectMovieAll();
 	
 	public void insertMovie(Movie movie);
