@@ -17,6 +17,12 @@ public class CommonController {//
 	@Autowired
 	private CommonService commonService;
 	
+	@GetMapping(value = "/common/mainpage")
+	public ModelAndView doMain() {
+		ModelAndView mav = new ModelAndView("/common/mainpage");
+		return mav;
+	}
+	
 	@GetMapping(value = "/common/login")
 	public ModelAndView login() {
 		ModelAndView mav = null;
@@ -31,7 +37,7 @@ public class CommonController {//
 		System.out.println(isLoginCheck);
 		
 		if (isLoginCheck == true) {
-			mav = new ModelAndView(new RedirectView("/movie/list"));
+			mav = new ModelAndView(new RedirectView("/common/mainpage"));
 			mav.addObject("sessionInfo", session);
 		} else {
 			System.out.println("login Failed");
