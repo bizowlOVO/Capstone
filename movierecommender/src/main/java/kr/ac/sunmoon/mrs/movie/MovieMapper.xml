@@ -54,9 +54,10 @@
 		    DOWNLOAD_LINK,
 		    GENRE_FIRST,
 		    GENRE_SECOND,
+		    RELEASE_DATE,
 		    DIRECTOR_SEQ )
 		VALUES (
-			MOVIE_SEQ_SEQ.NEXTVAL,
+			MOVIE_SEQ.NEXTVAL,
 			#{title}, 
 			#{synopsis}, 
 			#{filmAge}, 
@@ -65,6 +66,7 @@
 			#{downloadLink},
 			(SELECT GENRE_CODE FROM GENRE WHERE GENRE = #{genreFirst}),
 			(SELECT GENRE_CODE FROM GENRE WHERE GENRE = #{genreSecond}),
+			#{releaseDate},
 			11 )
 	</insert>
 	

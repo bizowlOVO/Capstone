@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,11 +10,10 @@
 </head>
 <body>
 	<h1>영화 등록</h1>
-	<form action="/movie" method="POST">
-		영화명    <input type="text" name='title'/><br>
-		감독 <input type="text" name ='directorSeq'/><br>
+		<c:forEach items="${movie}" var="movie">
+		<td>${movie.title}</td>
 		<input type="submit" value="등록"/>
-	</form>
+		</c:forEach>
 </body>
 	<script>
 	</script>

@@ -51,6 +51,14 @@ public class MovieController {
 		return mav;
 	}
 	
+	@GetMapping(value = "/movie/{id}/editform")
+	 public ModelAndView updateMovieInfo(Movie movie) {
+		ModelAndView mav = null;
+		mav = new ModelAndView("/movie/editMovie");
+		
+		return mav;
+	}
+	
 	@PostMapping(value = "/movie/{id}")
 	public ModelAndView updateMovieInfo(HttpServletRequest request) {
 		Movie movie = new Movie(); movie.setTitle(request.getParameter("title"));
@@ -66,14 +74,6 @@ public class MovieController {
 		
 		ModelAndView mav = null;
 		mav = new ModelAndView("/movie/movieList");
-		
-		return mav;
-	}
-	
-	@GetMapping(value = "/movie/{id}/editform")
-	 public ModelAndView updateMovieInfo(Movie movie) {
-		ModelAndView mav = null;
-		mav = new ModelAndView("/movie/editMovie");
 		
 		return mav;
 	}
