@@ -6,8 +6,17 @@
 <mapper namespace="kr.ac.sunmoon.mrs.genre.GenreMapper">
 	<select id="selectGenreAll" resultType="kr.ac.sunmoon.mrs.agent.Genre" >
 		SELECT
-		    GENRE_CODE
+		    GENRE
 		FROM 
-			 GENRE
+			GENRE
+	</select>
+	
+	<select id="selectGenre" resultType="kr.ac.sunmoon.mrs.agent.Genre" >
+		SELECT
+		    GENRE
+		FROM 
+			GENRE
+		WHERE
+			GENRE_CODE = #{genreCode}
 	</select>
 </mapper>

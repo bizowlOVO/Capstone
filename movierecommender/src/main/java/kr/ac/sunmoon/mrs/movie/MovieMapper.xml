@@ -25,6 +25,15 @@
 			 MOVIE_SEQ = #{movieSeq}
 	</select>
 	
+	<update id="updateView" parameterType="kr.ac.sunmoon.mrs.agent.Movie">
+		UPDATE MOVIE
+		<set>
+			VISIT_COUNT = #{visitCount} + 1
+		</set> 
+		WHERE 
+			MOVIE_SEQ = #{movieSeq}
+	</update>
+	
 	<select id="selectMovieAll" resultType="kr.ac.sunmoon.mrs.agent.Movie" >
 		SELECT
 		    MOVIE_SEQ,
@@ -86,7 +95,7 @@
 				SYNOPSIS = #{synopsis},
 			</if>
 			<if test="filmAge != null">
-				SYNOPSIS = #{synopsis},
+				FILM_AGE = #{filmAge},
 			</if>
 			<if test="directCountry != null">
 				DIRECT_COUNTRY = #{directCountry},
@@ -98,19 +107,17 @@
 				DOWNLOAD_LINK = #{downloadLink},
 			</if>
 			<if test="genreFirst != null">
-				GENRE_FIRST = #{genreFirst},
+				#{genreFirst},
 			</if>
 			<if test="genreSecond != null">
-				GENRE_SECOND = #{genreSecond},
-			</if>
-			<if test="visitCount != null">
-				VISIT_COUNT = #{visitCount},
+				#{genreSecond},
 			</if>
 			<if test="directorSeq != null">
 				DIRECTOR_SEQ = #{directorSeq}
 			</if>
 		</set> 
-		WHERE MOVIE_SEQ = #{movieSeq}
+		WHERE 
+			MOVIE_SEQ = #{movieSeq}
 	</update>
 	
 	<delete id="deleteMovie" parameterType="kr.ac.sunmoon.mrs.agent.Movie">

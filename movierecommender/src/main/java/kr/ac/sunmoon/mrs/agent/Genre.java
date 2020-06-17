@@ -1,15 +1,15 @@
 package kr.ac.sunmoon.mrs.agent;
 
 public class Genre {
-	private int genreSeq;
+	private String genreCode;
 	private String genre;
 	
-	public int getGenreSeq() {
-		return genreSeq;
+	public String getGenreCode() {
+		return genreCode;
 	}
 	
-	public void setGenreSeq(int genreSeq) {
-		this.genreSeq = genreSeq;
+	public void setGenreCode(String genreCode) {
+		this.genreCode = genreCode;
 	}
 	
 	public String getGenre() {
