@@ -33,6 +33,7 @@ public class MemberController {
 		return new ModelAndView(new RedirectView("/member/" + member.getMemberId()));
 	}
 	// 수정폼
+
 	@GetMapping("/member/{memberId}/editform")
 	public ModelAndView editMemberInfo(@PathVariable("memberId") String memberId) {
 		ModelAndView mav = new ModelAndView("/member/editMember");
@@ -40,13 +41,14 @@ public class MemberController {
 		mav.addObject("member", this.memberService.inquiryMember(memberId));
 		return mav;
 	}
-	
-	@DeleteMapping("/member/{memberId}")
+
+	@GetMapping("/member/{memberId}/delete")
 	public ModelAndView deleteMember(@PathVariable("memberId") String memberId) {
 		this.memberService.deleteMember(memberId);
-		return null;
+		System.err.println("삭제완료");
+		return new ModelAndView(new RedirectView("/common/mainpage"));
 	}
-	// return new ModelAndView(new RedirectView(""));
+	
 	@GetMapping("/member/{memberId}") //아직 매퍼쪽 부분이 안된 기능
 	public ModelAndView inquiryMember(@PathVariable("memberId") String memberId) {
 		ModelAndView mav = new ModelAndView("/member/inquiryMember");

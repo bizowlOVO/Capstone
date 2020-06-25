@@ -50,7 +50,7 @@
 		   ,MEMBER_NAME=#{memberName}
 		   ,MEMBER_AGE=#{memberAge}
 		   ,MEMBER_GENDER=#{memberGender}
-		   ,'A'
+		   ,MEMBER_STATE='A'
 		WHERE 
 			MEMBER_ID=#{memberId}
 	</update>
@@ -63,7 +63,8 @@
 		WHERE 
 			MEMBER_ID=#{memberId}
 	</update>
-	    <select id="loginChecker" resultType="int" parameterType="String">
+	   
+	<select id="loginChecker" resultType="int" parameterType="String">
     	SELECT
     		COUNT(*)
     	FROM
