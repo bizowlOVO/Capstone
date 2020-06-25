@@ -5,9 +5,11 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.ibatis.annotations.Update;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -59,9 +61,8 @@ public class ReviewController {
 		Review review = new Review();
 		review.setMovieSeq(movieSeq);
 		List<Review> reviews = reviewServiceImpl.inquiryReviewList(review);
-		ModelAndView mav = new ModelAndView();
+		ModelAndView mav = new ModelAndView("/review/reviewList");
 		mav.addObject("reviews", reviews);
 		return mav;
 	}
-	
 }

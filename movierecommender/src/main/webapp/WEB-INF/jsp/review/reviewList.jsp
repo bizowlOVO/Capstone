@@ -1,14 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <title>reivew List</title>
 </head>
 <body>
 	<%@ include file="/WEB-INF/jsp/common/top.jsp" %>
+	<h1>해당 영화에 대한 리뷰입니다</h1>
 	<table border="1">
 		<tr>
 			<td>글쓴이</td>
@@ -19,7 +20,7 @@
 			<c:forEach items="${reviews}" var="review">
 				<tr>
 					<td>${review.memberId}</td>
-					<td>${review.reviewComment}</td>
+					<td><a href="/review/{reviewSeq}/editform">${review.reviewComment}</a></td>
 					<td>${review.reviewPostDate}</td>
 				</tr>
 			</c:forEach>

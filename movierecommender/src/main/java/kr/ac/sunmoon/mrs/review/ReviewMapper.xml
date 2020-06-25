@@ -44,7 +44,7 @@
 			REVIEW_SEQ = #{reviewSeq}
 	</select>
 	
-	<select id="selectReviewAll" resultType= "kr.ac.sunmoon.mrs.agent.Review">
+	<select id="selectReviewAll" parameterType="kr.ac.sunmoon.mrs.agent.Review" resultType= "kr.ac.sunmoon.mrs.agent.Review">
 		SELECT
 			REVIEW_SEQ,
 			MEMBER_ID,

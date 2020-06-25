@@ -11,7 +11,7 @@ import kr.ac.sunmoon.mrs.agent.Review;
 public interface ReviewMapper {
 	public void addReview(Review review);
 	
-	public List<Review> selectReviewAll();
+	public List<Review> selectReviewAll(Review review);
 	
 	public void insertReview(Review review);
 	
