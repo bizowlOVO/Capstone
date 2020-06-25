@@ -10,6 +10,7 @@
 </head>
 <body>
 	<h1>영화 목록</h1>
+	<a href="/movie/addform"><input type="button" value="영화 등록"></a>
 	<table border="1">
 		<th>영화코드</th>
 		<th>영화명</th>

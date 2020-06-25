@@ -18,13 +18,13 @@
 		러닝타임    <input type="text" name='runningTime' value='${movie.runningTime}'/><br>
 		다운로드링크 <input type="text" name ='downloadLink' value='${movie.downloadLink}'/><br>
 		장르1    <select name='genreFirst'>
-					<option value="">${movie.genreFirst}</option>
+					<option value="${movie.genreFirst}">${movie.genreFirst}</option>
 	    			<c:forEach items="${genre}" var="genre">
 	    			<option value="${genre.genre}">${genre.genre}</option>
 	    		</c:forEach>
 	    		</select><br>
 		장르2 <select name='genreSecond'>
-					<option value="">${movie.genreSecond}</option>
+					<option value="${movie.genreSecond}">${movie.genreSecond}</option>
 	    			<c:forEach items="${genre}" var="genre">
 	    			<option value="${genre.genre}">${genre.genre}</option>
 	    		</c:forEach>

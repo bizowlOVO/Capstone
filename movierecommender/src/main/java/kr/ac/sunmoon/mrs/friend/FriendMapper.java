@@ -7,9 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 import kr.ac.sunmoon.mrs.agent.Friend;
 
 @Mapper
-public interface FriendMapper {
-	public Friend selectFriend(Friend friend);
-	
+public interface FriendMapper {	
 	public List<Friend> selectFriendAll();
 	
 	public void insertFriend(Friend friend);

@@ -6,9 +6,10 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <head><title>회원 정보 수정</title></head>
 <body>
-	<h3>회원 정보</h3>
+	<a href = "/common/mainpage"><button type="button">메인페이지 가기</button></a>
+	<h3>회원 정보 수정</h3>
 	<form action="/member/${member.memberId}" method="post">
-		ID : <input type="text" name="memberId" value="${member.memberId}"/> <br/>
+		ID : ${member.memberId} <input type="hidden" name="memberId" value="${member.memberId}"/> <br/>
 		비밀번호 : <input type="password" name="memberPassword" value="${member.memberPassword}"/> <br/>
 		이름 : <input type="text" name="memberName" value="${member.memberName}"/> <br/>
 		나이 : <input type="text" name="memberAge" value="${member.memberAge}"/> <br/>

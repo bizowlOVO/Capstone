@@ -10,27 +10,22 @@ public class MemberServiceImpl implements MemberService {
 	@Autowired
 	private MemberMapper memberMapper;
 
-	@Override
 	public void addMemberInfo(Member member) {
 		memberMapper.insertMember(member);
 	}
 
-	@Override
 	public void editMemberInfo(Member member) {
 		memberMapper.updateMember(member);
 	}
 
-	@Override
 	public void deleteMember(String memberId) {
 		memberMapper.deleteMember(memberId);
 	}
 
-	@Override
 	public Member inquiryMember(String memberId) {
 		return this.memberMapper.selectMember(memberId);
 	}
 
-	@Override
 	public Boolean isDuplicateMember(Member member) {
 		return null;
 	}

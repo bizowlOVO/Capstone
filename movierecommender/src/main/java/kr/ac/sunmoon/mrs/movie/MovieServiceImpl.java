@@ -37,18 +37,39 @@ public class MovieServiceImpl implements MovieService {
 		movieMapper.updateView(result);
 		
 		Genre genre = new Genre();
-		genre.setGenreCode(result.getGenreFirst());
-		result.setGenreFirst(genreMapper.selectGenre(genre).getGenre());
-		genre.setGenreCode(result.getGenreSecond());
-		result.setGenreSecond(genreMapper.selectGenre(genre).getGenre());
-		
-		result.getGenreFirst();
+		if (result.getGenreFirst() != null 
+						&& result.getGenreSecond() != null) {
+			genre.setGenreCode(result.getGenreFirst());
+			result.setGenreFirst(genreMapper.selectGenre(genre).getGenre());
+			genre.setGenreCode(result.getGenreSecond());
+			result.setGenreSecond(genreMapper.selectGenre(genre).getGenre());
+			
+		} else {
+			result.setGenreFirst(" ");
+			result.setGenreSecond(" ");
+		}
 		
 		return result;
 	}
 
 	public List<Movie> inquiryMovieAll() {
-		return movieMapper.selectMovieAll();
+		List<Movie> result = movieMapper.selectMovieAll();
+		
+		Genre genre = new Genre();
+		for (int i = 0; i < result.size(); i++) {
+			if (result.get(i).getGenreFirst() != null 
+									&& result.get(i).getGenreSecond() != null) {
+				genre.setGenreCode(result.get(i).getGenreFirst());
+				result.get(i).setGenreFirst(genreMapper.selectGenre(genre).getGenre());
+				genre.setGenreCode(result.get(i).getGenreSecond());
+				result.get(i).setGenreSecond(genreMapper.selectGenre(genre).getGenre());
+			} else {
+				result.get(i).setGenreFirst(" ");
+				result.get(i).setGenreSecond(" ");
+			}
+		}
+		
+		return result;
 	}
 
 }

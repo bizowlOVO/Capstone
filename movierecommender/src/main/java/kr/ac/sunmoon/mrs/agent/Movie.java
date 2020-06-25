@@ -5,7 +5,7 @@ public class Movie {
 	private String title;
 	private String releaseDate;
 	private String synopsis;
-	private String filmAge;
+	private int filmAge;
 	private String directCountry;
 	private int runningTime;
 	private String downloadLink;
@@ -46,11 +46,11 @@ public class Movie {
 		this.synopsis = synopsis;
 	}
 	
-	public String getFilmAge() {
+	public int getFilmAge() {
 		return filmAge;
 	}
 	
-	public void setFilmAge(String filmAge) {
+	public void setFilmAge(int filmAge) {
 		this.filmAge = filmAge;
 	}
 	

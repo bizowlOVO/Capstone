@@ -11,7 +11,8 @@
 			GENRE
 	</select>
 	
-	<select id="selectGenre" resultType="kr.ac.sunmoon.mrs.agent.Genre" >
+	<select id="selectGenre" parameterType="kr.ac.sunmoon.mrs.agent.Genre" 
+							 resultType="kr.ac.sunmoon.mrs.agent.Genre" >
 		SELECT
 		    GENRE
 		FROM 
