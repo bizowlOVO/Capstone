@@ -1,14 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="utf-8">
 <title>Insert title here</title>
 </head>
 <%@ include file="/WEB-INF/jsp/common/top.jsp"%>
 <body>
-	<h1>∏Æ∫‰ µÓ∑œ</h1>
+	<h1>Î¶¨Î∑∞ Îì±Î°ù</h1>
 	<form action="/review" method="POST">
 		<table border="1">
 			<tr>
@@ -29,7 +29,7 @@
 				<td><input type="text"name="reviewComment"></td>
 			</tr>
 		</table>
-		<input type ="submit" value="µÓ∑œ">
+		<input type ="submit" value="Îì±Î°ù">
 	</form>
 </body>
 </html>
