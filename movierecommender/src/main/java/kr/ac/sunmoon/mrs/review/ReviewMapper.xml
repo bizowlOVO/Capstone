@@ -4,11 +4,11 @@
 
 <mapper namespace ="kr.ac.sunmoon.mrs.review.ReviewMapper">
 
-	<insert id="addRivew" parameterType="kr.ac.sunmoon.mrs.agent.Review">
-		INSERT INTO REIVEW
+	<insert id="addReview" parameterType="kr.ac.sunmoon.mrs.agent.Review">
+		INSERT INTO REVIEW
 			VALUES(
 				REVIEW_SEQ.NEXTVAL,
-				#{userId},
+				#{memberId},
 				#{movieSeq},
 				#{reviewComment},
 				SYSDATE	

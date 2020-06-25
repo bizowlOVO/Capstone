@@ -13,6 +13,7 @@ import kr.ac.sunmoon.mrs.movie.MovieMapper;
 public class ReviewServiceImpl implements ReviewService {
 	@Autowired
 	ReviewMapper reviewMapper;
+	@Autowired
 	MovieMapper movieMapper;
 	
 	@Override

@@ -13,15 +13,20 @@
 		<table border="1">
 			<tr>
 				<td>ID</td>
-				<td>${sessionScope.id}</td>
+				<td><input type="hidden"value="${sessionScope.id}"name="memberId">
+					<input type="text"value="${sessionScope.id}"name="memberIdShow" disabled>
+				</td>
 			</tr>
 			<tr>
 				<td>Movie</td>
-				<td>${movieInfo.title}</td>
+				<td><input type="hidden"value="${movieInfo.movieSeq}"name="movieSeq" >
+					<input type="hidden"value ="${movieInfo.title}"name="title">
+					<input type="text"value ="${movieInfo.title}"name="titleShow"disabled>
+				</td>
 			</tr>
 			<tr>
 				<td>Comment</td>
-				<td><input type="text" id="comment" name="comment"></td>
+				<td><input type="text"name="reviewComment"></td>
 			</tr>
 		</table>
 		<input type ="submit" value="µî·Ï">

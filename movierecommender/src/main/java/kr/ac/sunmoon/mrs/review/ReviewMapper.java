@@ -9,7 +9,7 @@ import kr.ac.sunmoon.mrs.agent.Review;
 
 @Mapper
 public interface ReviewMapper {
-	public Review addReview(Review review);
+	public void addReview(Review review);
 	
 	public List<Review> selectReviewAll();
 	

@@ -2,7 +2,7 @@ package kr.ac.sunmoon.mrs.agent;
 
 public class Review {
 	private int reviewSeq;
-	private String userId;
+	private String memberId;
 	private int movieSeq;
 	private String reviewComment;
 	private String reviewPostDate;
@@ -15,12 +15,12 @@ public class Review {
 		this.reviewSeq = reviewSeq;
 	}
 	
-	public String getUserId() {
-		return userId;
+	public String getMemberId() {
+		return memberId;
 	}
 	
-	public void setUserId(String userId) {
-		this.userId = userId;
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
 	}
 	
 	public int getMovieSeq() {
