@@ -13,7 +13,7 @@ public class FriendServiceImpl implements FriendService {
 	private FriendMapper friendMapper;
 
 	public boolean addFriend(Friend friend) {
-		Friend result = friendMapper.selectFriend(friend);
+		Friend result = null;
 		if (result == null) {
 			return false;
 		} else {

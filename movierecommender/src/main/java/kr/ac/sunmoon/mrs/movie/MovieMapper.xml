@@ -27,9 +27,8 @@
 	
 	<update id="updateView" parameterType="kr.ac.sunmoon.mrs.agent.Movie">
 		UPDATE MOVIE
-		<set>
+		SET
 			VISIT_COUNT = #{visitCount} + 1
-		</set> 
 		WHERE 
 			MOVIE_SEQ = #{movieSeq}
 	</update>
@@ -81,15 +80,9 @@
 	
 	<update id="updateMovie" parameterType="kr.ac.sunmoon.mrs.agent.Movie">
 		UPDATE MOVIE
-		<set>
-			<if test="movieSeq != null">
-				MOVIE_SEQ = #{movieSeq},
-			</if>
+		SET
 			<if test="title != null">
 				TITLE = #{title},
-			</if>
-			<if test="releaseDate != null">
-				RELEASE_DATE = #{releaseDate},
 			</if>
 			<if test="synopsis != null">
 				SYNOPSIS = #{synopsis},
@@ -107,15 +100,14 @@
 				DOWNLOAD_LINK = #{downloadLink},
 			</if>
 			<if test="genreFirst != null">
-				#{genreFirst},
+				GENRE_FIRST = (SELECT GENRE_CODE FROM GENRE WHERE GENRE = #{genreFirst}),
 			</if>
 			<if test="genreSecond != null">
-				#{genreSecond},
+				GENRE_SECOND = (SELECT GENRE_CODE FROM GENRE WHERE GENRE = #{genreSecond}),
 			</if>
 			<if test="directorSeq != null">
 				DIRECTOR_SEQ = #{directorSeq}
 			</if>
-		</set> 
 		WHERE 
 			MOVIE_SEQ = #{movieSeq}
 	</update>

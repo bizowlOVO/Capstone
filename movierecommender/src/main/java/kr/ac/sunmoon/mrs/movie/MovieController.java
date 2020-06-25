@@ -38,7 +38,7 @@ public class MovieController {
 		Movie movie = new Movie(); movie.setTitle(request.getParameter("title"));
 		movie.setReleaseDate(request.getParameter("releaseDate"));
 		movie.setSynopsis(request.getParameter("synopsis"));
-		movie.setFilmAge(request.getParameter("filmAge"));
+		movie.setFilmAge(Integer.parseInt(request.getParameter("filmAge")));
 		movie.setDirectCountry(request.getParameter("directCountry"));
 		movie.setRunningTime(Integer.parseInt(request.getParameter("runningTime")));
 		movie.setDownloadLink(request.getParameter("downloadLink"));
@@ -52,52 +52,52 @@ public class MovieController {
 		return mav;
 	}
 	
-	@GetMapping(value = "/movie/{id}/editform")
+	@GetMapping(value = "/movie/{movieSeq}/editform")
 	 public ModelAndView updateMovieInfo(@PathVariable int movieSeq) {//영화수정폼
-		System.out.println(movieSeq);
 		Movie movie = new Movie();
 		movie.setMovieSeq(movieSeq);
 		movie = movieService.inquiryMovie(movie);
 		
-		
-		//List<Genre> genre = movieService.getGenreList();
+		List<Genre> genre = movieService.getGenreList();
 		
 		ModelAndView mav = null;
 		mav = new ModelAndView("/movie/editMovie");
 		mav.addObject("movie", movie);
-		//mav.addObject("genre", genre);
+		mav.addObject("genre", genre);
 		
 		return mav;
 	}
 	
-	@PostMapping(value = "/movie/{id}")
+	@PostMapping(value = "/movie/{movieSeq}")
 	public ModelAndView updateMovieInfo(HttpServletRequest request, @PathVariable int movieSeq) {//영화정보수정
-		Movie movie = new Movie(); movie.setTitle(request.getParameter("title"));
+		Movie movie = new Movie();
+		movie.setTitle(request.getParameter("title"));
 		movie.setMovieSeq(movieSeq);
-		movie.setReleaseDate(request.getParameter("releaseDate"));
+		//movie.setReleaseDate(request.getParameter("releaseDate"));
 		movie.setSynopsis(request.getParameter("synopsis"));
-		movie.setFilmAge(request.getParameter("filmAge"));
+		movie.setFilmAge(Integer.parseInt(request.getParameter("filmAge")));
 		movie.setDirectCountry(request.getParameter("directCountry"));
 		movie.setRunningTime(Integer.parseInt(request.getParameter("runningTime")));
 		movie.setDownloadLink(request.getParameter("downloadLink"));
 		movie.setGenreFirst(request.getParameter("genreFirst"));
 		movie.setGenreSecond(request.getParameter("genreSecond"));
+		movie.setDirectorSeq(Integer.parseInt(request.getParameter("directorSeq")));
 		movieService.updateMovieInfo(movie);
 		
 		ModelAndView mav = null;
-		mav = new ModelAndView("/movie/list");
+		mav = new ModelAndView(new RedirectView("/movie/list"));
 		
 		return mav;
 	}
 	
-	@DeleteMapping(value = "/movie/{id}")
+	@GetMapping(value = "/movie/{movieSeq}/delete")
 	public ModelAndView deleteMovieInfo(@PathVariable int movieSeq) {
 		Movie movie = new Movie();
 		movie.setMovieSeq(movieSeq);
 		movieService.deleteMovieInfo(movie);
 		
 		ModelAndView mav = null;
-		mav = new ModelAndView("/movie/list");
+		mav = new ModelAndView(new RedirectView("/movie/list"));
 		
 		System.out.println(movieSeq);
 		

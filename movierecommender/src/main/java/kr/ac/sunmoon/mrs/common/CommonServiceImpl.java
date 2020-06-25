@@ -19,14 +19,18 @@ public class CommonServiceImpl implements CommonService {
 	private HttpServletRequest httpServletRequest;
 	
 	public boolean isLogin(Member member) {
+		System.out.println("commonService!!!!!!!!!!!!!!!!!!!!!");
 		boolean loginCheck = false;
 		String memberId = member.getMemberId();
 		String memberPassword = member.getMemberPassword();
+		System.out.println(memberId + "," + memberPassword);
 		
 		if (memberId != null &&
 				memberPassword != null &&
 				!memberId.equals("")&&
 				!memberPassword.equals("")) {
+			System.out.println("들어옴!!!!!!!!!");
+			System.out.println(memberMapper.loginChecker(memberId, memberPassword));
 			if (memberMapper.loginChecker(memberId, memberPassword) == 1) {
 				System.out.println("조회된 정보가 존재합니다");
 				loginCheck = true;

@@ -10,6 +10,7 @@
 <body>
 	<h1>영화 등록</h1>
 	<form action="/movie" method="POST">
+		포스터 <input type="file" name='poster' /><br>
 		영화명    <input type="text" name='title'/><br>
 		개봉날짜 <input type="text" name ='releaseDate'/><br>
 		줄거리 <input type="text" name ='synopsis'/><br>

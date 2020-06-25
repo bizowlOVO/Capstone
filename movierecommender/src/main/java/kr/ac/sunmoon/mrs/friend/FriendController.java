@@ -1,5 +1,7 @@
 package kr.ac.sunmoon.mrs.friend;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,9 +37,12 @@ public class FriendController {
 	}
 	
 	@GetMapping(value = "/friend/list")
-	public ModelAndView inquiryFriendList() {		
+	public ModelAndView inquiryFriendList() {
+		List<Friend> friend = friendService.inquiryFriendList();
+		
 		ModelAndView mav = null;
-		mav = new ModelAndView(new RedirectView("/friend/friendList"));
+		mav = new ModelAndView("/friend/friendList");
+		mav.addObject("friend", friend);
 		
 		return mav;
 	}

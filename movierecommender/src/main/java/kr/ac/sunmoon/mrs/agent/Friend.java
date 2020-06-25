@@ -2,8 +2,8 @@ package kr.ac.sunmoon.mrs.agent;
 
 public class Friend {
 	private int friendSeq;
-	private String requestUser;
-	private String receivedUser;
+	private String requestMember;
+	private String receivedMember;
 	private String friendState;
 	
 	public int getFriendSeq() {
@@ -14,20 +14,20 @@ public class Friend {
 		this.friendSeq = friendSeq;
 	}
 	
-	public String getRequestUser() {
-		return requestUser;
+	public String getRequestFriend() {
+		return requestMember;
 	}
 	
-	public void setRequestUser(String requestUser) {
-		this.requestUser = requestUser;
+	public void setRequestUser(String requestMember) {
+		this.requestMember = requestMember;
 	}
 	
-	public String getReceivedUser() {
-		return receivedUser;
+	public String getReceivedFriend() {
+		return receivedMember;
 	}
 	
-	public void setReceivedUser(String receivedUser) {
-		this.receivedUser = receivedUser;
+	public void setReceivedFriend(String receivedMember) {
+		this.receivedMember = receivedMember;
 	}
 	
 	public String getFriendState() {
