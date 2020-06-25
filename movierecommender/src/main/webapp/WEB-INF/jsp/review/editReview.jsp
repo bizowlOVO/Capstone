@@ -7,9 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>¸®ºä µî·Ï</h1>
-	<table>
-		
-	</table>
+
 </body>
 </html>

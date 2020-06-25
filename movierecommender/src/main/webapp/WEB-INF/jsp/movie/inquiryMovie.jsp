@@ -10,7 +10,7 @@
 </head>
 <body>
 	<h1>영화 등록</h1>
-	<form action="/review/addform" method="GET">
+	<form action="/review/addform/${movie.movieSeq}" method="GET">
 		<input type="submit" value="리뷰작성" />
 	</form>
 	<table border="1">

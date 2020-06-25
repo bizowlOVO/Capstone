@@ -11,7 +11,7 @@
 				#{userId},
 				#{movieSeq},
 				#{reviewComment},
-				TO_DATE(#{reviewPostDate},'yyyymmddhh24mi')		
+				SYSDATE	
 			)
 	</insert>
 	
@@ -19,7 +19,7 @@
 		UPDATE REIVEW
 			SET
 				REVIEW_COMMENT = #{reviewComment},
-				REVIEW_POST_DATE = TO_DATE(#{reviewPostDate}, 'yyyymmddhh24mi')
+				REVIEW_POST_DATE = SYSDATE
 			WHERE
 				REVIEW_SEQ = #{reviewSeq}
 	</update>

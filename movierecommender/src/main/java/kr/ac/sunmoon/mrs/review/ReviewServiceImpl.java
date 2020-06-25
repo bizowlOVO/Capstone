@@ -5,12 +5,15 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import kr.ac.sunmoon.mrs.agent.Movie;
 import kr.ac.sunmoon.mrs.agent.Review;
+import kr.ac.sunmoon.mrs.movie.MovieMapper;
 
 @Service
 public class ReviewServiceImpl implements ReviewService {
 	@Autowired
 	ReviewMapper reviewMapper;
+	MovieMapper movieMapper;
 	
 	@Override
 	public void addReview(Review review) {
@@ -19,7 +22,7 @@ public class ReviewServiceImpl implements ReviewService {
 
 	@Override
 	public void updateReview(Review review) {
-		// TODO Auto-generated method stub
+		reviewMapper.updateReview(review);
 		
 	}
 
