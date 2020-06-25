@@ -1,6 +1,8 @@
 package kr.ac.sunmoon.mrs.review;
 
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
+
 
 import kr.ac.sunmoon.mrs.agent.Movie;
 import kr.ac.sunmoon.mrs.agent.Review;
@@ -48,6 +51,16 @@ public class ReviewController {
 		
 		ModelAndView mav = new ModelAndView("/review/insertReview");
 		mav.addObject("movieInfo", movieInfo);
+		return mav;
+	}
+	
+	@GetMapping(value="/review/list/{movieSeq}")
+	public ModelAndView inquiryReviewList(@PathVariable int movieSeq) {
+		Review review = new Review();
+		review.setMovieSeq(movieSeq);
+		List<Review> reviews = reviewServiceImpl.inquiryReviewList(review);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("reviews", reviews);
 		return mav;
 	}
 	

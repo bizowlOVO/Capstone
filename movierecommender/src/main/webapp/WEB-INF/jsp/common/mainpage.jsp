@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
@@ -12,6 +12,6 @@
 	<br>
 	
 	<br>
-	<a href="/movie/addform">¿µÈ­µî·Ï</a>
+	<a href="/movie/addform">ì˜í™”ë“±ë¡</a>
 </body>
 </html>

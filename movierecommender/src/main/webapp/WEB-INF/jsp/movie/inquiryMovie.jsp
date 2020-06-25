@@ -13,6 +13,9 @@
 		<form action="/review/addform/${movie.movieSeq}" method="GET">
 			<input type="submit" value="리뷰작성" />
 		</form>
+		<form action="/review/list/${movie.movieSeq}" method="GET">
+			<input type="submit" value="리뷰보기" />
+		</form>
 		
 		<form action="/movie/${movie.movieSeq}/editform" method="GET" id="inquiryMovie">
 			<table border="1">

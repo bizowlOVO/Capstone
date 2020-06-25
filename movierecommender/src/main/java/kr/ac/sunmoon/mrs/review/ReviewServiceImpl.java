@@ -35,14 +35,12 @@ public class ReviewServiceImpl implements ReviewService {
 
 	@Override
 	public Review inquiryReview(Review review) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public List<Review> inquiryReviewList(Review review) {
-		// TODO Auto-generated method stub
-		return null;
+		return reviewMapper.selectReviewAll();
 	}
 
 }

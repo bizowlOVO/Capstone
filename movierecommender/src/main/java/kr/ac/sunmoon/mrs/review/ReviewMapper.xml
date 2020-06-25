@@ -53,6 +53,8 @@
 			REVIEW_POST_DATE
 		FROM
 			REVIEW
+		WHERE
+			MOVIE_SEQ = #{movieSeq}
 		ORDER BY REVIEW_POST_DATE
 	</select>
 	
