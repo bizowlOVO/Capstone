@@ -70,5 +70,139 @@
           MEMBER
        WHERE
           MEMBER_ID = #{memberId} AND MEMBER_PASSWORD = #{memberPassword}
+	<select id="selectMember" parameterType="java.lang.String" resultType="kr.ac.sunmoon.mrs.agent.Member">
+		SELECT
+		     MEMBER_ID
+		    ,MEMBER_PASSWORD
+		    ,MEMBER_NAME
+		    ,MEMBER_AGE
+		    ,MEMBER_GENDER
+		    ,MEMBER_STATE
+		FROM 
+			 MEMBER
+		WHERE 
+			 MEMBER_ID=#{memberId}
+	</select>
+	
+	<select id="selectMemberAll" resultType="kr.ac.sunmoon.mrs.agent.Member">
+		SELECT
+			 MEMBER_ID
+		    ,MEMBER_PASSWORD
+		    ,MEMBER_NAME
+		    ,MEMBER_AGE
+		    ,MEMBER_GENDER
+		    ,MEMBER_STATE
+		FROM
+			MEMBER
+	</select>
+	
+	<insert id="insertMember" parameterType="kr.ac.sunmoon.mrs.agent.Member">
+		INSERT INTO 
+			MEMBER
+		VALUES(
+			#{memberId}
+		   ,#{memberPassword}
+		   ,#{memberName}
+		   ,#{memberAge}
+		   ,#{memberGender}
+		   ,'A')
+	</insert>
+	
+	<update id="updateMember" parameterType="kr.ac.sunmoon.mrs.agent.Member">
+		UPDATE
+			MEMBER
+		SET
+			MEMBER_PASSWORD=#{memberPassword}
+		   ,MEMBER_NAME=#{memberName}
+		   ,MEMBER_AGE=#{memberAge}
+		   ,MEMBER_GENDER=#{memberGender}
+		   ,MEMBER_STATE='A'
+		WHERE 
+			MEMBER_ID=#{memberId}
+	</update>
+	
+	<update id="deleteMember" parameterType="java.lang.String">
+		UPDATE
+			MEMBER
+		SET
+			MEMBER_STATE='C'
+		WHERE 
+			MEMBER_ID=#{memberId}
+	</update>
+	   
+	<select id="loginChecker" resultType="int" parameterType="String">
+    	SELECT
+    		COUNT(*)
+    	FROM
+    		MEMBER
+    	WHERE
+    		MEMBER_ID = #{memberId} AND MEMBER_PASSWORD = #{memberPassword}
+	<select id="selectMember" parameterType="java.lang.String" resultType="kr.ac.sunmoon.mrs.agent.Member">
+		SELECT
+		     MEMBER_ID
+		    ,MEMBER_PASSWORD
+		    ,MEMBER_NAME
+		    ,MEMBER_AGE
+		    ,MEMBER_GENDER
+		    ,MEMBER_STATE
+		FROM 
+			 MEMBER
+		WHERE 
+			 MEMBER_ID=#{memberId}
+	</select>
+	
+	<select id="selectMemberAll" resultType="kr.ac.sunmoon.mrs.agent.Member">
+		SELECT
+			 MEMBER_ID
+		    ,MEMBER_PASSWORD
+		    ,MEMBER_NAME
+		    ,MEMBER_AGE
+		    ,MEMBER_GENDER
+		    ,MEMBER_STATE
+		FROM
+			MEMBER
+	</select>
+	
+	<insert id="insertMember" parameterType="kr.ac.sunmoon.mrs.agent.Member">
+		INSERT INTO 
+			MEMBER
+		VALUES(
+			#{memberId}
+		   ,#{memberPassword}
+		   ,#{memberName}
+		   ,#{memberAge}
+		   ,#{memberGender}
+		   ,'A')
+	</insert>
+	
+	<update id="updateMember" parameterType="kr.ac.sunmoon.mrs.agent.Member">
+		UPDATE
+			MEMBER
+		SET
+			MEMBER_PASSWORD=#{memberPassword}
+		   ,MEMBER_NAME=#{memberName}
+		   ,MEMBER_AGE=#{memberAge}
+		   ,MEMBER_GENDER=#{memberGender}
+		   ,MEMBER_STATE='A'
+		WHERE 
+			MEMBER_ID=#{memberId}
+	</update>
+	
+	<update id="deleteMember" parameterType="java.lang.String">
+		UPDATE
+			MEMBER
+		SET
+			MEMBER_STATE='C'
+		WHERE 
+			MEMBER_ID=#{memberId}
+	</update>
+	   
+	<select id="loginChecker" resultType="int" parameterType="String">
+    	SELECT
+    		COUNT(*)
+    	FROM
+    		MEMBER
+    	WHERE
+    		MEMBER_ID = #{memberId} AND MEMBER_PASSWORD = #{memberPassword}
     </select>
 </mapper>

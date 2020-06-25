@@ -6,6 +6,7 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <head><title>회원 정보 등록</title></head>
 <body>
+	<a href = "/common/mainpage"><button type="button">메인페이지 가기</button></a>
 	<h3>회원 정보</h3>
 	<form action="/member" method="post">
 		ID : <input type="text" name="memberId"/> <br/>
