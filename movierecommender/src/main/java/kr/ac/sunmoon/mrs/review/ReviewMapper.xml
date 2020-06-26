@@ -58,5 +58,4 @@
 		ORDER BY REVIEW_POST_DATE
 	</select>
 	
-	
 </mapper>

@@ -20,7 +20,7 @@
 			<c:forEach items="${reviews}" var="review">
 				<tr>
 					<td>${review.memberId}</td>
-					<td><a href="/review/{reviewSeq}/editform">${review.reviewComment}</a></td>
+					<td><a href="/review/editform">${review.reviewComment}</a></td>
 					<td>${review.reviewPostDate}</td>
 				</tr>
 			</c:forEach>

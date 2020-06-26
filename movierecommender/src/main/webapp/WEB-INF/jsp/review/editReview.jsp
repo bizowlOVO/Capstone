@@ -6,7 +6,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<%@ include file="/WEB-INF/jsp/common/top.jsp"%>
 <body>
-<h1>수정</h1>
+<h1>리뷰등록</h1>
+	<form action="" method="POST">
+		
+	</form>
 </body>
 </html>
