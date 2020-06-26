@@ -18,7 +18,7 @@
 		    GENRE_FIRST,
 		    GENRE_SECOND,
 		    VISIT_COUNT,
-		    DIRECTOR_SEQ
+		    DIRECTOR
 		FROM 
 			 MOVIE
 		WHERE 
@@ -46,7 +46,7 @@
 		    GENRE_FIRST,
 		    GENRE_SECOND,
 		    VISIT_COUNT,
-		    DIRECTOR_SEQ
+		    DIRECTOR
 		FROM 
 			MOVIE
 	</select>
@@ -63,7 +63,7 @@
 		    GENRE_FIRST,
 		    GENRE_SECOND,
 		    RELEASE_DATE,
-		    DIRECTOR_SEQ )
+		    DIRECTOR )
 		VALUES (
 			MOVIE_SEQ.NEXTVAL,
 			#{title}, 
@@ -106,7 +106,7 @@
 				GENRE_SECOND = (SELECT GENRE_CODE FROM GENRE WHERE GENRE = #{genreSecond}),
 			</if>
 			<if test="directorSeq != null">
-				DIRECTOR_SEQ = #{directorSeq}
+				DIRECTOR = #{director}
 			</if>
 		WHERE 
 			MOVIE_SEQ = #{movieSeq}
@@ -130,7 +130,7 @@
 		    GENRE_FIRST,
 		    GENRE_SECOND,
 		    VISIT_COUNT,
-		    DIRECTOR_SEQ
+		    DIRECTOR
 		FROM 
 			(SELECT
 				MOVIE_SEQ,
@@ -144,7 +144,7 @@
 		    	GENRE_FIRST,
 		    	GENRE_SECOND,
 		    	VISIT_COUNT,
-		    	DIRECTOR_SEQ
+		    	DIRECTOR
 		     FROM MOVIE
 		     ORDER BY RELEASE_DATE DESC)
 		WHERE
@@ -164,7 +164,7 @@
 		    GENRE_FIRST,
 		    GENRE_SECOND,
 		    VISIT_COUNT,
-		    DIRECTOR_SEQ
+		    DIRECTOR
 		FROM 
 			(SELECT
 				MOVIE_SEQ,
@@ -178,7 +178,7 @@
 		    	GENRE_FIRST,
 		    	GENRE_SECOND,
 		    	VISIT_COUNT,
-		    	DIRECTOR_SEQ
+		    	DIRECTOR
 		     FROM MOVIE
 		     ORDER BY VISIT_COUNT DESC)
 		WHERE

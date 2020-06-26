@@ -8,5 +8,4 @@ public interface RecommendService {
 	public List<Movie> inquiryRankRecentlyList();
 	public List<Movie> inquiryRankViewList();
 	public List<Movie> inquiryRankReviewList();
-	public List<Movie> inquiryRankGradeList();
 }
