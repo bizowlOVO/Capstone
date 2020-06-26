@@ -64,12 +64,21 @@
          MEMBER_ID=#{memberId}
    </update>
       
-   <select id="loginChecker" resultType="int" parameterType="String">
+   <select id="loginChecker" resultType="int" parameterType="java.lang.String">
        SELECT
           COUNT(*)
        FROM
           MEMBER
        WHERE
-          MEMBER_ID = #{memberId} AND MEMBER_PASSWORD = #{memberPassword}
+          MEMBER_ID =#{memberId} AND MEMBER_PASSWORD =#{memberPassword}
+    </select>
+    
+    <select id="isLogin" resultType="java.lang.String" parameterType="java.lang.String">
+    	SELECT
+    		MEMBER_PASSWORD
+    	FROM
+    		MEMBER
+    	WHERE
+    		MEMBER_ID=#{memberId}
     </select>
 </mapper>
