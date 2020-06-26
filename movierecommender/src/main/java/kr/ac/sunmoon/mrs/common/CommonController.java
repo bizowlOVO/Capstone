@@ -32,11 +32,8 @@ public class CommonController {//
 	
 	@PostMapping(value = "/common/login")
 	public ModelAndView login(Member member,HttpSession session) {
-		System.out.println("controller!!!!!!!!!");
 		boolean isLoginCheck = commonService.isLogin(member);
-		System.out.println("c finish");
 		ModelAndView mav = null;
-		System.out.println(isLoginCheck);
 		
 		if (isLoginCheck == true) {
 			mav = new ModelAndView(new RedirectView("/common/mainpage"));

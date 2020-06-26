@@ -19,20 +19,19 @@ public class MemberController {
 	@PostMapping("/member")
 	public ModelAndView addmemberInfo(Member member) {
 		this.memberService.addMemberInfo(member);
-		return new ModelAndView(new RedirectView("/member/" + member.getMemberId()));
+		return new ModelAndView(new RedirectView("/common/login"));
 	}
 	
 	@GetMapping("/member/addform")
 	public ModelAndView addmemberInfo() {
 		return new ModelAndView("/member/insertMember");
 	}
-	// 수정
+
 	@PostMapping("/member/{memberId}")
 	public ModelAndView editMemberInfo(Member member) {
 		this.memberService.editMemberInfo(member);
 		return new ModelAndView(new RedirectView("/member/" + member.getMemberId()));
 	}
-	// 수정폼
 
 	@GetMapping("/member/{memberId}/editform")
 	public ModelAndView editMemberInfo(@PathVariable("memberId") String memberId) {
@@ -45,7 +44,6 @@ public class MemberController {
 	@GetMapping("/member/{memberId}/delete")
 	public ModelAndView deleteMember(@PathVariable("memberId") String memberId) {
 		this.memberService.deleteMember(memberId);
-		System.err.println("삭제완료");
 		return new ModelAndView(new RedirectView("/common/mainpage"));
 	}
 	

@@ -19,11 +19,9 @@ public class CommonServiceImpl implements CommonService {
 	private HttpServletRequest httpServletRequest;
 	
 	public boolean isLogin(Member member) {
-		System.out.println("commonService!!!!!!!!!!!!!!!!!!!!!");
 		boolean loginCheck = false;
 		String memberId = member.getMemberId();
 		String memberPassword = member.getMemberPassword();
-		System.out.println(memberId + "," + memberPassword);
 		
 		if (memberId != null && memberPassword != null 
 				&& !memberId.equals("") && !memberPassword.equals("")) {
