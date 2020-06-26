@@ -44,7 +44,6 @@ public class MemberController {
 	@GetMapping("/member/{memberId}/delete")
 	public ModelAndView deleteMember(@PathVariable("memberId") String memberId) {
 		this.memberService.deleteMember(memberId);
-		System.err.println("삭제완료");
 		return new ModelAndView(new RedirectView("/common/mainpage"));
 	}
 	
