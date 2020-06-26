@@ -1,0 +1,342 @@
+<!DOCTYPE html> 
+<head>
+    <title>FriendList</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+   
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <!-- Transparent Sticky NavBar -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- friend list -->
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+ 
+    <!-- 친구신청 modal -->
+    <!-- <script type="text/javascript"> -->
+      <script>
+      // 친구신청 버튼 onclick()
+      function request_friend() {
+        document.getElementById("requestFriendModal").style.display="block";
+      }
+
+      // when click "X" button of modal - 모달 끄기
+      function request_friend_close() {
+        document.getElementById("requestFriendModal").style.display="none";
+      }
+
+      // 친구신청 대기 버튼 onclick()
+      function wait_friend() {
+        document.getElementById("waitFriendModal").style.display="block";
+      }
+
+      function wait_friend_close() {
+        document.getElementById("waitFriendModal").style.display="none";
+      }
+    </script>
+
+    <style>
+      #columns{
+        column-width:300px;
+      }
+
+      .friend-profile{
+        float: left;
+      }
+
+      .friend-list{
+        margin: 50px;
+      }
+
+    </style>
+
+    
+    
+</head>
+<body>
+    <!-- menu(top) -->
+    <div class="container-fluid">
+      <nav class="navbar navbar-icon-top navbar-expand-sm navbar-dark bg-dark">
+         <a class="navbar-brand" href="#"><b>Logo</b></a>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+           <span class="navbar-toggler-icon"></span>
+         </button>
+       
+         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+           <ul class="navbar-nav mr-auto">
+             <li class="nav-item">
+               <a class="nav-link" href="file:///C:/Users/User/Desktop/선진/workspace/capstone_2/main.html">
+                 <i class="fa fa-home"></i>
+                 홈
+                 <!-- <span class="sr-only">(current)</span> -->
+                 </a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link active" href="#">
+                 <i class="fa fa-envelope-o">
+                 </i>
+                 친구 목록
+               </a>
+             </li>
+             <!-- <li class="nav-item">
+               <a class="nav-link disabled" href="#">
+                 <i class="fa fa-envelope-o">
+                   <span class="badge badge-warning">11</span>
+                 </i>
+                 Disabled
+               </a>
+             </li>
+             <li class="nav-item dropdown">
+               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 <i class="fa fa-envelope-o">
+                   <span class="badge badge-primary">11</span>
+                 </i>
+                 Dropdown
+               </a>
+               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                 <a class="dropdown-item" href="#">Action</a>
+                 <a class="dropdown-item" href="#">Another action</a>
+                 <div class="dropdown-divider"></div>
+                 <a class="dropdown-item" href="#">Something else here</a>
+               </div> -->
+             </li>
+           </ul>
+           <ul class="navbar-nav ">
+             <li class="nav-item">
+               <a class="nav-link" href="#" onclick="request_friend()" id="requestFriendBtn" value="show request friend modal">
+                <!-- <a class="nav-link" href="#" id="requestFriendBtn" value="show request friend modal"> -->
+                 <i class="fa fa-bell">
+                    <!-- 아이콘 상단 숫자 알림 --> 
+                  <span class="badge badge-danger">2</span>
+                </i>
+                 친구 신청
+               </a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" href="#" onclick="wait_friend()" id="waitFriendBtn">
+                 <i class="fa fa-globe">
+                   <span class="badge badge-success">11</span>
+                 </i>
+                 친구 신청 대기
+               </a>
+             </li>
+           </ul>
+           <!-- <form class="form-inline my-2 my-lg-0">
+             <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+           </form> -->
+         </div>
+       </nav>
+       <!-- notice navigation bar end -->
+    </div>
+
+    <!-- 친구 목록 (리스트) -->
+    
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-offset-3 col-sm-6">
+              <div class="friend-list panel panel-default">
+                  <div class="panel-heading c-list" style="border-bottom: 1px solid #dee2e6; padding: 1rem 1rem;">
+                      <span class="title">친구 목록</span>
+                      <ul class="pull-right c-controls">
+                        <button type="button" class="btn btn-outline-secondary" id="friendEditBtn" style="padding: 1rem 1rem;">
+                          <span><b>edit</b></span>
+                        </button>
+                      </ul>
+                  </div><br><br>
+                  
+                  <!-- search friend bar -->
+                  <!-- <div class="row" style="display: block;">
+                      <div class="col-xs-12">
+                          <div class="input-group c-search">
+                              <input type="text" class="form-control" id="contact-list-search">
+                              <span class="input-group-btn">
+                                  <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search text-muted"></span></button>
+                              </span>
+                          </div>
+                      </div>
+                  </div> -->
+                  <div id="columns">
+                  <ul class="list-group" id="contact-list">
+                      <div class="friend-profile">
+                        <li class="list-group-item">
+                          <div class="col-xs-12 col-sm-3">
+                              <img src="http://api.randomuser.me/portraits/men/49.jpg" alt="Scott Stevens" class="img-responsive img-circle" />
+                          </div><br>
+                          <div class="friend-profile-detail col-xs-12 col-sm-9">
+                              <span class="name">User1</span><br>
+                              <span class="visible-xs"> <span>#액션</span> <span>#스릴러</span><br/></span>
+                          </div>
+                          <!-- <div class="clearfix"></div> -->
+                        </li>
+                        <li class="list-group-item">
+                          <div class="col-xs-12 col-sm-3">
+                              <img src="http://api.randomuser.me/portraits/men/49.jpg" alt="Scott Stevens" class="img-responsive img-circle" />
+                          </div><br>
+                          <div class="col-xs-12 col-sm-9">
+                              <span class="name">User2</span><br>
+                              <span class="visible-xs"> <span>#로맨스</span> <span>#코미디</span><br/></span>
+                          </div>
+                          <!-- <div class="clearfix"></div> -->
+                        </li>
+                      </div>
+                  </ul>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    
+
+    <!-- 친구 신청 modal -->
+    <div id="requestFriendModal" class="modal" role="dialog" aria-modal="true">
+      <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header"><h4><b>친구 신청 목록</b></h4>
+            <button type="button" class="close" id="requestFriendCloseBtn" onclick="request_friend_close()" data-dismis="modal" aria-label="close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="row col-md-12 col-md-offset-6 custyle">
+            <table class="table table-hover">
+            <thead>
+            <!-- <a href="#" class="btn btn-primary btn-xs pull-right"><b>+</b> Add new categories</a> -->
+                <tr>
+                    <th>번호</th>
+                    <th>아이디</th>
+                    <th>요청 날짜</th>
+                    <th class="text-center">수락/거절</th>
+                </tr>
+            </thead>
+                    <tr>
+                        <td>1</td>
+                        <td>testID</td>
+                        <td>20-06-03</td>
+                        <td class="text-center"><a class='btn btn-success btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> ✓</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> X</a></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>testID2</td>
+                        <td>20-06-02</td>
+                        <td class="text-center"><a class='btn btn-success btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> ✓</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> X</a></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>testID3</td>
+                        <td>20-06-02</td>
+                        <td class="text-center"><a class='btn btn-success btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> ✓</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span>X</a></td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>testID3</td>
+                      <td>20-06-02</td>
+                      <td class="text-center"><a class='btn btn-success btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> ✓</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> X</a></td>
+                    </tr>
+                    <tr>
+                      <td>5</td>
+                      <td>testID3</td>
+                      <td>20-06-02</td>
+                      <td class="text-center"><a class='btn btn-success btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> ✓</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> X</a></td>
+                    </tr>
+                    <tr>
+                      <td>6</td>
+                      <td>testID3</td>
+                      <td>20-06-02</td>
+                      <td class="text-center"><a class='btn btn-success btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> ✓</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> X</a></td>
+                    </tr>
+                    <tr>
+                      <td>7</td>
+                      <td>testID3</td>
+                      <td>20-06-02</td>
+                      <td class="text-center"><a class='btn btn-success btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> ✓</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span>X</a></td>
+                  </tr>
+            </table>
+            </div>
+          </div>
+
+        </div>
+      </div> <!-- scrollable end -->
+    </div>
+
+    <!-- 친구 신청 modal -->
+    <div id="waitFriendModal" class="modal" role="dialog"  aria-modal="true">
+      <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content">
+          <div  class="modal-header"><h4><b>친구 신청 대기 목록</b></h4>
+            <button type="button" class="close" id="waitFriendCloseBtn" onclick="wait_friend_close()" data-dismis="modal" aria-label="close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="row col-md-12 col-md-offset-6 custyle">
+            <table class="table table-hover">
+            <thead>
+            <!-- <a href="#" class="btn btn-primary btn-xs pull-right"><b>+</b> Add new categories</a> -->
+                <tr>
+                    <th>번호</th>
+                    <th>아이디</th>
+                    <th>요청 날짜</th>
+                    <th class="text-center">요청 취소</th>
+                </tr>
+            </thead>
+                    <tr>
+                        <td>1</td>
+                        <td>testID</td>
+                        <td>20-06-03</td>
+                        <td class="text-center"> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> X</a></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>testID2</td>
+                        <td>20-06-02</td>
+                        <td class="text-center"><a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> X</a></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>testID3</td>
+                        <td>20-06-02</td>
+                        <td class="text-center"> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span>X</a></td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>testID3</td>
+                      <td>20-06-02</td>
+                      <td class="text-center"><a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> X</a></td>
+                    </tr>
+                    <tr>
+                      <td>5</td>
+                      <td>testID3</td>
+                      <td>20-06-02</td>
+                      <td class="text-center"><a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> X</a></td>
+                    </tr>
+                    <tr>
+                      <td>6</td>
+                      <td>testID3</td>
+                      <td>20-06-02</td>
+                      <td class="text-center"><a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> X</a></td>
+                    </tr>
+                    <tr>
+                      <td>7</td>
+                      <td>testID3</td>
+                      <td>20-06-02</td>
+                      <td class="text-center"><a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span>X</a></td>
+                  </tr>
+            </table>
+            </div>
+          </div>
+
+        </div>
+      </div> <!-- scrollable end -->
+    </div> <!-- 친구 신청 대기 table end -->
+    
+
+</body>
+</html>
