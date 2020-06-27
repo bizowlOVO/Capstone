@@ -90,7 +90,7 @@ public class ReviewController {
 		review.setReviewSeq(Integer.parseInt(request.getParameter("reviewSeq")));
 		review.setReviewComment(request.getParameter("reviewComment"));
 		reviewServiceImpl.updateReview(review);
-		ModelAndView mav = new ModelAndView(new RedirectView("/review/list/"+request.getParameter("smovieSeq")));
+		ModelAndView mav = new ModelAndView(new RedirectView("/review/list/"+request.getParameter("movieSeq")));
 		return mav;
 	}
 

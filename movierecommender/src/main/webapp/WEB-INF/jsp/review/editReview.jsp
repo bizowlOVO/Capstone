@@ -8,7 +8,7 @@
 </head>
 <%@ include file="/WEB-INF/jsp/common/top.jsp"%>
 <body>
-<h1>리뷰등록</h1>
+<h1>리뷰수정</h1>
 	<form action="/review/${reviewSeq}" method="POST">
 		<table border="1">
 			<tr>
@@ -30,7 +30,7 @@
 				<td><input type="text"name="reviewComment"></td>
 			</tr>
 		</table>
-	<input type="submit" value="등록하기"/>
+	<input type="submit" value="수정하기"/>
 	</form>
 </body>
 </html>
