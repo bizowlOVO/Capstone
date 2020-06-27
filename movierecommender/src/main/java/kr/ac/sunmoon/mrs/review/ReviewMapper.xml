@@ -26,7 +26,7 @@
 				REVIEW_SEQ = #{reviewSeq}
 	</update>
 	
-	<delete id="deleteReivew" parameterType="kr.ac.sunmoon.mrs.agent.Review">
+	<delete id="deleteReview" parameterType="kr.ac.sunmoon.mrs.agent.Review">
 		DELETE FROM
 			REVIEW
 		WHERE

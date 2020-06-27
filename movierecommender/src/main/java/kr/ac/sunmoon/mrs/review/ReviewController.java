@@ -93,5 +93,14 @@ public class ReviewController {
 		ModelAndView mav = new ModelAndView(new RedirectView("/review/list/"+request.getParameter("movieSeq")));
 		return mav;
 	}
+	@GetMapping(value="/review/delete/{reviewSeq}")
+	public ModelAndView deleteReview(@PathVariable int reviewSeq, HttpServletRequest request) {
+		Review review = new Review();
+		review.setReviewSeq(reviewSeq);
+		String movieSeq = request.getParameter("movieSeq");
+		reviewServiceImpl.deleteReview(review);
+		ModelAndView mav = new ModelAndView(new RedirectView("/review/list/"+movieSeq));
+		return mav;
+	}
 
 }

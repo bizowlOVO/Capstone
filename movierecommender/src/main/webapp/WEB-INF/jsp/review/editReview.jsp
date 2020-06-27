@@ -32,5 +32,9 @@
 		</table>
 	<input type="submit" value="수정하기"/>
 	</form>
+	<form action="/review/delete/${result.reviewSeq}" method="GET">
+		<input type="hidden"value="${movieInfo.movieSeq}"name="movieSeq" >
+		<input type="submit" value="삭제" />
+	</form>
 </body>
 </html>
