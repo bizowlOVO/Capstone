@@ -19,4 +19,6 @@ public interface MemberMapper {
 	public void deleteMember(String memberId);
 	
 	public Member isLogin(String memberId);
+	
+	public void updateMemberMovieSeq(Member member);
 }

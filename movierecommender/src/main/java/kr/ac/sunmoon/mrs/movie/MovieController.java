@@ -128,6 +128,13 @@ public class MovieController {
 		movie.setMovieSeq(movieSeq);
 		movie = movieService.inquiryMovie(movie);
 		
+		HttpSession session = httpServletRequest.getSession();
+		Member member = new Member();
+		member.setMemberId((String)session.getAttribute("id"));
+		member.setMovieSeq(movie.getMovieSeq());
+		
+		memberService.updateMemberMovieSeq(member);
+		
 		/*
 		 * HttpSession session = httpServletRequest.getSession();
 		 * 

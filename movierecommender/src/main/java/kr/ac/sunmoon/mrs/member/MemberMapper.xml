@@ -81,4 +81,13 @@
     	WHERE
     		MEMBER_ID=#{memberId}
     </select>
+    
+    <update id="updateMemberMovieSeq" parameterType="kr.ac.sunmoon.mrs.agent.Member">
+      UPDATE
+         MEMBER
+      SET
+         MOVIE_SEQ=#{movieSeq}
+      WHERE 
+         MEMBER_ID=#{memberId}
+   </update>
 </mapper>

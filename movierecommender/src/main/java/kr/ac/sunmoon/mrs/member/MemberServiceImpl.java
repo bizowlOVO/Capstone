@@ -30,4 +30,8 @@ public class MemberServiceImpl implements MemberService {
 		return null;
 	}
 
+	public void updateMemberMovieSeq(Member member) {
+		memberMapper.updateMemberMovieSeq(member);
+	}
+
 }
