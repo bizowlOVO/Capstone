@@ -132,69 +132,35 @@
 	
 	<select id="selectRankRecently" resultType="kr.ac.sunmoon.mrs.agent.Movie" >
 		SELECT
+			POSTER,
 		    MOVIE_SEQ,
 		    TITLE,
-		    RELEASE_DATE,
-		    SYNOPSIS,
-		    FILM_AGE,
-		    DIRECT_COUNTRY,
-		    RUNNING_TIME,
-		    DOWNLOAD_LINK,
-		    GENRE_FIRST,
-		    GENRE_SECOND,
-		    VISIT_COUNT,
-		    DIRECTOR
+		    RELEASE_DATE
 		FROM 
 			(SELECT
+				POSTER,
 				MOVIE_SEQ,
 		    	TITLE,
-		    	RELEASE_DATE,
-		    	SYNOPSIS,
-		    	FILM_AGE,
-		    	DIRECT_COUNTRY,
-		    	RUNNING_TIME,
-		    	DOWNLOAD_LINK,
-		    	GENRE_FIRST,
-		    	GENRE_SECOND,
-		    	VISIT_COUNT,
-		    	DIRECTOR
+		    	RELEASE_DATE
 		     FROM MOVIE
 		     ORDER BY RELEASE_DATE DESC)
-		WHERE
-			MOVIE_SEQ = #{movieSeq}
 	</select>
 	
 	<select id="selectRankView" resultType="kr.ac.sunmoon.mrs.agent.Movie" >
 		SELECT
+			POSTER,
 		    MOVIE_SEQ,
 		    TITLE,
 		    RELEASE_DATE,
-		    SYNOPSIS,
-		    FILM_AGE,
-		    DIRECT_COUNTRY,
-		    RUNNING_TIME,
-		    DOWNLOAD_LINK,
-		    GENRE_FIRST,
-		    GENRE_SECOND,
-		    VISIT_COUNT,
-		    DIRECTOR
+		    VISIT_COUNT
 		FROM 
 			(SELECT
+				POSTER,
 				MOVIE_SEQ,
 		    	TITLE,
 		    	RELEASE_DATE,
-		    	SYNOPSIS,
-		    	FILM_AGE,
-		    	DIRECT_COUNTRY,
-		    	RUNNING_TIME,
-		    	DOWNLOAD_LINK,
-		    	GENRE_FIRST,
-		    	GENRE_SECOND,
-		    	VISIT_COUNT,
-		    	DIRECTOR
+		    	VISIT_COUNT
 		     FROM MOVIE
 		     ORDER BY VISIT_COUNT DESC)
-		WHERE
-			MOVIE_SEQ = #{movieSeq}
 	</select>
 </mapper>
