@@ -6,11 +6,13 @@
 
 	<insert id="addReview" parameterType="kr.ac.sunmoon.mrs.agent.Review">
 		INSERT INTO REVIEW
+		(REVIEW_SEQ, MEMBER_ID, MOVIE_SEQ, REVIEW_COMMENT, GRADE, REVIEW_POST_DATE)
 			VALUES(
 				REVIEW_SEQ.NEXTVAL,
 				#{memberId},
 				#{movieSeq},
 				#{reviewComment},
+				#{grade},
 				SYSDATE	
 			)
 	</insert>
@@ -37,7 +39,8 @@
 			MEMBER_ID,
 			MOVIE_SEQ,
 			REVIEW_COMMENT,
-			REVIEW_POST_DATE
+			REVIEW_POST_DATE,
+			GRADE
 		FROM
 			REVIEW
 		WHERE

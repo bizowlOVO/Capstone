@@ -33,7 +33,8 @@ public class ReviewController {
 		review.setMemberId(request.getParameter("memberId"));
 		review.setMovieSeq(Integer.parseInt(request.getParameter("movieSeq")));
 		review.setReviewComment(request.getParameter("reviewComment"));
-		
+		review.setGrade(Integer.parseInt(request.getParameter("grade")));
+
 		reviewServiceImpl.addReview(review);
 		
 		ModelAndView mav = new ModelAndView(new RedirectView("/movie/list"));
