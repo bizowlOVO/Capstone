@@ -86,6 +86,30 @@
 			#{poster} )
 	</insert>
 	
+	<select id="selectMovieAll" resultType="kr.ac.sunmoon.mrs.agent.Movie" >
+		SELECT
+		    MOVIE_SEQ,
+		    TITLE,
+		    RELEASE_DATE,
+		    SYNOPSIS,
+		    FILM_AGE,
+		    DIRECT_COUNTRY,
+		    RUNNING_TIME,
+		    DOWNLOAD_LINK,
+		    GENRE_FIRST,
+		    GENRE_SECOND,
+		    VISIT_COUNT,
+		    DIRECTOR,
+		    POSTER,
+		    ACTOR
+		FROM 
+			MOVIE
+		WHERE
+			ACTOR = #{search}
+			OR DIRECTOR = #{search}
+			OR TITLE = #{search}
+	</select>
+	
 	<update id="updateMovie" parameterType="kr.ac.sunmoon.mrs.agent.Movie">
 		UPDATE MOVIE SET
 			<if test="poster != null">
