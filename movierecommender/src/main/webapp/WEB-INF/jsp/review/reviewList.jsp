@@ -15,6 +15,7 @@
 			<td>글쓴이</td>
 			<td>리뷰</td>
 			<td>게시일</td>
+			<td>평점</td>
 		</tr>
 		<c:if test="${not empty reviews}">
 			<c:forEach items="${reviews}" var="review">
@@ -22,6 +23,7 @@
 					<td>${review.memberId}</td>
 					<td><a href="/review/editform">${review.reviewComment}</a></td>
 					<td>${review.reviewPostDate}</td>
+					<td>${review.grade}</td>
 				</tr>
 			</c:forEach>
 		</c:if>
