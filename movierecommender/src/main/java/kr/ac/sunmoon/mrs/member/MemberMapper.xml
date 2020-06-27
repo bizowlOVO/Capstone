@@ -12,6 +12,7 @@
           ,MEMBER_AGE
           ,MEMBER_GENDER
           ,MEMBER_STATE
+          ,MOVIE_SEQ
       FROM 
           MEMBER
       WHERE 
@@ -26,13 +27,20 @@
           ,MEMBER_AGE
           ,MEMBER_GENDER
           ,MEMBER_STATE
+          ,MOVIE_SEQ
       FROM
          MEMBER
    </select>
    
    <insert id="insertMember" parameterType="kr.ac.sunmoon.mrs.agent.Member">
-      INSERT INTO 
-         MEMBER
+      INSERT INTO MEMBER(
+      	 MEMBER_ID
+      	,MEMBER_PASSWORD
+      	,MEMBER_NAME
+      	,MEMBER_AGE
+      	,MEMBER_GENDER
+      	,MEMBER_STATE
+      )   
       VALUES(
          #{memberId}
          ,#{memberPassword}

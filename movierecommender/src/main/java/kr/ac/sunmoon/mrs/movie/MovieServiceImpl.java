@@ -45,8 +45,8 @@ public class MovieServiceImpl implements MovieService {
 			result.setGenreSecond(genreMapper.selectGenre(genre).getGenre());
 			
 		} else {
-			result.setGenreFirst(" ");
-			result.setGenreSecond(" ");
+			result.setGenreFirst("");
+			result.setGenreSecond("");
 		}
 		
 		return result;
@@ -64,8 +64,8 @@ public class MovieServiceImpl implements MovieService {
 				genre.setGenreCode(result.get(i).getGenreSecond());
 				result.get(i).setGenreSecond(genreMapper.selectGenre(genre).getGenre());
 			} else {
-				result.get(i).setGenreFirst(" ");
-				result.get(i).setGenreSecond(" ");
+				result.get(i).setGenreFirst("");
+				result.get(i).setGenreSecond("");
 			}
 		}
 		
