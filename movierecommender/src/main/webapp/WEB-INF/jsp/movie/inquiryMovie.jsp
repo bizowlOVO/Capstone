@@ -53,6 +53,6 @@
 			<input type="submit" value="삭제" />
 		</form>
 		
-		<a href="/movie/list"><input type="button" value="뒤로가기"></a>
+		<a href="/movie/list"><input type="button" value="전체 영화 목록 보기"></a>
 	</body>
 </html>
