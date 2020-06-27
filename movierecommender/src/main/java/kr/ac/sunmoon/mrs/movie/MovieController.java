@@ -135,4 +135,12 @@ public class MovieController {
 		
 		return mav;
 	}
+	
+	@GetMapping(value = "/movie/searchMovie")
+	public ModelAndView inquirySearchMovie(HttpServletRequest request) {
+		List<Movie> movie = movieService.inquirySearchMovie(request.getParameter("search"));
+		System.out.println(movie.get(0).getTitle());
+		
+		return null;
+	}
 }

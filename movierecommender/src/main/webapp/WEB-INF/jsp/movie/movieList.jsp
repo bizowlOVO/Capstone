@@ -9,6 +9,10 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<form action="/movie/searchMovie" method="GET">
+		<input type="text" value="검색할 내용을 입력하세요." name="search"/>
+		<input type="submit" value="검색" />
+	</form>
 	<h1>영화 목록</h1>
 	<a href="/movie/addform"><input type="button" value="영화 등록"></a>
 	<table border="1">

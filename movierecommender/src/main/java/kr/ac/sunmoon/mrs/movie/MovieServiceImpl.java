@@ -69,4 +69,7 @@ public class MovieServiceImpl implements MovieService {
 		return result;
 	}
 
+	public List<Movie> inquirySearchMovie(String search) {
+		return movieMapper.selectSearchMovie(search);
+	}
 }

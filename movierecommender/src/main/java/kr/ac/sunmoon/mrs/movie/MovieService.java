@@ -17,4 +17,6 @@ public interface MovieService {
 	public Movie inquiryMovie(Movie movie);
 	
 	public List<Movie> inquiryMovieAll();
+	
+	public List<Movie> inquirySearchMovie(String search);
 }

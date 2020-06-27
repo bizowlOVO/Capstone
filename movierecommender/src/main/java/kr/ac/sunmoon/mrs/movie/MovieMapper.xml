@@ -86,7 +86,7 @@
 			#{poster} )
 	</insert>
 	
-	<select id="selectMovieAll" resultType="kr.ac.sunmoon.mrs.agent.Movie" >
+	<select id="selectSearchMovie" parameterType="java.lang.String" resultType="kr.ac.sunmoon.mrs.agent.Movie" >
 		SELECT
 		    MOVIE_SEQ,
 		    TITLE,
@@ -105,9 +105,9 @@
 		FROM 
 			MOVIE
 		WHERE
-			ACTOR = #{search}
-			OR DIRECTOR = #{search}
-			OR TITLE = #{search}
+			ACTOR LIKE '%' || #{search} || '%'
+			OR DIRECTOR LIKE '%' || #{search} || '%'
+			OR TITLE LIKE '%' || #{search} || '%'
 	</select>
 	
 	<update id="updateMovie" parameterType="kr.ac.sunmoon.mrs.agent.Movie">
