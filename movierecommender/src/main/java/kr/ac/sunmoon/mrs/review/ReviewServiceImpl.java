@@ -24,18 +24,16 @@ public class ReviewServiceImpl implements ReviewService {
 	@Override
 	public void updateReview(Review review) {
 		reviewMapper.updateReview(review);
-		
 	}
 
 	@Override
 	public void deleteReview(Review review) {
-		// TODO Auto-generated method stub
-		
+		reviewMapper.deleteReview(review);
 	}
 
 	@Override
 	public Review inquiryReview(Review review) {
-		return null;
+		return reviewMapper.selectReview(review);
 	}
 
 	@Override

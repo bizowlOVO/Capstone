@@ -18,7 +18,9 @@
 		    GENRE_FIRST,
 		    GENRE_SECOND,
 		    VISIT_COUNT,
-		    DIRECTOR_SEQ
+		    DIRECTOR,
+		    POSTER,
+		    ACTOR
 		FROM 
 			 MOVIE
 		WHERE 
@@ -46,7 +48,9 @@
 		    GENRE_FIRST,
 		    GENRE_SECOND,
 		    VISIT_COUNT,
-		    DIRECTOR_SEQ
+		    DIRECTOR,
+		    POSTER,
+		    ACTOR
 		FROM 
 			MOVIE
 	</select>
@@ -63,7 +67,9 @@
 		    GENRE_FIRST,
 		    GENRE_SECOND,
 		    RELEASE_DATE,
-		    DIRECTOR_SEQ )
+		    DIRECTOR,
+		    ACTOR,
+		    POSTER )
 		VALUES (
 			MOVIE_SEQ.NEXTVAL,
 			#{title}, 
@@ -75,12 +81,40 @@
 			(SELECT GENRE_CODE FROM GENRE WHERE GENRE = #{genreFirst}),
 			(SELECT GENRE_CODE FROM GENRE WHERE GENRE = #{genreSecond}),
 			#{releaseDate},
-			11 )
+			#{director},
+			#{actor},
+			#{poster} )
 	</insert>
 	
+	<select id="selectSearchMovie" parameterType="java.lang.String" resultType="kr.ac.sunmoon.mrs.agent.Movie" >
+		SELECT
+		    MOVIE_SEQ,
+		    TITLE,
+		    RELEASE_DATE,
+		    SYNOPSIS,
+		    FILM_AGE,
+		    DIRECT_COUNTRY,
+		    RUNNING_TIME,
+		    DOWNLOAD_LINK,
+		    GENRE_FIRST,
+		    GENRE_SECOND,
+		    VISIT_COUNT,
+		    DIRECTOR,
+		    POSTER,
+		    ACTOR
+		FROM 
+			MOVIE
+		WHERE
+			ACTOR LIKE '%' || #{search} || '%'
+			OR DIRECTOR LIKE '%' || #{search} || '%'
+			OR TITLE LIKE '%' || #{search} || '%'
+	</select>
+	
 	<update id="updateMovie" parameterType="kr.ac.sunmoon.mrs.agent.Movie">
-		UPDATE MOVIE
-		SET
+		UPDATE MOVIE SET
+			<if test="poster != null">
+				POSTER = #{poster},
+			</if>
 			<if test="title != null">
 				TITLE = #{title},
 			</if>
@@ -105,8 +139,11 @@
 			<if test="genreSecond != null">
 				GENRE_SECOND = (SELECT GENRE_CODE FROM GENRE WHERE GENRE = #{genreSecond}),
 			</if>
-			<if test="directorSeq != null">
-				DIRECTOR_SEQ = #{directorSeq}
+			<if test="director != null">
+				DIRECTOR = #{director},
+			</if>
+			<if test="actor != null">
+				ACTOR = #{actor}
 			</if>
 		WHERE 
 			MOVIE_SEQ = #{movieSeq}
@@ -119,69 +156,35 @@
 	
 	<select id="selectRankRecently" resultType="kr.ac.sunmoon.mrs.agent.Movie" >
 		SELECT
+			POSTER,
 		    MOVIE_SEQ,
 		    TITLE,
-		    RELEASE_DATE,
-		    SYNOPSIS,
-		    FILM_AGE,
-		    DIRECT_COUNTRY,
-		    RUNNING_TIME,
-		    DOWNLOAD_LINK,
-		    GENRE_FIRST,
-		    GENRE_SECOND,
-		    VISIT_COUNT,
-		    DIRECTOR_SEQ
+		    RELEASE_DATE
 		FROM 
 			(SELECT
+				POSTER,
 				MOVIE_SEQ,
 		    	TITLE,
-		    	RELEASE_DATE,
-		    	SYNOPSIS,
-		    	FILM_AGE,
-		    	DIRECT_COUNTRY,
-		    	RUNNING_TIME,
-		    	DOWNLOAD_LINK,
-		    	GENRE_FIRST,
-		    	GENRE_SECOND,
-		    	VISIT_COUNT,
-		    	DIRECTOR_SEQ
+		    	RELEASE_DATE
 		     FROM MOVIE
 		     ORDER BY RELEASE_DATE DESC)
-		WHERE
-			MOVIE_SEQ = #{movieSeq}
 	</select>
 	
 	<select id="selectRankView" resultType="kr.ac.sunmoon.mrs.agent.Movie" >
 		SELECT
+			POSTER,
 		    MOVIE_SEQ,
 		    TITLE,
 		    RELEASE_DATE,
-		    SYNOPSIS,
-		    FILM_AGE,
-		    DIRECT_COUNTRY,
-		    RUNNING_TIME,
-		    DOWNLOAD_LINK,
-		    GENRE_FIRST,
-		    GENRE_SECOND,
-		    VISIT_COUNT,
-		    DIRECTOR_SEQ
+		    VISIT_COUNT
 		FROM 
 			(SELECT
+				POSTER,
 				MOVIE_SEQ,
 		    	TITLE,
 		    	RELEASE_DATE,
-		    	SYNOPSIS,
-		    	FILM_AGE,
-		    	DIRECT_COUNTRY,
-		    	RUNNING_TIME,
-		    	DOWNLOAD_LINK,
-		    	GENRE_FIRST,
-		    	GENRE_SECOND,
-		    	VISIT_COUNT,
-		    	DIRECTOR_SEQ
+		    	VISIT_COUNT
 		     FROM MOVIE
 		     ORDER BY VISIT_COUNT DESC)
-		WHERE
-			MOVIE_SEQ = #{movieSeq}
 	</select>
 </mapper>

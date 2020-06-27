@@ -12,8 +12,18 @@ public class Movie {
 	private String genreFirst;
 	private String genreSecond;
 	private int visitCount;
-	private int directorSeq;
+	private String director;
+	private String poster;
+	private String actor;
 	
+	public String getActor() {
+		return actor;
+	}
+
+	public void setActor(String actor) {
+		this.actor = actor;
+	}
+
 	public int getMovieSeq() {
 		return movieSeq;
 	}
@@ -101,12 +111,20 @@ public class Movie {
 	public void setVisitCount(int visitCount) {
 		this.visitCount = visitCount;
 	}
-	
-	public int getDirectorSeq() {
-		return directorSeq;
+
+	public String getPoster() {
+		return poster;
 	}
-	
-	public void setDirectorSeq(int directorSeq) {
-		this.directorSeq = directorSeq;
+
+	public void setPoster(String poster) {
+		this.poster = poster;
+	}
+
+	public String getDirector() {
+		return director;
+	}
+
+	public void setDirector(String director) {
+		this.director = director;
 	}
 }

@@ -6,7 +6,8 @@ public class Review {
 	private int movieSeq;
 	private String reviewComment;
 	private String reviewPostDate;
-	
+	private int grade;
+
 	public int getReviewSeq() {
 		return reviewSeq;
 	}
@@ -45,5 +46,12 @@ public class Review {
 	
 	public void setReviewPostDate(String reviewPostDate) {
 		this.reviewPostDate = reviewPostDate;
+	}
+	public int getGrade() {
+		return grade;
+	}
+
+	public void setGrade(int grade) {
+		this.grade = grade;
 	}
 }

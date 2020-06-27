@@ -33,7 +33,8 @@ public class ReviewController {
 		review.setMemberId(request.getParameter("memberId"));
 		review.setMovieSeq(Integer.parseInt(request.getParameter("movieSeq")));
 		review.setReviewComment(request.getParameter("reviewComment"));
-		
+		review.setGrade(Integer.parseInt(request.getParameter("grade")));
+
 		reviewServiceImpl.addReview(review);
 		
 		ModelAndView mav = new ModelAndView(new RedirectView("/movie/list"));
@@ -65,4 +66,41 @@ public class ReviewController {
 		mav.addObject("reviews", reviews);
 		return mav;
 	}
+	@GetMapping(value="/review/editform/{reviewSeq}")
+	public ModelAndView updateReview(@PathVariable int reviewSeq) {
+		Review reviewInfo = new Review();
+		reviewInfo.setReviewSeq(reviewSeq);
+		
+		Review result = reviewServiceImpl.inquiryReview(reviewInfo);
+		
+		Movie movie = new Movie();
+		movie.setMovieSeq(result.getMovieSeq());
+		
+		Movie movieInfo = movieService.inquiryMovie(movie);
+		
+		
+		ModelAndView mav = new ModelAndView("/review/editReview");
+		mav.addObject("result", result);
+		mav.addObject("movieInfo", movieInfo);
+		
+		return mav;
+	}
+	@PostMapping(value="/review/{reviewSeq}")
+	public ModelAndView updateReview(Review review, HttpServletRequest request) {
+		review.setReviewSeq(Integer.parseInt(request.getParameter("reviewSeq")));
+		review.setReviewComment(request.getParameter("reviewComment"));
+		reviewServiceImpl.updateReview(review);
+		ModelAndView mav = new ModelAndView(new RedirectView("/review/list/"+request.getParameter("movieSeq")));
+		return mav;
+	}
+	@GetMapping(value="/review/delete/{reviewSeq}")
+	public ModelAndView deleteReview(@PathVariable int reviewSeq, HttpServletRequest request) {
+		Review review = new Review();
+		review.setReviewSeq(reviewSeq);
+		String movieSeq = request.getParameter("movieSeq");
+		reviewServiceImpl.deleteReview(review);
+		ModelAndView mav = new ModelAndView(new RedirectView("/review/list/"+movieSeq));
+		return mav;
+	}
+
 }

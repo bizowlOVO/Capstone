@@ -6,17 +6,19 @@
 
 	<insert id="addReview" parameterType="kr.ac.sunmoon.mrs.agent.Review">
 		INSERT INTO REVIEW
+		(REVIEW_SEQ, MEMBER_ID, MOVIE_SEQ, REVIEW_COMMENT, GRADE, REVIEW_POST_DATE)
 			VALUES(
 				REVIEW_SEQ.NEXTVAL,
 				#{memberId},
 				#{movieSeq},
 				#{reviewComment},
+				#{grade},
 				SYSDATE	
 			)
 	</insert>
 	
-	<update id="updateReivew" parameterType="kr.ac.sunmoon.mrs.agent.Review">
-		UPDATE REIVEW
+	<update id="updateReview" parameterType="kr.ac.sunmoon.mrs.agent.Review">
+		UPDATE REVIEW
 			SET
 				REVIEW_COMMENT = #{reviewComment},
 				REVIEW_POST_DATE = SYSDATE
@@ -24,7 +26,7 @@
 				REVIEW_SEQ = #{reviewSeq}
 	</update>
 	
-	<delete id="deleteReivew" parameterType="kr.ac.sunmoon.mrs.agent.Review">
+	<delete id="deleteReview" parameterType="kr.ac.sunmoon.mrs.agent.Review">
 		DELETE FROM
 			REVIEW
 		WHERE
@@ -37,7 +39,8 @@
 			MEMBER_ID,
 			MOVIE_SEQ,
 			REVIEW_COMMENT,
-			REVIEW_POST_DATE
+			REVIEW_POST_DATE,
+			GRADE
 		FROM
 			REVIEW
 		WHERE
@@ -50,13 +53,13 @@
 			MEMBER_ID,
 			MOVIE_SEQ,
 			REVIEW_COMMENT,
-			REVIEW_POST_DATE
+			REVIEW_POST_DATE,
+			GRADE
 		FROM
 			REVIEW
 		WHERE
 			MOVIE_SEQ = #{movieSeq}
 		ORDER BY REVIEW_POST_DATE
 	</select>
-	
 	
 </mapper>

@@ -29,7 +29,8 @@
 	    			<option value="${genre.genre}">${genre.genre}</option>
 	    		</c:forEach>
 	    		</select><br>
-		감독 <input type="text" name ='directorSeq' value='${movie.directorSeq}'/><br>
+		감독 <input type="text" name='director' value='${movie.director}'/><br>
+		배우 <input type="text" name='actor' value='${movie.actor}' /><br>
 		<input type="submit" value="수정"/>
 	</form>
 </body>

@@ -7,6 +7,7 @@ public class Member {
 	private String memberAge;
 	private String memberGender;
 	private String memberState;
+	private int movieSeq;
 	
 	public String getMemberId() {
 		return memberId;
@@ -54,5 +55,13 @@ public class Member {
 	
 	public void setMemberState(String memberState) {
 		this.memberState = memberState;
+	}
+
+	public int getMovieSeq() {
+		return movieSeq;
+	}
+
+	public void setMovieSeq(int movieSeq) {
+		this.movieSeq = movieSeq;
 	}
 }

@@ -20,6 +20,8 @@ public interface MovieMapper {
 	
 	public void deleteMovie(Movie movie);
 	
+	public List<Movie> selectSearchMovie(String search);
+	
 	public List<Movie> selectRankRecently();
 	
 	public List<Movie> selectRankView();

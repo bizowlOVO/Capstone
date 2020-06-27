@@ -5,7 +5,6 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,15 +14,18 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import kr.ac.sunmoon.mrs.agent.Genre;
 import kr.ac.sunmoon.mrs.agent.Movie;
+import kr.ac.sunmoon.mrs.genre.GenreService;
 
 @RestController
 public class MovieController {
 	@Autowired
 	private MovieService movieService;
+	@Autowired
+	private GenreService genreService;
 	
 	@GetMapping(value = "/movie/addform")
 	public ModelAndView addMovieInfo(Movie movie) {//영화등록폼
-		List<Genre> genre = movieService.getGenreList();
+		List<Genre> genre = genreService.inquiryGenreAll();
 		
 		ModelAndView mav = null;
 		mav = new ModelAndView("/movie/insertMovie");
@@ -44,6 +46,10 @@ public class MovieController {
 		movie.setDownloadLink(request.getParameter("downloadLink"));
 		movie.setGenreFirst(request.getParameter("genreFirst"));
 		movie.setGenreSecond(request.getParameter("genreSecond"));
+		movie.setPoster(request.getParameter("poster"));
+		movie.setActor(request.getParameter("actor"));
+		movie.setDirector(request.getParameter("director"));
+		System.out.println(movie.getGenreSecond());
 		movieService.addMovieInfo(movie);
 	
 		ModelAndView mav = null;
@@ -71,6 +77,7 @@ public class MovieController {
 	@PostMapping(value = "/movie/{movieSeq}")
 	public ModelAndView updateMovieInfo(HttpServletRequest request, @PathVariable int movieSeq) {//영화정보수정
 		Movie movie = new Movie();
+		movie.setPoster(request.getParameter("poster"));
 		movie.setTitle(request.getParameter("title"));
 		movie.setMovieSeq(movieSeq);
 		//movie.setReleaseDate(request.getParameter("releaseDate"));
@@ -81,7 +88,8 @@ public class MovieController {
 		movie.setDownloadLink(request.getParameter("downloadLink"));
 		movie.setGenreFirst(request.getParameter("genreFirst"));
 		movie.setGenreSecond(request.getParameter("genreSecond"));
-		movie.setDirectorSeq(Integer.parseInt(request.getParameter("directorSeq")));
+		movie.setDirector(request.getParameter("director"));
+		movie.setActor(request.getParameter("actor"));
 		movieService.updateMovieInfo(movie);
 		
 		ModelAndView mav = null;
@@ -126,5 +134,13 @@ public class MovieController {
 		mav.addObject("movie", movie);
 		
 		return mav;
+	}
+	
+	@GetMapping(value = "/movie/searchMovie")
+	public ModelAndView inquirySearchMovie(HttpServletRequest request) {
+		List<Movie> movie = movieService.inquirySearchMovie(request.getParameter("search"));
+		System.out.println(movie.get(0).getTitle());
+		
+		return null;
 	}
 }

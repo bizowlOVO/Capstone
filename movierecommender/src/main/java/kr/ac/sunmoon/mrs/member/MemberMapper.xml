@@ -12,6 +12,7 @@
           ,MEMBER_AGE
           ,MEMBER_GENDER
           ,MEMBER_STATE
+          ,MOVIE_SEQ
       FROM 
           MEMBER
       WHERE 
@@ -26,13 +27,20 @@
           ,MEMBER_AGE
           ,MEMBER_GENDER
           ,MEMBER_STATE
+          ,MOVIE_SEQ
       FROM
          MEMBER
    </select>
    
    <insert id="insertMember" parameterType="kr.ac.sunmoon.mrs.agent.Member">
-      INSERT INTO 
-         MEMBER
+      INSERT INTO MEMBER(
+      	 MEMBER_ID
+      	,MEMBER_PASSWORD
+      	,MEMBER_NAME
+      	,MEMBER_AGE
+      	,MEMBER_GENDER
+      	,MEMBER_STATE
+      )   
       VALUES(
          #{memberId}
          ,#{memberPassword}
@@ -63,19 +71,11 @@
       WHERE 
          MEMBER_ID=#{memberId}
    </update>
-      
-   <select id="loginChecker" resultType="int" parameterType="java.lang.String">
-       SELECT
-          COUNT(*)
-       FROM
-          MEMBER
-       WHERE
-          MEMBER_ID =#{memberId} AND MEMBER_PASSWORD =#{memberPassword}
-    </select>
     
-    <select id="isLogin" resultType="java.lang.String" parameterType="java.lang.String">
+    <select id="isLogin" resultType="kr.ac.sunmoon.mrs.agent.Member" parameterType="java.lang.String">
     	SELECT
-    		MEMBER_PASSWORD
+    		MEMBER_PASSWORD,
+    		MEMBER_STATE
     	FROM
     		MEMBER
     	WHERE

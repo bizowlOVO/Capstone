@@ -1,10 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.4.0.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> 
 </head>
 <%@ include file="/WEB-INF/jsp/common/top.jsp"%>
 <body>
@@ -28,8 +30,17 @@
 				<td>Comment</td>
 				<td><input type="text"name="reviewComment"></td>
 			</tr>
+			<tr>
+				<td>Grade</td>
+				<td><input type="radio" name="grade" value="1">1
+					<input type="radio" name="grade" value="2">2
+					<input type="radio" name="grade" value="3">3
+					<input type="radio" name="grade" value="4">4
+					<input type="radio" name="grade" value="5">5
+				</td>
+			</tr>
 		</table>
-		<input type ="submit" value="등록">
+		<input type="submit" value="등록하기"/>
 	</form>
 </body>
 </html>
