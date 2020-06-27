@@ -50,6 +50,9 @@ public class MovieController {
 		movie.setDownloadLink(request.getParameter("downloadLink"));
 		movie.setGenreFirst(request.getParameter("genreFirst"));
 		movie.setGenreSecond(request.getParameter("genreSecond"));
+		movie.setPoster(request.getParameter("poster"));
+		movie.setActor(request.getParameter("actor"));
+		movie.setDirector(request.getParameter("director"));
 		movieService.addMovieInfo(movie);
 	
 		ModelAndView mav = null;
@@ -77,6 +80,7 @@ public class MovieController {
 	@PostMapping(value = "/movie/{movieSeq}")
 	public ModelAndView updateMovieInfo(HttpServletRequest request, @PathVariable int movieSeq) {//영화정보수정
 		Movie movie = new Movie();
+		movie.setPoster(request.getParameter("poster"));
 		movie.setTitle(request.getParameter("title"));
 		movie.setMovieSeq(movieSeq);
 		//movie.setReleaseDate(request.getParameter("releaseDate"));
@@ -88,6 +92,7 @@ public class MovieController {
 		movie.setGenreFirst(request.getParameter("genreFirst"));
 		movie.setGenreSecond(request.getParameter("genreSecond"));
 		movie.setDirector(request.getParameter("director"));
+		movie.setActor(request.getParameter("actor"));
 		movieService.updateMovieInfo(movie);
 		
 		ModelAndView mav = null;

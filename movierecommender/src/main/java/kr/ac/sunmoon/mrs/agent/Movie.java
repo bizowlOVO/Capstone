@@ -14,7 +14,16 @@ public class Movie {
 	private int visitCount;
 	private String director;
 	private String poster;
+	private String actor;
 	
+	public String getActor() {
+		return actor;
+	}
+
+	public void setActor(String actor) {
+		this.actor = actor;
+	}
+
 	public int getMovieSeq() {
 		return movieSeq;
 	}

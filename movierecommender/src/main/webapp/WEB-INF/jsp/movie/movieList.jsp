@@ -12,7 +12,7 @@
 	<h1>영화 목록</h1>
 	<a href="/movie/addform"><input type="button" value="영화 등록"></a>
 	<table border="1">
-		<th>영화코드</th>
+		<th></th>
 		<th>영화명</th>
 		<th>개봉날짜</th>
 		<th>줄거리</th>
@@ -23,10 +23,11 @@
 		<th>장르1</th>
 		<th>장르2</th>
 		<th>감독</th>
+		<th>배우</th>
 		<c:forEach items="${movie}" var="movie">
 			<tr>
+				<td>${movie.poster}</td>
 				<td><a href = "/movie/${movie.movieSeq}">${movie.title}</a></td>
-				<td>${movie.movieSeq}
 				<td>${movie.releaseDate}</td>
 				<td>${movie.synopsis}</td>
 				<td>${movie.filmAge}</td>
@@ -35,7 +36,8 @@
 				<td>${movie.downloadLink}</td>
 				<td>${movie.genreFirst}</td>
 				<td>${movie.genreSecond}</td>
-				<td>${movie.directorSeq}</td>
+				<td>${movie.director}</td>
+				<td>${movie.actor}</td>
 			</tr>
 		</c:forEach>
 	</table>

@@ -17,10 +17,6 @@ public class GenreServiceImpl implements GenreService {
 	}
 
 	public List<Genre> inquiryGenreAll() {
-		List<Genre> genre = genreMapper.selectGenreAll();
-		for (int i = 0; i < genre.size(); i++) {
-			System.out.println(genre.get(i).getGenre());
-		}
 		return genreMapper.selectGenreAll();
 	}
 }

@@ -18,7 +18,9 @@
 		    GENRE_FIRST,
 		    GENRE_SECOND,
 		    VISIT_COUNT,
-		    DIRECTOR
+		    DIRECTOR,
+		    POSTER,
+		    ACTOR
 		FROM 
 			 MOVIE
 		WHERE 
@@ -46,7 +48,9 @@
 		    GENRE_FIRST,
 		    GENRE_SECOND,
 		    VISIT_COUNT,
-		    DIRECTOR
+		    DIRECTOR,
+		    POSTER,
+		    ACTOR
 		FROM 
 			MOVIE
 	</select>
@@ -63,7 +67,9 @@
 		    GENRE_FIRST,
 		    GENRE_SECOND,
 		    RELEASE_DATE,
-		    DIRECTOR )
+		    DIRECTOR,
+		    ACTOR,
+		    POSTER )
 		VALUES (
 			MOVIE_SEQ.NEXTVAL,
 			#{title}, 
@@ -75,12 +81,16 @@
 			(SELECT GENRE_CODE FROM GENRE WHERE GENRE = #{genreFirst}),
 			(SELECT GENRE_CODE FROM GENRE WHERE GENRE = #{genreSecond}),
 			#{releaseDate},
-			11 )
+			#{director},
+			#{actor},
+			#{poster} )
 	</insert>
 	
 	<update id="updateMovie" parameterType="kr.ac.sunmoon.mrs.agent.Movie">
-		UPDATE MOVIE
-		SET
+		UPDATE MOVIE SET
+			<if test="poster != null">
+				POSTER = #{poster},
+			</if>
 			<if test="title != null">
 				TITLE = #{title},
 			</if>
@@ -105,8 +115,11 @@
 			<if test="genreSecond != null">
 				GENRE_SECOND = (SELECT GENRE_CODE FROM GENRE WHERE GENRE = #{genreSecond}),
 			</if>
-			<if test="directorSeq != null">
-				DIRECTOR = #{director}
+			<if test="director != null">
+				DIRECTOR = #{director},
+			</if>
+			<if test="actor != null">
+				ACTOR = #{actor}
 			</if>
 		WHERE 
 			MOVIE_SEQ = #{movieSeq}
