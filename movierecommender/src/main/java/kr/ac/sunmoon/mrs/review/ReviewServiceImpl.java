@@ -35,7 +35,7 @@ public class ReviewServiceImpl implements ReviewService {
 
 	@Override
 	public Review inquiryReview(Review review) {
-		return null;
+		return reviewMapper.selectReview(review);
 	}
 
 	@Override

@@ -20,4 +20,6 @@ public interface ReviewMapper {
 	public void deleteReview();
 	
 	public List<Movie> selectRankReview();
+	
+	public Review selectReview(Review review);
 }

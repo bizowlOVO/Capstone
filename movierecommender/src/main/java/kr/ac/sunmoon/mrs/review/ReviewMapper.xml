@@ -17,8 +17,8 @@
 			)
 	</insert>
 	
-	<update id="updateReivew" parameterType="kr.ac.sunmoon.mrs.agent.Review">
-		UPDATE REIVEW
+	<update id="updateReview" parameterType="kr.ac.sunmoon.mrs.agent.Review">
+		UPDATE REVIEW
 			SET
 				REVIEW_COMMENT = #{reviewComment},
 				REVIEW_POST_DATE = SYSDATE
