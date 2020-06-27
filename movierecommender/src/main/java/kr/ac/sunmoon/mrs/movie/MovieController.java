@@ -27,10 +27,6 @@ public class MovieController {
 	public ModelAndView addMovieInfo(Movie movie) {//영화등록폼
 		List<Genre> genre = genreService.inquiryGenreAll();
 		
-		for (int i = 0; i < genre.size(); i++) {
-			System.out.println(genre.get(i).getGenre());
-		}
-
 		ModelAndView mav = null;
 		mav = new ModelAndView("/movie/insertMovie");
 		mav.addObject("genre", genre);
@@ -53,6 +49,7 @@ public class MovieController {
 		movie.setPoster(request.getParameter("poster"));
 		movie.setActor(request.getParameter("actor"));
 		movie.setDirector(request.getParameter("director"));
+		System.out.println(movie.getGenreSecond());
 		movieService.addMovieInfo(movie);
 	
 		ModelAndView mav = null;
