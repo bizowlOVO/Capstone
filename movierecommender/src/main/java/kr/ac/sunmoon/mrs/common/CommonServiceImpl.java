@@ -25,17 +25,26 @@ public class CommonServiceImpl implements CommonService {
 		
 		if (memberId != null && memberPassword != null 
 				&& !memberId.equals("") && !memberPassword.equals("")) {
-			String result = memberMapper.isLogin(memberId);
-			if (result != null && !result.equals("")) {
-				if (result.equals(memberPassword)) {
-					System.out.println("조회된 정보가 존재합니다");
-					loginCheck = true;
+			System.out.println(memberId);
+			Member result = memberMapper.isLogin(memberId);
+			System.out.println("체크함!!!!!!!!");
+			System.out.println(result.getMemberPassword());
+			if (result.getMemberPassword() != null 
+					&& !result.getMemberPassword().equals("")) {
+				if (result.getMemberPassword().equals(memberPassword)) {
+					if (result.getMemberState().equals("A")) {
+						System.out.println("조회된 정보가 존재합니다");
+						loginCheck = true;
+						
+						HttpSession session = httpServletRequest.getSession();
+						Member memberInfo = memberMapper.selectMember(memberId);
+						session.setAttribute("id", member.getMemberId());
+						session.setAttribute("memberInfo", memberInfo);
+						session.setMaxInactiveInterval(10*60);
+					} else {
+						System.out.println("탈퇴한 회원입니다.");
+					}
 					
-					HttpSession session = httpServletRequest.getSession();
-					Member memberInfo = memberMapper.selectMember(memberId);
-					session.setAttribute("id", member.getMemberId());
-					session.setAttribute("memberInfo", memberInfo);
-					session.setMaxInactiveInterval(10*60);
 				} else {
 					System.out.println("조회된 정보 없음");
 				}

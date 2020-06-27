@@ -18,7 +18,5 @@ public interface MemberMapper {
 	
 	public void deleteMember(String memberId);
 	
-	//public int loginChecker(String memberId, String memberPassword);
-	
-	public String isLogin(String memberId);
+	public Member isLogin(String memberId);
 }
