@@ -11,5 +11,10 @@
 	<a href="/common/logout"><input type="button" value="로그아웃"></a>
 	<a href="/member/domypage">마이페이지</a>
 	<a href="/common/mainpage">홈</a>
+	<br><br>
+	<form action="/movie/searchMovie" method="GET">
+		<input type="text" name="search"/>
+		<input type="submit" value="검색" />
+	</form>
 </body>
 </html>

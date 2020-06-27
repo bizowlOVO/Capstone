@@ -33,7 +33,7 @@
 				<th>배우</th>
 				<tr>
 					<td>${movie.poster}</td>
-					<td><a href = "/movie/${movie.movieSeq}">${movie.title}</a></td>
+					<td>${movie.title}</a></td>
 					<td>${movie.releaseDate}</td>
 					<td>${movie.synopsis}</td>
 					<td>${movie.filmAge}</td>

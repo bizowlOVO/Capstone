@@ -4,7 +4,7 @@ public class Member {
 	private String memberId;
 	private String memberPassword;
 	private String memberName;
-	private String memberAge;
+	private int memberAge;
 	private String memberGender;
 	private String memberState;
 	private int movieSeq;
@@ -33,11 +33,11 @@ public class Member {
 		this.memberName = memberName;
 	}
 	
-	public String getMemberAge() {
+	public int getMemberAge() {
 		return memberAge;
 	}
 	
-	public void setMemberAge(String memberAge) {
+	public void setMemberAge(int memberAge) {
 		this.memberAge = memberAge;
 	}
 	

@@ -3,6 +3,7 @@ package kr.ac.sunmoon.mrs.movie;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,8 +14,11 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import kr.ac.sunmoon.mrs.agent.Genre;
+import kr.ac.sunmoon.mrs.agent.Member;
 import kr.ac.sunmoon.mrs.agent.Movie;
 import kr.ac.sunmoon.mrs.genre.GenreService;
+import kr.ac.sunmoon.mrs.member.MemberService;
+import kr.ac.sunmoon.mrs.recommendByAge.RecommendByAgeService;
 
 @RestController
 public class MovieController {
@@ -22,6 +26,12 @@ public class MovieController {
 	private MovieService movieService;
 	@Autowired
 	private GenreService genreService;
+	@Autowired
+	private MemberService memberService;
+	@Autowired
+	private HttpServletRequest httpServletRequest;
+	@Autowired
+	private RecommendByAgeService recommendByAgeService;
 	
 	@GetMapping(value = "/movie/addform")
 	public ModelAndView addMovieInfo(Movie movie) {//영화등록폼
@@ -118,6 +128,14 @@ public class MovieController {
 		movie.setMovieSeq(movieSeq);
 		movie = movieService.inquiryMovie(movie);
 		
+		/*
+		 * HttpSession session = httpServletRequest.getSession();
+		 * 
+		 * Member member =
+		 * memberService.inquiryMember((String)session.getAttribute("id"));
+		 * recommendByAgeService.updateRecommendByAge(member.getMemberAge());
+		 */
+		
 		ModelAndView mav = null;
 		mav = new ModelAndView("/movie/inquiryMovie");
 		mav.addObject("movie", movie);
@@ -139,8 +157,10 @@ public class MovieController {
 	@GetMapping(value = "/movie/searchMovie")
 	public ModelAndView inquirySearchMovie(HttpServletRequest request) {
 		List<Movie> movie = movieService.inquirySearchMovie(request.getParameter("search"));
-		System.out.println(movie.get(0).getTitle());
 		
-		return null;
+		ModelAndView mav = new ModelAndView("/movie/movieList");
+		mav.addObject("movie", movie);
+		
+		return mav;
 	}
 }
