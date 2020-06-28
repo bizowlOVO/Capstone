@@ -55,6 +55,9 @@
   box-sizing: border-box;
 }
 
+.test{
+  color: red;
+}
 
 /* top menu */
 html, body {

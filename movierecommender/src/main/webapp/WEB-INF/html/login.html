@@ -20,7 +20,50 @@
 </head>
 
 <body>
-	<dvi class="container">
+
+	<div class="container">
+		<div class="d-flex justify-content-center">
+			<div class="card mt-5 col-md-4 animated bounceInDown myForm">
+				<div class="card-header">
+					<h4 style="text-align: center; font-size: 35px;">MRS</h4>
+				</div>
+				<div class="card-body">
+					<form action="/common/login" method="POST">
+						<div id="dynamic_container">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text br-15"><i class="fas fa-user"></i></span>
+								</div>
+								<input type="text" name='memberId' placeholder="ID" class="form-control"/>
+							</div>
+							<div class="input-group mt-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text br-15"><i class="fas fa-key"></i></span>
+								</div>
+								<input type="password" name='memberPassword' placeholder="PW" class="form-control"/>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="card-footer">
+					<!-- <button class="btn btn-secondary btn-sm" id="add_more"> -->
+						<a href="/member/addform">
+							<input type="button" class="btn btn-secondary btn-sm" id="add_more" value="회원가입"/>
+							<i class="fas fa-plus-circle"></i>회원가입
+						</a>
+					<!-- </button> -->
+					<button class="btn btn-success btn-sm float-right submit_btn">
+						<input type="submit" value="로그인">
+						<i class="fas fa-arrow-alt-circle-right"></i>로그인
+					</button>
+				</div>
+			</div>
+		</div>
+		</div>
+
+
+
+	<!-- <div class="container">
 	<div class="d-flex justify-content-center">
 		<div class="card mt-5 col-md-4 animated bounceInDown myForm">
 			<div class="card-header">
@@ -45,11 +88,11 @@
 				</form>
 			</div>
 			<div class="card-footer">
-				<button class="btn btn-secondary btn-sm" id="add_more" onclick="location.href='createAccount.html'"><i class="fas fa-plus-circle"></i>���� ����</button>
-				<button class="btn btn-success btn-sm float-right submit_btn" onclick="location.href='main.html'"><i class="fas fa-arrow-alt-circle-right"></i>�α���</button>
+				<button class="btn btn-secondary btn-sm" id="add_more" onclick="location.href='createAccount.html'"><i class="fas fa-plus-circle"></i>���� ����</button>
+				<button class="btn btn-success btn-sm float-right submit_btn" onclick="location.href='main.html'"><i class="fas fa-arrow-alt-circle-right"></i>�α���</button>
 			</div>
 		</div>
 	</div>
-	</dvi>
+	</div> -->
 </body>
 </html>
