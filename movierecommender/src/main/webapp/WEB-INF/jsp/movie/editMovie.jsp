@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<%@ include file="/WEB-INF/jsp/common/top.jsp" %>
 	<h1>영화 수정</h1>
 	<form action="/movie/${movie.movieSeq}" method="POST">
 		영화명    <input type="text" name='title' value='${movie.title}'/><br>

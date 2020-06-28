@@ -9,6 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<%@ include file="/WEB-INF/jsp/common/top.jsp" %>
 	<h1>영화 목록</h1>
 	<a href="/movie/addform"><input type="button" value="영화 등록"></a>
 	<table border="1">

@@ -9,6 +9,7 @@
 <title>Insert title here</title>
 </head>
 	<body>
+		<%@ include file="/WEB-INF/jsp/common/top.jsp" %>
 		<h1>영화 상세 조회</h1>
 		<form action="/review/addform/${movie.movieSeq}" method="GET">
 			<input type="submit" value="리뷰작성" />
@@ -16,8 +17,13 @@
 		<form action="/review/list/${movie.movieSeq}" method="GET">
 			<input type="submit" value="리뷰보기" />
 		</form>
-		 
+		
+		<c:if test="${!empty boookmark}">
+		<a href="/bookmark/${bookmark}"><input type="button" value="관심"></a>
+		</c:if>
+		<c:if test="${empty boookmark}">
 		<a href="/bookmark/${movie.movieSeq}"><input type="button" value="관심없음"></a>
+		</c:if>
 		
 		<form action="/movie/${movie.movieSeq}/editform" method="GET" id="inquiryMovie">
 			<table>
