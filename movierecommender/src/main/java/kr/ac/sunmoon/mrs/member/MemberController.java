@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
@@ -41,9 +42,14 @@ public class MemberController {
 	
 	@PostMapping("/member")
 	public ModelAndView addmemberInfo(Member member) {
-		this.memberService.addMemberInfo(member);
-		return new ModelAndView(new RedirectView("/common/login"));
-	}
+	   if(this.memberService.addMemberInfo(member) == true) {
+		   return new ModelAndView(new RedirectView("/common/login"));
+	   } else {
+		   ModelAndView mav = new ModelAndView("/member/insertMember");
+	       return mav;
+	   }
+	      
+	   }
 	
 	@GetMapping("/member/addform")
 	public ModelAndView addmemberInfo() {
@@ -79,9 +85,9 @@ public class MemberController {
 		return mav;
 	}
 	
-	@GetMapping("/member/{memberId}/isduplicate")
-	public boolean isDuplicateMember(@PathVariable("memberId") String memberId) {
-		return false;
+	@GetMapping("/member/addform/isduplicate")
+	public boolean isDuplicateMember(@RequestParam("memberId") String memberId) {
+	    return memberService.isDuplicateMember(memberId);
 	}
 	
 	@GetMapping("/member/domypage")

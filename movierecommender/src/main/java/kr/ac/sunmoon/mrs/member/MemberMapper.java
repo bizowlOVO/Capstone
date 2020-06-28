@@ -21,4 +21,6 @@ public interface MemberMapper {
 	public Member isLogin(String memberId);
 	
 	public void updateMemberMovieSeq(Member member);
+	
+	public int isDuplicateMember(String memberId);
 }

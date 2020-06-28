@@ -10,8 +10,18 @@ public class MemberServiceImpl implements MemberService {
 	@Autowired
 	private MemberMapper memberMapper;
 
-	public void addMemberInfo(Member member) {
-		memberMapper.insertMember(member);
+	public Boolean addMemberInfo(Member member) {
+		if (!member.getMemberId().equals("")
+				&& !member.getMemberPassword().equals("")
+				&& !member.getMemberName().equals("")
+				&& !member.getMemberGender().equals("")) {
+			memberMapper.insertMember(member);
+			System.err.println("다 채워짐");
+			return true;
+		} else {
+			System.err.println("다 안채워졋어여");
+			return false;
+		}
 	}
 
 	public void editMemberInfo(Member member) {
@@ -26,8 +36,12 @@ public class MemberServiceImpl implements MemberService {
 		return this.memberMapper.selectMember(memberId);
 	}
 
-	public Boolean isDuplicateMember(Member member) {
-		return null;
+	public Boolean isDuplicateMember(String memberId) {
+		if(memberMapper.isDuplicateMember(memberId) == 0) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	public void updateMemberMovieSeq(Member member) {

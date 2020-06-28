@@ -90,4 +90,13 @@
       WHERE 
          MEMBER_ID=#{memberId}
    </update>
+   
+   <select id="isDuplicateMember" resultType="int" parameterType="java.lang.String">
+		SELECT
+		     COUNT(*)
+		FROM
+		     MEMBER
+		WHERE
+		     MEMBER_ID=#{memberId}
+	</select>
 </mapper>
