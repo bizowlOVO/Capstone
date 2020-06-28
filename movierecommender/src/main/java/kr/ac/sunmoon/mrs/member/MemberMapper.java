@@ -17,6 +17,10 @@ public interface MemberMapper {
 	public void updateMember(Member member);
 	
 	public void deleteMember(String memberId);
-	
+	 
 	public Member isLogin(String memberId);
+	
+	public void updateMemberMovieSeq(Member member);
+	
+	public int isDuplicateMember(String memberId);
 }

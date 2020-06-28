@@ -36,6 +36,7 @@ public class ReviewController {
 		review.setGrade(Integer.parseInt(request.getParameter("grade")));
 
 		reviewServiceImpl.addReview(review);
+		reviewServiceImpl.updateMovieAvgGrade(Integer.valueOf(request.getParameter("movieSeq")));
 		
 		ModelAndView mav = new ModelAndView(new RedirectView("/movie/list"));
 		return mav;
@@ -77,7 +78,6 @@ public class ReviewController {
 		movie.setMovieSeq(result.getMovieSeq());
 		
 		Movie movieInfo = movieService.inquiryMovie(movie);
-		
 		
 		ModelAndView mav = new ModelAndView("/review/editReview");
 		mav.addObject("result", result);

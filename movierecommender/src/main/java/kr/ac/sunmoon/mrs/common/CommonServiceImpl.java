@@ -25,10 +25,7 @@ public class CommonServiceImpl implements CommonService {
 		
 		if (memberId != null && memberPassword != null 
 				&& !memberId.equals("") && !memberPassword.equals("")) {
-			System.out.println(memberId);
 			Member result = memberMapper.isLogin(memberId);
-			System.out.println("체크함!!!!!!!!");
-			System.out.println(result.getMemberPassword());
 			if (result.getMemberPassword() != null 
 					&& !result.getMemberPassword().equals("")) {
 				if (result.getMemberPassword().equals(memberPassword)) {

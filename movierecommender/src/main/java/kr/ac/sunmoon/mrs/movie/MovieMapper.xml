@@ -187,4 +187,21 @@
 		     FROM MOVIE
 		     ORDER BY VISIT_COUNT DESC)
 	</select>
+	
+	<update id="updateMovieAvgGrade" parameterType="kr.ac.sunmoon.mrs.agent.Movie">
+		UPDATE MOVIE SET
+			AVG_GRADE = #{avgGrade}
+		WHERE 
+			MOVIE_SEQ = #{movieSeq}
+	</update>
+	
+	<select id="selectRankReview" resultType = "kr.ac.sunmoon.mrs.agent.Movie">
+		SELECT DISTINCT(MOVIE.MOVIE_SEQ), MOVIE.AVG_GRADE
+		FROM MOVIE,
+			(SELECT MOVIE_SEQ, COUNT(REVIEW_SEQ)
+             FROM REVIEW
+             GROUP BY MOVIE_SEQ
+             ORDER BY COUNT(REVIEW_SEQ) DESC)
+		ORDER BY MOVIE.AVG_GRADE DESC
+	</select>
 </mapper>

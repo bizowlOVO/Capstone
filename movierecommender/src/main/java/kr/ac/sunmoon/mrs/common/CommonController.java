@@ -33,7 +33,12 @@ public class CommonController {//
 		ModelAndView mav = null;
 		
 		if (isLoginCheck == true) {
-			mav = new ModelAndView(new RedirectView("/member/mainpage"));
+			if (session.getAttribute("id").equals("admin001")) {
+				mav = new ModelAndView(new RedirectView("/admin/mainpage"));
+			} else {
+				mav = new ModelAndView(new RedirectView("/member/mainpage"));
+			}
+			
 			mav.addObject("sessionInfo", session);
 		} else {
 			System.out.println("login Failed");

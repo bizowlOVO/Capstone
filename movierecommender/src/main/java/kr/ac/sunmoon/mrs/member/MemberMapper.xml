@@ -18,7 +18,7 @@
       WHERE 
           MEMBER_ID=#{memberId}
    </select>
-   
+    
    <select id="selectMemberAll" resultType="kr.ac.sunmoon.mrs.agent.Member">
       SELECT
           MEMBER_ID
@@ -81,4 +81,22 @@
     	WHERE
     		MEMBER_ID=#{memberId}
     </select>
+    
+    <update id="updateMemberMovieSeq" parameterType="kr.ac.sunmoon.mrs.agent.Member">
+      UPDATE
+         MEMBER
+      SET
+         MOVIE_SEQ=#{movieSeq}
+      WHERE 
+         MEMBER_ID=#{memberId}
+   </update>
+   
+   <select id="isDuplicateMember" resultType="int" parameterType="java.lang.String">
+		SELECT
+		     COUNT(*)
+		FROM
+		     MEMBER
+		WHERE
+		     MEMBER_ID=#{memberId}
+	</select>
 </mapper>

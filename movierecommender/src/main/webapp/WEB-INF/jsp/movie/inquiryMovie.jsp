@@ -16,6 +16,8 @@
 		<form action="/review/list/${movie.movieSeq}" method="GET">
 			<input type="submit" value="리뷰보기" />
 		</form>
+		 
+		<a href="/bookmark/${movie.movieSeq}"><input type="button" value="관심"></a>
 		
 		<form action="/movie/${movie.movieSeq}/editform" method="GET" id="inquiryMovie">
 			<table border="1">
@@ -33,7 +35,7 @@
 				<th>배우</th>
 				<tr>
 					<td>${movie.poster}</td>
-					<td><a href = "/movie/${movie.movieSeq}">${movie.title}</a></td>
+					<td>${movie.title}</a></td>
 					<td>${movie.releaseDate}</td>
 					<td>${movie.synopsis}</td>
 					<td>${movie.filmAge}</td>
@@ -53,6 +55,6 @@
 			<input type="submit" value="삭제" />
 		</form>
 		
-		<a href="/movie/list"><input type="button" value="뒤로가기"></a>
+		<a href="/movie/list"><input type="button" value="전체 영화 목록 보기"></a>
 	</body>
 </html>

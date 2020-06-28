@@ -62,4 +62,13 @@
 		ORDER BY REVIEW_POST_DATE
 	</select>
 	
+	<select id="selectMovieAvgGrade" parameterType ="int" 
+									resultType = "int">
+		SELECT
+			AVG(GRADE)
+		FROM
+			REVIEW
+		WHERE
+			MOVIE_SEQ = #{movieSeq}
+	</select>
 </mapper>
