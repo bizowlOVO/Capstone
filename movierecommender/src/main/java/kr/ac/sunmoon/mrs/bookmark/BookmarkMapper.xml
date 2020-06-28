@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="kr.ac.sunmoon.mrs.bookmark.BookmarkMapper">
+   <insert id="insertMember" parameterType="kr.ac.sunmoon.mrs.agent.Member">
+      INSERT INTO BOOKMARK(
+      	 BOOKMARK_SEQ
+		,MOVIE_SEQ
+		,MEMBER_ID
+      )   
+      VALUES(
+         BOOKMARK_SEQ.NEXTVAL
+        ,#{movieSeq}
+        ,#{memberId}
+	  )
+   </insert>
+   
+   <delete id="deleteBookmark" parameterType="int">
+		DELETE FROM BOOKMARK
+		WHERE BOOKMARK_SEQ = #{bookmarkSeq}
+   </delete>
+   
+   <select id="selectBookmark" parameterType="kr.ac.sunmoon.mrs.agent.Bookmark" resultType="java.lang.String">
+   		SELECT MEMBER_ID
+   		FROM BOOKMARK
+   		WHERE MOVIE_SEQ = #{movieSeq} AND MEMBER_ID = #{memberId}
+   </select>
+   
+   <select id="selectMemberBookmark" parameterType="java.lang.String" resultType="kr.ac.sunmoon.mrs.agent.Bookmark">
+   		SELECT BOOKMARK_SEQ
+   			  ,MOVIE_SEQ
+   			  ,MEMBER_ID
+   		FROM BOOKMARK
+   		WHERE MEMBER_ID
+   </select>
 </mapper>
