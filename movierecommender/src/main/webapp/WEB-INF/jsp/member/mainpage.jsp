@@ -47,6 +47,5 @@
 			</c:forEach>
 		</table>
 	</c:if>
-	<a href="/movie/addform">영화등록</a>
 </body>
 </html>
