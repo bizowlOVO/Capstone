@@ -28,14 +28,11 @@ public class MemberController {
 		
 		List<Movie> recentlyMovie = recommendService.inquiryRankRecentlyList();
 		List<Movie> viewMovie = recommendService.inquiryRankViewList();
+		List<Movie> reviewMovie = recommendService.inquiryRankReviewList();
 		
 		mav.addObject("recentlyMovie", recentlyMovie);
 		mav.addObject("viewMovie", viewMovie);
-		
-		for(int i = 0; i < recentlyMovie.size(); i++) {
-			System.out.println(recentlyMovie.get(i).getTitle());
-			System.out.println(viewMovie.get(i).getVisitCount());
-		}
+		mav.addObject("reviewMovie", reviewMovie);
 		
 		return mav;
 	}
@@ -88,11 +85,5 @@ public class MemberController {
 	@GetMapping("/member/addform/isduplicate")
 	public boolean isDuplicateMember(@RequestParam("memberId") String memberId) {
 	    return memberService.isDuplicateMember(memberId);
-	}
-	
-	@GetMapping("/member/domypage")
-	public ModelAndView doMyPage() {
-		ModelAndView mav = new ModelAndView("/member/mypage");
-		return mav;
 	}
 }

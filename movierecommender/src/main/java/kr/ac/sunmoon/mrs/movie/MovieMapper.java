@@ -27,4 +27,6 @@ public interface MovieMapper {
 	public List<Movie> selectRankView();
 	
 	public void updateMovieAvgGrade(Movie movie);
+	
+	public List<Movie> selectRankReview();
 }
