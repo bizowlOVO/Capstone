@@ -18,7 +18,7 @@
       WHERE 
           MEMBER_ID=#{memberId}
    </select>
-   
+    
    <select id="selectMemberAll" resultType="kr.ac.sunmoon.mrs.agent.Member">
       SELECT
           MEMBER_ID

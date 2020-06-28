@@ -8,5 +8,5 @@ public interface MemberService {
 	public void deleteMember(String memberId);
 	public Member inquiryMember(String memberId);
 	public Boolean isDuplicateMember(String memberId);
-	public void updateMemberMovieSeq(Member member);
+	public void updateMemberMovieSeq(Member member); 
 }

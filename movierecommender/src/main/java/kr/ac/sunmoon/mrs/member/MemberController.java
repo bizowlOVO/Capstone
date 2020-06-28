@@ -23,7 +23,7 @@ public class MemberController {
 	private RecommendService recommendService;
 	
 	@GetMapping(value = "/member/mainpage")
-	public ModelAndView doMain() {
+	public ModelAndView doMain() { 
 		ModelAndView mav = new ModelAndView("/member/mainpage");
 		
 		List<Movie> recentlyMovie = recommendService.inquiryRankRecentlyList();

@@ -20,7 +20,7 @@ public class MemberServiceImpl implements MemberService {
 		} else {
 			return false;
 		}
-	}
+	} 
 
 	public void editMemberInfo(Member member) {
 		memberMapper.updateMember(member);
