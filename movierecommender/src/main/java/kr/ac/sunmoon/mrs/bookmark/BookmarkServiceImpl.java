@@ -13,7 +13,6 @@ public class BookmarkServiceImpl implements BookmarkService {
 	@Autowired
 	private BookmarkMapper bookmarkMapper;
 
-	@Override
 	public void addBookmark(Member member) {
 		bookmarkMapper.selectBookmark(member);
 		String memberId = member.getMemberId();
@@ -25,12 +24,10 @@ public class BookmarkServiceImpl implements BookmarkService {
 		
 	}
 
-	@Override
 	public void deleteBookmark(int bookmarkSeq) {
 		bookmarkMapper.deleteBookmark(bookmarkSeq);
 	}
 
-	@Override
 	public List<Bookmark> inquiryMemberBookmark(String memberId) { //마이페이지에 본인의 Bookmark가 보이는 기능
 		return bookmarkMapper.selectMemberBookmark(memberId);
 	}
