@@ -8,7 +8,7 @@
 <head> 
 	<title>회원가입</title>
 	<link rel="stylesheet" href="css/bootstrap.css">
- <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
+ 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -19,11 +19,8 @@
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 <body>
-	<div class="test">
-		<h1>test code</h1>
-	</div>
 	
-	<!-- <div class="create-account">
+	<div class="create-account">
 		<div class="row">
 			<div class="col-md-5 mx-auto">
 				<div id="first">
@@ -34,11 +31,12 @@
 							</div>
 						</div>
 					<form action="/member" method="post" name="form" id="form" >
-							<div class="form-group"> -->
+							<div class="form-group">
 								<!-- 중복확인 기능 -->
-								<!-- <label>아이디</label>
+								<label>아이디</label>
 								<input type="text" name="memberId" id="memberId" onchange="reCheck()" class="form-control" placeholder="아이디를 입력하세요">
 								<button type="button" class="btn btn-secondary btn-sm " name="check_btn" id="check_btn" style="float: right; margin-top: 5px;">중복확인</button>
+								<div class="already" id="already"></div>
 							</div><br>
 							<div class="form-group">
 								<label>비밀번호</label>
@@ -63,18 +61,18 @@
 							</div>
 							
 							<div class="col-md-12 text-center ">
-								<button type="submit" class="btn btn-success float-center submit_btn" style="margin-top: 3rem;">완료</button>
-							</div>
+								<button type="submit" id="add_on" class="btn btn-success float-center submit_btn" style="margin-top: 3rem;">완료</button>
 							<div class="notice_area" id="notice_area"></div><br/>
 							<div class="notice_areae" id="notice_areae"></div><br/>
+							</div>
+							</form>
 						</form>
 					
 					</div>
 				</div>
 			</div>
 	  </div>   
-	</div> -->
-
+	</div>
 
 
 
@@ -145,7 +143,7 @@
          }
       };
       
-      $("#add_btn").click(function() {
+      $("#add_on").click(function() {
          
          var memberId = $('#memberId').val();
             var memberPassword = $('#memberPassword').val();
