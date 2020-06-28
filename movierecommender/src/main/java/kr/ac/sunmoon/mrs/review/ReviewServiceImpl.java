@@ -16,29 +16,32 @@ public class ReviewServiceImpl implements ReviewService {
 	@Autowired
 	MovieMapper movieMapper;
 	
-	@Override
 	public void addReview(Review review) {
 		reviewMapper.addReview(review);
 	}
 
-	@Override
 	public void updateReview(Review review) {
 		reviewMapper.updateReview(review);
 	}
 
-	@Override
 	public void deleteReview(Review review) {
 		reviewMapper.deleteReview(review);
 	}
 
-	@Override
 	public Review inquiryReview(Review review) {
 		return reviewMapper.selectReview(review);
 	}
 
-	@Override
 	public List<Review> inquiryReviewList(Review review) {
 		return reviewMapper.selectReviewAll(review);
 	}
-
+	
+	public void updateMovieAvgGrade(int movieSeq) {
+		int avgGrade = reviewMapper.selectMovieAvgGrade(movieSeq);
+		Movie movie = new Movie();
+		movie.setMovieSeq(movieSeq);
+		movie.setAvgGrade(avgGrade);
+		
+		movieMapper.updateMovieAvgGrade(movie);
+	}
 }

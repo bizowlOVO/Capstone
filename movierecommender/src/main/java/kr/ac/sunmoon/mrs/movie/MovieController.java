@@ -18,7 +18,6 @@ import kr.ac.sunmoon.mrs.agent.Member;
 import kr.ac.sunmoon.mrs.agent.Movie;
 import kr.ac.sunmoon.mrs.genre.GenreService;
 import kr.ac.sunmoon.mrs.member.MemberService;
-import kr.ac.sunmoon.mrs.recommendByAge.RecommendByAgeService;
 
 @RestController
 public class MovieController {
@@ -30,8 +29,6 @@ public class MovieController {
 	private MemberService memberService;
 	@Autowired
 	private HttpServletRequest httpServletRequest;
-	@Autowired
-	private RecommendByAgeService recommendByAgeService;
 	
 	@GetMapping(value = "/movie/addform")
 	public ModelAndView addMovieInfo(Movie movie) {//영화등록폼
@@ -134,14 +131,6 @@ public class MovieController {
 		member.setMovieSeq(movie.getMovieSeq());
 		
 		memberService.updateMemberMovieSeq(member);
-		
-		/*
-		 * HttpSession session = httpServletRequest.getSession();
-		 * 
-		 * Member member =
-		 * memberService.inquiryMember((String)session.getAttribute("id"));
-		 * recommendByAgeService.updateRecommendByAge(member.getMemberAge());
-		 */
 		
 		ModelAndView mav = null;
 		mav = new ModelAndView("/movie/inquiryMovie");

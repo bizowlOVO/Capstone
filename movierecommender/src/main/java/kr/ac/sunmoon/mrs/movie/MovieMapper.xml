@@ -187,4 +187,11 @@
 		     FROM MOVIE
 		     ORDER BY VISIT_COUNT DESC)
 	</select>
+	
+	<update id="updateMovieAvgGrade" parameterType="kr.ac.sunmoon.mrs.agent.Movie">
+		UPDATE MOVIE SET
+			AVG_GRADE = #{avgGrade}
+		WHERE 
+			MOVIE_SEQ = #{movieSeq}
+	</update>
 </mapper>

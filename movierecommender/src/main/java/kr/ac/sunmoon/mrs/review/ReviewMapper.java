@@ -22,4 +22,6 @@ public interface ReviewMapper {
 	public List<Movie> selectRankReview();
 	
 	public Review selectReview(Review review);
+	
+	public int selectMovieAvgGrade(int movieSeq);
 }

@@ -15,7 +15,16 @@ public class Movie {
 	private String director;
 	private String poster;
 	private String actor;
+	private int avgGrade;
 	
+	public int getAvgGrade() {
+		return avgGrade;
+	}
+
+	public void setAvgGrade(int avgGrade) {
+		this.avgGrade = avgGrade;
+	}
+
 	public String getActor() {
 		return actor;
 	}
