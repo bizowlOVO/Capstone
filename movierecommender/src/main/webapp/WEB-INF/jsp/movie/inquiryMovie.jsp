@@ -28,12 +28,12 @@
 					관람가 : ${movie.filmAge}<br>
 					제작 국가 : ${movie.directCountry}<br>
 					재생 시간 : ${movie.runningTime}<br>
-					${movie.downloadLink}<br>
 					장르 : ${movie.genreFirst}, ${movie.genreSecond}<br>
 					감독 : ${movie.director}<br>
 					배우 : ${movie.actor}</td>
 				</tr>
 			</table>
+			<a href=${movie.downloadLink}><input type="button" value="다운로드" /></a><br>
 			<input type="submit" value="수정" />
 		</form>
 		<a href="/movie/list"><input type="button" value="전체 영화 목록 보기"></a>
