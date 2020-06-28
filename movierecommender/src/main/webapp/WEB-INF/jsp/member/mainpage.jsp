@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,31 +13,29 @@
 		<h1>최근 개봉 영화</h1><br>
 		<table border="1">
 			<th></th>
-			<th>영화명</th>
-			<th>개봉날짜</th>
-		
 			<c:forEach items="${recentlyMovie}" var="recently">
 				<tr>
-					<td>${recently.poster}</td>
-					<td><a href = "/movie/${recently.movieSeq}">${recently.title}</a></td>
-					<td>${recently.releaseDate}</td>
+					<td>
+					${recently.poster}<br>
+					<a href = "/movie/${recently.movieSeq}">${recently.title}</a><br>
+					${recently.releaseDate}
+					</td>
 				</tr>
 			</c:forEach>
-		
 		</table>
 	</c:if>
 	<br><br>
 	<c:if test="${not empty viewMovie}">
-		<h1>최근 개봉 영화</h1>
+		<h1>조회수가 많은 영화</h1>
 		<table border="1">
 			<th></th>
-			<th>영화명</th>
-			<th>개봉날짜</th>
 			<c:forEach items="${viewMovie}" var="view">
 				<tr>
-					<td>${view.poster}</td>
-					<td><a href = "/movie/${view.movieSeq}">${view.title}</a></td>
-					<td>${view.releaseDate}</td>
+					<td>
+					${view.poster}<br>
+					<a href = "/movie/${view.movieSeq}">${view.title}</a><br>
+					${view.releaseDate}
+					</td>
 				</tr>
 			</c:forEach>
 		</table>

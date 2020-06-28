@@ -168,8 +168,6 @@
 		    	RELEASE_DATE
 		     FROM MOVIE
 		     ORDER BY RELEASE_DATE DESC)
-		WHERE
-			 ROWNUM >= 5
 	</select>
 	
 	<select id="selectRankView" resultType="kr.ac.sunmoon.mrs.agent.Movie" >
@@ -188,7 +186,5 @@
 		    	VISIT_COUNT
 		     FROM MOVIE
 		     ORDER BY VISIT_COUNT DESC)
-		WHERE
-			 ROWNUM >= 5
 	</select>
 </mapper>
