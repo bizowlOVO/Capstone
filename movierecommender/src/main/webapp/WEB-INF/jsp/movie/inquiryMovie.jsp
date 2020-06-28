@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 	<body>
-		<h1>영화 등록</h1>
+		<h1>영화 상세 조회</h1>
 		<form action="/review/addform/${movie.movieSeq}" method="GET">
 			<input type="submit" value="리뷰작성" />
 		</form>
@@ -23,7 +23,6 @@
 			<table border="1">
 				<th></th>
 				<th>영화명</th>
-				<th>개봉날짜</th>
 				<th>줄거리</th>
 				<th>연령가</th>
 				<th>제작국가</th>
@@ -34,9 +33,8 @@
 				<th>감독</th>
 				<th>배우</th>
 				<tr>
-					<td>${movie.poster}</td>
+					<td><img src="/img/${movie.poster}" /></td>
 					<td>${movie.title}</a></td>
-					<td>${movie.releaseDate}</td>
 					<td>${movie.synopsis}</td>
 					<td>${movie.filmAge}</td>
 					<td>${movie.directCountry}</td>
@@ -50,11 +48,6 @@
 			</table>
 			<input type="submit" value="수정" />
 		</form>
-		
-		<form action="/movie/${movie.movieSeq}/delete" method="GET">
-			<input type="submit" value="삭제" />
-		</form>
-		
 		<a href="/movie/list"><input type="button" value="전체 영화 목록 보기"></a>
 	</body>
 </html>
