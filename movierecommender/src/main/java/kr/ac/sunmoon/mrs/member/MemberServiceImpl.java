@@ -16,10 +16,8 @@ public class MemberServiceImpl implements MemberService {
 				&& !member.getMemberName().equals("")
 				&& !member.getMemberGender().equals("")) {
 			memberMapper.insertMember(member);
-			System.err.println("다 채워짐");
 			return true;
 		} else {
-			System.err.println("다 안채워졋어여");
 			return false;
 		}
 	}

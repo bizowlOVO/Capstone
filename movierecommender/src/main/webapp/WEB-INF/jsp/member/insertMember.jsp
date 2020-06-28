@@ -79,8 +79,7 @@
 	         if (isCheck == "false") {
 	 			$("#already").text("중복 체크 후 등록해주세요.");
 	 			$("#already").css("color", "red");
-	 			console.log("ㅇ여기까진 들어옴");
-	 		}  else if (isCheck == "change") {
+s	 		}  else if (isCheck == "change") {
 	 			$("#already").text("중복 체크를 다시 해주세요");
 	 			$("#already").css("color", "red");
 	 		} else if (memberId == "" 
