@@ -23,6 +23,7 @@
 			<input type="radio" name="memberGender" value="F" /> 여자 <br/>
 			<div class="spaceFive" id="spaceFive"></div><br/>
 			<button type="button" id="add_btn">등록</button>
+			<a href="/common/login"><input type="button" value="취소" /></a>
 		<div class="notice_area" id="notice_area"></div><br/>
 		<div class="notice_areae" id="notice_areae"></div><br/>
 	</form>

@@ -1,11 +1,11 @@
 package kr.ac.sunmoon.mrs.review;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.ibatis.annotations.Update;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
-
 
 import kr.ac.sunmoon.mrs.agent.Movie;
 import kr.ac.sunmoon.mrs.agent.Review;
@@ -103,4 +102,21 @@ public class ReviewController {
 		return mav;
 	}
 
+	@GetMapping(value="/review/list")
+	public ModelAndView inquiryAdminReviewList() {
+		List<Review> review = reviewServiceImpl.inquiryAdminReviewList();
+		
+		List<Movie> movies = new ArrayList<Movie>();
+		Movie movie = new Movie();
+		for(int i = 0; i < review.size(); i++) {
+			movie.setMovieSeq(review.get(i).getMovieSeq());
+			movies.add(movieService.inquiryMovie(movie));
+		}
+		
+		ModelAndView mav = new ModelAndView("/review/adminReviewList");
+		mav.addObject("review", review);
+		mav.addObject("movies", movies);
+		
+		return mav;
+	}
 }

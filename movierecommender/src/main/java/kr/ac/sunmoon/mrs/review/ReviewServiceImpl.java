@@ -44,4 +44,9 @@ public class ReviewServiceImpl implements ReviewService {
 		
 		movieMapper.updateMovieAvgGrade(movie);
 	}
+
+	@Override
+	public List<Review> inquiryAdminReviewList() {
+		return reviewMapper.selectAdminReviewAll();
+	}
 }

@@ -12,4 +12,5 @@ public interface ReviewService {
 	public Review inquiryReview(Review review);
 	public List<Review> inquiryReviewList(Review review);
 	public void updateMovieAvgGrade(int movieSeq);
+	public List<Review> inquiryAdminReviewList();
 }

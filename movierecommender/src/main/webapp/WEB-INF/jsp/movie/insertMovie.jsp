@@ -8,6 +8,7 @@
 <title>영화 등록</title>
 </head>
    <body>
+   	<%@ include file="/WEB-INF/jsp/common/top.jsp" %>
       <h1>영화 등록</h1>
       <form action="/movie" method="POST">
          포스터 <input type="file" name='poster' /><br>

@@ -12,9 +12,9 @@
 	<c:if test="${not empty recentlyMovie}">
 		<h1>최근 개봉 영화</h1><br>
 		<table>
-			<c:forEach items="${recentlyMovie}" var="recently">
+			<c:forEach items="${recentlyMovie}"  var="recently">
 					<td>
-					${recently.poster}<br>
+					<img src="/img/${recently.poster}" style="width:200px; height:auto;"/><br>
 					<a href = "/movie/${recently.movieSeq}">${recently.title}</a><br>
 					${recently.releaseDate}
 					</td>
@@ -27,7 +27,7 @@
 		<table>
 			<c:forEach items="${viewMovie}" var="view">
 					<td>
-					${view.poster}<br>
+					<img src="/img/${view.poster}" style="width:200px; height:auto;"/><br>
 					<a href = "/movie/${view.movieSeq}">${view.title}</a><br>
 					${view.releaseDate}
 					</td>
@@ -40,7 +40,7 @@
 		<table>
 			<c:forEach items="${reviewMovie}" var="review">
 					<td>
-					${review.poster}<br>
+					<img src="/img/${review.poster}" style="width:200px; height:auto;"/><br>
 					<a href = "/movie/${review.movieSeq}">${review.title}</a><br>
 					${review.releaseDate}
 					</td>
