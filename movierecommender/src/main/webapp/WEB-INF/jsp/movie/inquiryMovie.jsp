@@ -17,15 +17,6 @@
 		<form action="/review/list/${movie.movieSeq}" method="GET">
 			<input type="submit" value="리뷰보기" />
 		</form>
-		
-		<c:if test="${!empty boookmark}">
-		<a href="/bookmark/${bookmark}"><input type="button" value="관심"></a>
-		</c:if>
-		<c:if test="${empty boookmark}">
-		<a href="/bookmark/${movie.movieSeq}"><input type="button" value="관심없음"></a>
-		</c:if>
-		
-		<form action="/movie/${movie.movieSeq}/editform" method="GET" id="inquiryMovie">
 			<table>
 				<tr>
 					<td><img src="/img/${movie.poster}" style="width:200px; height:auto;"/></td>
@@ -40,8 +31,9 @@
 				</tr>
 			</table>
 			<a href=${movie.downloadLink}><input type="button" value="다운로드" /></a><br>
-			<input type="submit" value="수정" />
-		</form>
-		<a href="/movie/list"><input type="button" value="전체 영화 목록 보기"></a>
+		<c:if test="${sessionScope.id eq 'admin001'}">
+			<a href="/movie/${movie.movieSeq}/editform"><input type="button" value="수정" /></a>
+			<a href="/movie/list"><input type="button" value="전체 영화 목록 보기"></a>
+		</c:if>
 	</body>
 </html>

@@ -71,4 +71,17 @@
 		WHERE
 			MOVIE_SEQ = #{movieSeq}
 	</select>
+	
+	<select id="selectAdminReviewAll" resultType= "kr.ac.sunmoon.mrs.agent.Review">
+		SELECT
+			REVIEW_SEQ,
+			MEMBER_ID,
+			MOVIE_SEQ,
+			REVIEW_COMMENT,
+			REVIEW_POST_DATE,
+			GRADE
+		FROM
+			REVIEW
+		ORDER BY REVIEW_POST_DATE
+	</select>
 </mapper>

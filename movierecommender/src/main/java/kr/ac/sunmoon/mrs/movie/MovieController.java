@@ -16,7 +16,6 @@ import org.springframework.web.servlet.view.RedirectView;
 import kr.ac.sunmoon.mrs.agent.Genre;
 import kr.ac.sunmoon.mrs.agent.Member;
 import kr.ac.sunmoon.mrs.agent.Movie;
-import kr.ac.sunmoon.mrs.bookmark.BookmarkService;
 import kr.ac.sunmoon.mrs.genre.GenreService;
 import kr.ac.sunmoon.mrs.member.MemberService;
 
@@ -28,8 +27,6 @@ public class MovieController {
 	private GenreService genreService;
 	@Autowired
 	private MemberService memberService;
-	@Autowired
-	private BookmarkService bookmarkService;
 	@Autowired
 	private HttpServletRequest httpServletRequest;
 	
@@ -133,16 +130,11 @@ public class MovieController {
 		member.setMemberId((String)session.getAttribute("id"));
 		member.setMovieSeq(movie.getMovieSeq());
 		
-		/*
-		 * memberService.updateMemberMovieSeq(member); String bookmark =
-		 * bookmarkService.checkBookmark(member); if(!bookmark.equals("") && bookmark !=
-		 * null) { bookmark = "Y"; } else { bookmark = null; }
-		 */
+		memberService.updateMemberMovieSeq(member);
 		
 		ModelAndView mav = null;
 		mav = new ModelAndView("/movie/inquiryMovie");
 		mav.addObject("movie", movie);
-		//mav.addObject("bookmark", bookmark);
 		
 		return mav;
 	}
