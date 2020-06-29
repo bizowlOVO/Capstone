@@ -10,7 +10,7 @@ import kr.ac.sunmoon.mrs.agent.Member;
 	public class AdminController {
 		
 		@GetMapping("/admin/mainpage")
-		public ModelAndView addmemberInfo(Member member) {
+		public ModelAndView adminMainpage(Member member) {
 			return new ModelAndView("/admin/mainpage");
 		}
 }

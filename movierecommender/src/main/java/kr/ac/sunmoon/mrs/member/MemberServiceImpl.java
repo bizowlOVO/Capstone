@@ -10,7 +10,7 @@ public class MemberServiceImpl implements MemberService {
 	@Autowired
 	private MemberMapper memberMapper;
 
-	public Boolean addMemberInfo(Member member) {
+	public boolean addMemberInfo(Member member) {
 		if (!member.getMemberId().equals("")
 				&& !member.getMemberPassword().equals("")
 				&& !member.getMemberName().equals("")
@@ -34,7 +34,7 @@ public class MemberServiceImpl implements MemberService {
 		return this.memberMapper.selectMember(memberId);
 	}
 
-	public Boolean isDuplicateMember(String memberId) {
+	public boolean isDuplicateMember(String memberId) {
 		if(memberMapper.isDuplicateMember(memberId) == 0) {
 			return true;
 		} else {
