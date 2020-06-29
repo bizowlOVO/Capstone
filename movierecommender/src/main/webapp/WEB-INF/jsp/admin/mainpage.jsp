@@ -11,6 +11,6 @@
 	<h1>관리자 메인페이지</h1>
 	
 	<a href=""><input type="button" value="리뷰 관리"/></a>
-	<a href="/movie/movieList"><input type="button" value="영화 목록"/></a>
+	<a href="/movie/list"><input type="button" value="영화 목록"/></a>
 </body>
 </html>
