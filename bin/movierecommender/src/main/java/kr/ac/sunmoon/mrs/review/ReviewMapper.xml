@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace ="kr.ac.sunmoon.mrs.review.ReviewMapper">
+
+	<insert id="addReview" parameterType="kr.ac.sunmoon.mrs.agent.Review">
+		INSERT INTO REVIEW
+		(REVIEW_SEQ, MEMBER_ID, MOVIE_SEQ, REVIEW_COMMENT, GRADE, REVIEW_POST_DATE)
+			VALUES(
+				REVIEW_SEQ.NEXTVAL,
+				#{memberId},
+				#{movieSeq},
+				#{reviewComment},
+				#{grade},
+				SYSDATE	
+			)
+	</insert>
+	
+	<update id="updateReview" parameterType="kr.ac.sunmoon.mrs.agent.Review">
+		UPDATE REVIEW
+			SET
+				REVIEW_COMMENT = #{reviewComment},
+				REVIEW_POST_DATE = SYSDATE
+			WHERE
+				REVIEW_SEQ = #{reviewSeq}
+	</update>
+	
+	<delete id="deleteReview" parameterType="kr.ac.sunmoon.mrs.agent.Review">
+		DELETE FROM
+			REVIEW
+		WHERE
+			REVIEW_SEQ = #{reviewSeq}
+	</delete>
+	
+	<select id="selectReview" resultType = "kr.ac.sunmoon.mrs.agent.Review">
+		SELECT
+			REVIEW_SEQ,
+			MEMBER_ID,
+			MOVIE_SEQ,
+			REVIEW_COMMENT,
+			REVIEW_POST_DATE,
+			GRADE
+		FROM
+			REVIEW
+		WHERE
+			REVIEW_SEQ = #{reviewSeq}
+	</select>
+	
+	<select id="selectReviewAll" parameterType="kr.ac.sunmoon.mrs.agent.Review" resultType= "kr.ac.sunmoon.mrs.agent.Review">
+		SELECT
+			REVIEW_SEQ,
+			MEMBER_ID,
+			MOVIE_SEQ,
+			REVIEW_COMMENT,
+			REVIEW_POST_DATE,
+			GRADE
+		FROM
+			REVIEW
+		WHERE
+			MOVIE_SEQ = #{movieSeq}
+		ORDER BY REVIEW_POST_DATE
+	</select>
+	
+</mapper>

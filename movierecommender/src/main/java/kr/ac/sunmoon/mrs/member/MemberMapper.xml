@@ -34,12 +34,12 @@
    
    <insert id="insertMember" parameterType="kr.ac.sunmoon.mrs.agent.Member">
       INSERT INTO MEMBER(
-      	 MEMBER_ID
-      	,MEMBER_PASSWORD
-      	,MEMBER_NAME
-      	,MEMBER_AGE
-      	,MEMBER_GENDER
-      	,MEMBER_STATE
+          MEMBER_ID
+         ,MEMBER_PASSWORD
+         ,MEMBER_NAME
+         ,MEMBER_AGE
+         ,MEMBER_GENDER
+         ,MEMBER_STATE
       )   
       VALUES(
          #{memberId}
@@ -73,13 +73,13 @@
    </update>
     
     <select id="isLogin" resultType="kr.ac.sunmoon.mrs.agent.Member" parameterType="java.lang.String">
-    	SELECT
-    		MEMBER_PASSWORD,
-    		MEMBER_STATE
-    	FROM
-    		MEMBER
-    	WHERE
-    		MEMBER_ID=#{memberId}
+       SELECT
+          MEMBER_PASSWORD,
+          MEMBER_STATE
+       FROM
+          MEMBER
+       WHERE
+          MEMBER_ID=#{memberId}
     </select>
     
     <update id="updateMemberMovieSeq" parameterType="kr.ac.sunmoon.mrs.agent.Member">
@@ -92,6 +92,7 @@
    </update>
    
    <select id="isDuplicateMember" resultType="int" parameterType="java.lang.String">
+<<<<<<< HEAD
 		SELECT
 		     COUNT(*)
 		FROM
@@ -99,4 +100,13 @@
 		WHERE
 		     MEMBER_ID=#{memberId}
 	</select>
+=======
+      SELECT
+           COUNT(*)
+      FROM
+           MEMBER
+      WHERE
+           MEMBER_ID=#{memberId}
+   </select>
+>>>>>>> Lsj
 </mapper>

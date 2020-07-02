@@ -17,6 +17,7 @@ import kr.ac.sunmoon.mrs.recommendation.RecommendService;
 
 @RestController
 public class MemberController {
+<<<<<<< HEAD
 	@Autowired
 	private MemberService memberService;
 	@Autowired
@@ -52,21 +53,62 @@ public class MemberController {
 	public ModelAndView addmemberInfo() {
 		return new ModelAndView("/member/insertMember");
 	}
+=======
+   @Autowired
+   private MemberService memberService;
+   @Autowired
+   private RecommendService recommendService;
+   
+   @GetMapping(value = "/member/mainpage")
+   public ModelAndView doMain() { 
+      ModelAndView mav = new ModelAndView("/member/mainpage");
+      
+      List<Movie> recentlyMovie = recommendService.inquiryRankRecentlyList();
+      List<Movie> viewMovie = recommendService.inquiryRankViewList();
+      
+      mav.addObject("recentlyMovie", recentlyMovie);
+      mav.addObject("viewMovie", viewMovie);
+      
+      for(int i = 0; i < recentlyMovie.size(); i++) {
+         System.out.println(recentlyMovie.get(i).getTitle());
+         System.out.println(viewMovie.get(i).getVisitCount());
+      }
+      
+      return mav;
+   }
+   
+   @PostMapping("/member")
+   public ModelAndView addmemberInfo(Member member) {
+      if(this.memberService.addMemberInfo(member) == true) {
+         return new ModelAndView(new RedirectView("/common/login"));
+      } else {
+         ModelAndView mav = new ModelAndView("/member/insertMember");
+          return mav;
+      }
+         
+      }
+   
+   @GetMapping("/member/addform")
+   public ModelAndView addmemberInfo() {
+      return new ModelAndView("/member/insertMember");
+   }
+>>>>>>> Lsj
 
-	@PostMapping("/member/{memberId}")
-	public ModelAndView editMemberInfo(Member member) {
-		this.memberService.editMemberInfo(member);
-		return new ModelAndView(new RedirectView("/member/" + member.getMemberId()));
-	}
+   @PostMapping("/member/{memberId}")
+   public ModelAndView editMemberInfo(Member member) {
+      this.memberService.editMemberInfo(member);
+      return new ModelAndView(new RedirectView("/member/" + member.getMemberId()));
+   }
 
-	@GetMapping("/member/{memberId}/editform")
-	public ModelAndView editMemberInfo(@PathVariable("memberId") String memberId) {
-		ModelAndView mav = new ModelAndView("/member/editMember");
-		
-		mav.addObject("member", this.memberService.inquiryMember(memberId));
-		return mav;
-	}
+   @GetMapping("/member/{memberId}/editform")
+   public ModelAndView editMemberInfo(@PathVariable("memberId") String memberId) {
+      ModelAndView mav = new ModelAndView("/member/editMember");
+      
+      mav.addObject("member", this.memberService.inquiryMember(memberId));
+      return mav;
+   }
 
+<<<<<<< HEAD
 	@GetMapping("/member/{memberId}/delete")
 	public ModelAndView deleteMember(@PathVariable("memberId") String memberId) {
 		this.memberService.deleteMember(memberId);
@@ -87,3 +129,31 @@ public class MemberController {
 	    return memberService.isDuplicateMember(memberId);
 	}
 }
+=======
+   @GetMapping("/member/{memberId}/delete")
+   public ModelAndView deleteMember(@PathVariable("memberId") String memberId) {
+      this.memberService.deleteMember(memberId);
+      return new ModelAndView(new RedirectView("/member/mainpage"));
+   }
+   
+   @GetMapping("/member/{memberId}") //아직 매퍼쪽 부분이 안된 기능
+   public ModelAndView inquiryMember(@PathVariable("memberId") String memberId) {
+      ModelAndView mav = new ModelAndView("/member/inquiryMember");
+      
+      mav.addObject("member",memberService.inquiryMember(memberId));
+      
+      return mav;
+   }
+   
+   @GetMapping("/member/addform/isduplicate")
+   public boolean isDuplicateMember(@RequestParam("memberId") String memberId) {
+       return memberService.isDuplicateMember(memberId);
+   }
+   
+   @GetMapping("/member/domypage")
+   public ModelAndView doMyPage() {
+      ModelAndView mav = new ModelAndView("/member/mypage");
+      return mav;
+   }
+}
+>>>>>>> Lsj

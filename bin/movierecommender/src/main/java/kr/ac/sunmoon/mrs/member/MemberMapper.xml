@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.ac.sunmoon.mrs.member.MemberMapper">
+   <select id="selectMember" parameterType="java.lang.String" resultType="kr.ac.sunmoon.mrs.agent.Member">
+      SELECT
+           MEMBER_ID
+          ,MEMBER_PASSWORD
+          ,MEMBER_NAME
+          ,MEMBER_AGE
+          ,MEMBER_GENDER
+          ,MEMBER_STATE
+          ,MOVIE_SEQ
+      FROM 
+          MEMBER
+      WHERE 
+          MEMBER_ID=#{memberId}
+   </select>
+    
+   <select id="selectMemberAll" resultType="kr.ac.sunmoon.mrs.agent.Member">
+      SELECT
+          MEMBER_ID
+          ,MEMBER_PASSWORD
+          ,MEMBER_NAME
+          ,MEMBER_AGE
+          ,MEMBER_GENDER
+          ,MEMBER_STATE
+          ,MOVIE_SEQ
+      FROM
+         MEMBER
+   </select>
+   
+   <insert id="insertMember" parameterType="kr.ac.sunmoon.mrs.agent.Member">
+      INSERT INTO MEMBER(
+          MEMBER_ID
+         ,MEMBER_PASSWORD
+         ,MEMBER_NAME
+         ,MEMBER_AGE
+         ,MEMBER_GENDER
+         ,MEMBER_STATE
+      )   
+      VALUES(
+         #{memberId}
+         ,#{memberPassword}
+         ,#{memberName}
+         ,#{memberAge}
+         ,#{memberGender}
+         ,'A')
+   </insert>
+   
+   <update id="updateMember" parameterType="kr.ac.sunmoon.mrs.agent.Member">
+      UPDATE
+         MEMBER
+      SET
+         MEMBER_PASSWORD=#{memberPassword}
+         ,MEMBER_NAME=#{memberName}
+         ,MEMBER_AGE=#{memberAge}
+         ,MEMBER_GENDER=#{memberGender}
+         ,MEMBER_STATE='A'
+      WHERE 
+         MEMBER_ID=#{memberId}
+   </update>
+   
+   <update id="deleteMember" parameterType="java.lang.String">
+      UPDATE
+         MEMBER
+      SET
+         MEMBER_STATE='C'
+      WHERE 
+         MEMBER_ID=#{memberId}
+   </update>
+    
+    <select id="isLogin" resultType="kr.ac.sunmoon.mrs.agent.Member" parameterType="java.lang.String">
+       SELECT
+          MEMBER_PASSWORD,
+          MEMBER_STATE
+       FROM
+          MEMBER
+       WHERE
+          MEMBER_ID=#{memberId}
+    </select>
+    
+    <update id="updateMemberMovieSeq" parameterType="kr.ac.sunmoon.mrs.agent.Member">
+      UPDATE
+         MEMBER
+      SET
+         MOVIE_SEQ=#{movieSeq}
+      WHERE 
+         MEMBER_ID=#{memberId}
+   </update>
+   
+   <select id="isDuplicateMember" resultType="int" parameterType="java.lang.String">
+      SELECT
+           COUNT(*)
+      FROM
+           MEMBER
+      WHERE
+           MEMBER_ID=#{memberId}
+   </select>
+</mapper>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.ac.sunmoon.mrs.genre.GenreMapper">
+	<select id="selectGenreAll" resultType="kr.ac.sunmoon.mrs.agent.Genre" >
+		SELECT
+		    GENRE
+		FROM 
+			GENRE
+	</select>
+	
+	<select id="selectGenre" parameterType="kr.ac.sunmoon.mrs.agent.Genre" 
+							 resultType="kr.ac.sunmoon.mrs.agent.Genre" >
+		SELECT
+		    GENRE
+		FROM 
+			GENRE
+		WHERE
+			GENRE_CODE = #{genreCode}
+	</select>
+</mapper>

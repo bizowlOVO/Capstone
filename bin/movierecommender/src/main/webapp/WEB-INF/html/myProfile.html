@@ -1,0 +1,169 @@
+<!DOCTYPE html> 
+<head>
+    <title>UserProfile</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+
+    <style>
+        /* .profile-contents, .profile-contents .contents{
+            font-size: 20px;
+        }
+        .contents {
+            margin: 5px 10px 7px 80px;
+        }
+
+        .profile-contents{
+            width: 100%;
+        } */
+        .contents{
+            margin-bottom: 15px;
+        }
+
+        .modal-body .form-group label{
+            margin-right: 15px;
+        }
+
+
+    </style>
+
+    <script>
+        
+        // 계정 탈퇴 확인창
+        function deleteAccountBtn() {
+            if (confirm("정말 탈퇴하시겠습니까?") == true) {
+                document.form.submit();
+            } else {
+                return;
+            }
+        }
+    </script>
+
+</head>
+<body>
+    <header>
+        <nav>
+           <div class="menu-icon">
+              <i class="fa fa-bars fa-2x"></i>
+           </div>
+           <div class="logo">
+              MRS
+           </div>
+           <div class="menu">
+              <ul>
+                 <li><a href="file:///C:/Users/User/Desktop/선진/workspace/capstone_2/main.html">홈</a></li>
+                 <li><a href="file:///C:/Users/User/Desktop/선진/workspace/capstone_2/bookmarkList.html">북마크 목록</a></li>
+                 <li><a href="file:///C:/Users/User/Desktop/선진/workspace/capstone_2/mainBeforeLogin.html">로그아웃</a></li> 
+             </ul>
+           </div>
+        </nav>
+     </header>
+
+     <div class="container">
+        <div class="row">
+          <div>
+                <div class="panel-heading c-list" style="border-bottom: 1px solid #96969892;">
+                    <p class="title" style="margin: 15px;">내 정보</p>
+                </div><br><br>
+
+                <div id="columns">
+                    <ul class="list-group">
+                        <div class="form">
+                            <li class="list-group-item">
+                                <div id="profileImage">
+                                    <img src="C:\Users\User\Desktop\선진\workspace\capstone_2\images\user.jpg" style="width: 200px; float: center; margin: 0px 100px 0px 100px" alt="Scott Stevens" class="img-responsive img-circle" />
+                                </div><br>
+                                <div class="profile-contents">
+                                    <div id="id" class="contents">아이디
+                                        <span class=" form-control" id="userId" class=" form-control">user1</span>
+                                    </div>
+                                    <div id="password" class="contents">비밀번호
+                                        <span class=" form-control" id="userPassword" class=" form-control">asdf!</span>
+                                    </div>
+                                    <div id="name" class="contents">이름
+                                        <span class=" form-control" id="userName">김댕땡</span>
+                                    </div>
+                                    <div id="age" class="contents">나이
+                                        <span class=" form-control" id="userAge">23</span>
+                                    </div>
+                                    <div id="gender" class="contents">성별
+                                        <span class=" form-control" id="userGender">여자</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- <div class="clearfix"></div> -->
+                            </li>
+                            <div class="modal-footer">
+                                <button type="button" data-toggle="modal" data-target="#edit-profile" class="btn btn-secondary btn-sm" id="myProfileEditBtn" style="padding: 1rem 2rem; float: right; margin: 10px; font-size: 15px;">
+                                    <span><b>수정</b></span>
+                                </button>
+                                <button type="button" class="btn btn-danger btn-sm" id="deleteAccountBtn" onclick="deleteAccountBtn()" style="padding: 1rem 1rem; float: right; margin: 10px; font-size: 15px;">
+                                    <span><b>계정 탈퇴</b></span>
+                                </button>
+                            </div>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <div class="modal" id="edit-profile">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" >회원 정보 수정</h3>
+                </div>
+                <div class="modal-body" id="first">
+                    <form class="myform form">
+                        <div class="form-group">
+                            <label>아이디</label>
+                            <input id="userId" disabled value="userId" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>비밀번호</label>
+                            <input id="userPassword" value="asdf!" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>이름</label>
+                            <input id="userName" value="김댕댕" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>나이</label>
+                            <input id="userAge" value="23" class="form-control">
+                        </div>
+                        <div class="form-group form-cf">
+                            <h6>성별</h6><br>
+                            <form class="form-cf">
+                                <section class="plan cf">
+                                    <input type="radio" name="radio" id="maleRadio" value="male"><label for="maleRadio">남자</label>
+                                    <input type="radio" name="radio" id="femaleRadio" value="female" checked><label for="femaleRadio">여자</label>
+                                </section>
+                            </form>
+                        </div>
+
+                        <div class="modal-footer">
+                            <div class="btn-group btn-group-justified" role="group" aria-label="group button">
+                                <div class="btn-group" role="group">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal" role="button">취소</button>
+                                </div>
+                                <div class="btn-group" role="group">
+                                    <button type="button" class="btn btn-default" data-action="save" role="button">완료</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+      </div>
+
+
+
+</body>
+</html>
